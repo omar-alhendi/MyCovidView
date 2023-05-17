@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { fetcher } from "@/utils/fetcher";
+import { fetcher } from "@/utils";
 
 const data = [
   {
