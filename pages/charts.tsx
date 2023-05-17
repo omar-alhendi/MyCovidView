@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import axios from "axios";
 
 const data = [
   {
@@ -56,9 +57,8 @@ const data = [
   },
 ];
 
-const charts = () => {
-  // const [data, setData] = useState([]);
-
+const charts = ({ data: what }: any) => {
+  console.log(what);
   return (
     <div>
       <h1>Charts Page</h1>
@@ -83,6 +83,14 @@ const charts = () => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const { data: csvData } = await axios.get(
+    "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/static/population.csv"
+  );
+  const { data } = Papa.parse(csvData, { header: true });
+  return { props: { data } };
 };
 
 export default charts;
