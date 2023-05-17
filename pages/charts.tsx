@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Papa from "papaparse";
+import React from "react";
 import {
   BarChart,
   Bar,
@@ -10,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import axios from "axios";
+import { fetcher } from "@/utils/fetcher";
 
 const data = [
   {
@@ -86,10 +85,9 @@ const charts = ({ data: what }: any) => {
 };
 
 export const getServerSideProps = async () => {
-  const { data: csvData } = await axios.get(
+  const data = await fetcher(
     "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/static/population.csv"
   );
-  const { data } = Papa.parse(csvData, { header: true });
   return { props: { data } };
 };
 
