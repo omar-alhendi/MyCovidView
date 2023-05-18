@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { fetcher } from "@/utils";
+import { URL } from "@/constants";
 
 const charts = ({ data: formData }: any) => {
   const [data, setData] = useState([]);
@@ -43,9 +44,7 @@ const charts = ({ data: formData }: any) => {
 };
 
 export const getServerSideProps = async () => {
-  const data = await fetcher(
-    "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/static/population.csv"
-  );
+  const data = await fetcher(URL.CHARTS1);
   return { props: { data } };
 };
 
