@@ -11,9 +11,19 @@ import {
 } from "recharts";
 import { fetcher } from "@/utils";
 import { URL } from "@/constants";
+import { Title, createStyles } from "@mantine/core";
+
+const useStyles = createStyles(() => ({
+  chart: {
+    width: "100%",
+    height: "400px",
+    boxSizing: "border-box",
+  },
+}));
 
 const charts = ({ data: formData }: any) => {
   const [data, setData] = useState([]);
+  const { classes } = useStyles();
 
   useEffect(() => {
     const filteredData = formData.filter(
@@ -25,18 +35,16 @@ const charts = ({ data: formData }: any) => {
 
   return (
     <div>
-      <h1 style={{ margin: "4rem" }}>Line Charts For Malaysia Population</h1>
-      <ResponsiveContainer width="100%" height={400}>
+      <Title py={32}>Line Charts For Malaysia Population</Title>
+      <ResponsiveContainer height={400}>
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="state" interval={0} />
-          <YAxis type="number" />
+          <XAxis dataKey="state" />
+          <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pop_5" fill="#8884d8" />
-          <Bar dataKey="pop_12" fill="#82ca9d" />
-          <Bar dataKey="pop_18" fill="#8884d8" />
-          <Bar dataKey="pop_60" fill="#82ca9d" />
+          <Bar dataKey="pop" fill="#8884d8" />
+          <Bar dataKey="pop_5" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>
     </div>

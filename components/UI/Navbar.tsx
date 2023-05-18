@@ -24,39 +24,18 @@ type NestedNavLink = {
 };
 
 const mockdata: NavLink[] = [
-  { label: "Dashboard", icon: IconGauge },
+  { label: "Overview", icon: IconGauge },
   {
-    label: "Market news",
-    icon: IconNotes,
+    label: "Analytics",
+    icon: IconPresentationAnalytics,
     initiallyOpened: true,
     links: [
-      { label: "Overview", link: "/" },
-      { label: "Forecasts", link: "/" },
-      { label: "Outlook", link: "/" },
-      { label: "Real time", link: "/" },
+      { label: "Bar Charts", link: "/charts" },
+      { label: "Pie Charts", link: "/charts" },
+      { label: "Line Charts", link: "/charts" },
     ],
   },
-  {
-    label: "Releases",
-    icon: IconCalendarStats,
-    links: [
-      { label: "Upcoming releases", link: "/" },
-      { label: "Previous releases", link: "/" },
-      { label: "Releases schedule", link: "/" },
-    ],
-  },
-  { label: "Analytics", icon: IconPresentationAnalytics },
-  { label: "Contracts", icon: IconFileAnalytics },
   { label: "Settings", icon: IconAdjustments },
-  {
-    label: "Security",
-    icon: IconLock,
-    links: [
-      { label: "Enable 2FA", link: "/" },
-      { label: "Change password", link: "/" },
-      { label: "Recovery codes", link: "/" },
-    ],
-  },
 ];
 
 const useStyles = createStyles((theme) => ({
