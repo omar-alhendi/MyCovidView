@@ -1,6 +1,8 @@
 import { fetcher } from "../utils";
+import { ChartTabularData } from "@carbon/charts/interfaces";
+import { LoaderFunction } from "react-router-dom";
 
-export const feedbackLoader = async () => {
+export const feedbackLoader = (async (): Promise<ChartTabularData> => {
   const vaccinationData = await fetcher("vaccination/vax_state.csv");
   const populationData = await fetcher("static/population.csv");
 
@@ -11,16 +13,15 @@ export const feedbackLoader = async () => {
     (row: any) => !!row.state
   );
 
-  let columns = filteredVaccinationData.map((row: any) => {
+  let data = filteredVaccinationData.map((row: any) => {
     const state: any = filteredPopulationdata.find(
       ({ state }: any) => state === row.state
     );
     return {
-      vaccination: +row["cumul_full"],
-      state: row["state"],
-      percentage: (+row["cumul_full"] / +state["pop"]) * 100,
+      group: row["state"],
+      value: (+row["cumul_full"] / +state["pop"]) * 100,
     };
   });
 
-  return { data: columns };
-};
+  return data;
+}) satisfies LoaderFunction;
