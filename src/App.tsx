@@ -1,31 +1,20 @@
-import "./App.css";
-
 import {
   createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Container } from "./layout";
-import Feedback from "./pages/Feedback";
-import { Overview } from "./pages";
+import { Feedback } from "./pages";
 import { feedbackLoader } from "./loaders";
+import "@carbon/charts/styles.css";
 
 function App() {
-  const newRouter = createBrowserRouter(
+  const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Container />}>
-        <Route index element={<Overview />} />
-        <Route
-          path="/feedback"
-          element={<Feedback />}
-          loader={feedbackLoader}
-        />
-      </Route>
+      <Route path="/" element={<Feedback />} loader={feedbackLoader} />
     )
   );
-
-  return <RouterProvider router={newRouter} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
