@@ -14,17 +14,9 @@ MyCovidView is a high-quality web application developed as a project for the sub
 
 This project incorporates a comprehensive software improvement process and assurance plan, ensuring the highest possible level of software quality.
 
-## Setup and Installation
-
-_Instructions on how to set up and install MyCovidView will be provide later._
-
-## Usage
-
-_Instructions will be provide later._
-
 ## Contributing
 
-_Contribution Guideline will be provide later_
+_Refer to the Contribution [Guide](Contribution.md)_
 
 ## License
 

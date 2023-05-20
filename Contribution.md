@@ -26,10 +26,12 @@ The main project directories are as follows:
 Here's a step-by-step guide on how to contribute:
 
 - Create a page for your group in the pages folder
+- Create a route for your page in the `app.tsx` file
 - Use the `fectcher` function which is available in the `uilts` folder to fetch your csv files
 - The `fetcher` function takes one argument which is the directory name and the file name e.g `static/population.csv`
 - Minipulate the data according to your chart
 - Make a loader function in the `loaders` file that retuns **only the required data**
+- Pass the loader function to your Route
 
 ### 1. Fork and Clone the Repository
 
