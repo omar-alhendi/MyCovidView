@@ -1,6 +1,7 @@
-import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Feedback = () => {
+  const data = useLoaderData() as LoaderData<typeof postsLoader>;
   return <div>Feedback</div>;
 };
 
