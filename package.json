@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@carbon/charts-react": "^1.7.6",
     "@vitejs/plugin-react": "^4.0.0",
     "axios": "^1.4.0",
     "carbon-components-react": "^8.29.1",
