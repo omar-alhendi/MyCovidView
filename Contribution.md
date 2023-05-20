@@ -33,6 +33,8 @@ Here's a step-by-step guide on how to contribute:
 - Make a loader function in the `loaders` file that retuns **only the required data**
 - Pass the loader function to your Route
 
+**you may refer to the feedback page to see how it is created**
+
 ### 1. Fork and Clone the Repository
 
 Fork the repository on GitHub, then clone your forked repository to your local machine.
