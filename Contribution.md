@@ -35,9 +35,9 @@ Here's a step-by-step guide on how to contribute:
 
 **you may refer to the feedback page to see how it is created**
 
-### 1. Fork and Clone the Repository
+### 1. Clone the Repository
 
-Fork the repository on GitHub, then clone your forked repository to your local machine.
+Clone the repository to your local machine.
 
 ```bash
 git clone https://github.com/omar-al-hendi/MyCovidView.git
