@@ -69,10 +69,10 @@ Develop your group's page according to the project task above.
 Once your changes are done, commit them with a meaningful commit message:
 
 ```bash
-git commit -m "Add a brief description of your changes" 6. Push Your Changes
+git commit -m "Add a brief description of your changes" 
 ```
 
-### 6. Push your changes to your forked repository:
+### 6. Push your changes to your branch:
 
 ```bash
 git push origin <branch-name>
