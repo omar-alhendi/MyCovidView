@@ -12,8 +12,11 @@
   "dependencies": {
     "@carbon/charts-react": "^1.7.6",
     "@vitejs/plugin-react": "^4.0.0",
+    "antd": "^5.5.1",
     "axios": "^1.4.0",
     "carbon-components-react": "^8.29.1",
+    "echarts": "^5.4.2",
+    "echarts-for-react": "^3.0.2",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
