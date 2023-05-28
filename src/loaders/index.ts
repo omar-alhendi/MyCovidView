@@ -162,3 +162,37 @@ export const vacRateLoader = (async (): Promise<ChartTabularData> => {
 
   return data_display;
 }) satisfies LoaderFunction;
+
+export const stackedBarLoader = (async (): Promise<ChartTabularData> => {
+  const death_state = await fetcher('epidemic/deaths_state.csv');
+  const case_state = await fetcher('epidemic/cases_state.csv');
+
+  const filtered_death_state = death_state
+    .slice(0,16)
+    .filter((row: any) => !!row.state);
+  const filtered_case_state = case_state
+    .slice(0,16)
+    .filter((row: any) => !!row.state);
+
+  let data = filtered_death_state.map((row: any) => {
+    const cases: any = filtered_case_state.find(
+      ({ state }: any) => state === row.state
+    )
+    let data = [
+      {
+        key: row["state"],
+        group: "deaths_new",
+        value: +row["deaths_new"],
+      },
+      {
+        key: row["state"],
+        group: "cases_new",
+        value: +cases["cases_new"],
+      }
+    ]
+    return data;
+  })
+
+
+  return data;
+}) satisfies LoaderFunction;
