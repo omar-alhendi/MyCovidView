@@ -10,12 +10,14 @@ import {
   VaccinationRate,
   SunburstPage,
   TreemapPage,
+  G11StackedBarChart,
 } from "./pages";
 import {
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
   vacRateLoader,
+  stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -43,6 +45,11 @@ function App() {
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
+        />
+        <Route
+          path="/stackbarchart"
+          element={<G11StackedBarChart />}
+          loader={stackedBarLoader}
         />
       </Route>
     )
