@@ -51,6 +51,11 @@ function App() {
           element={<G11StackedBarChart />}
           loader={stackedBarLoader}
         />
+        <Route
+          path="/sunburst"
+          element={<SunburstPage />}
+          loader={sunburstLoader}
+        />
       </Route>
     )
   );
