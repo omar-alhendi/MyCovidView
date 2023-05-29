@@ -4,8 +4,8 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Feedback, Overview } from "./pages";
-import { feedbackLoader } from "./loaders";
+import { Feedback, Overview, SunburstPage } from "./pages";
+import { feedbackLoader, sunburstLoader } from "./loaders";
 import { Container } from "./layout";
 
 function App() {
@@ -17,6 +17,11 @@ function App() {
           path="/feedback"
           element={<Feedback />}
           loader={feedbackLoader}
+        />
+        <Route
+          path="/sunburst"
+          element={<SunburstPage />}
+          loader={sunburstLoader}
         />
       </Route>
     )
