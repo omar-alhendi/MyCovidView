@@ -1,26 +1,18 @@
 import { sunburstLoader } from "../loaders";
 import Sunburst from "sunburst-chart";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { scaleOrdinal, schemePaired } from "d3";
+import { useLoaderData } from "react-router-dom";
+import { LoaderData } from "../types";
 
 const SunburstPage = () => {
-  const [data, setData] = useState({});
-  // const data = useLoaderData() as LoaderData<typeof feedbackLoader>;
-  const color = scaleOrdinal(schemePaired);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const data = useLoaderData() as LoaderData<typeof sunburstLoader>;
 
   useEffect(() => {
-    const loadChartData = async () => {
-      const chartData = await sunburstLoader();
-      setData(chartData);
-    };
-
-    loadChartData();
-  }, []);
-
-  useEffect(() => {
-    const chartElement = document.getElementById("chart");
-
+    const chartElement = chartRef.current;
     const updateChart = () => {
+      const color = scaleOrdinal(schemePaired);
       if (chartElement && Object.keys(data).length !== 0) {
         // Clear the existing chart content
         chartElement.innerHTML = "";
@@ -47,7 +39,7 @@ const SunburstPage = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [data, color]);
+  }, [data]);
 
   return (
     <div>
@@ -56,7 +48,7 @@ const SunburstPage = () => {
         <span style={{ fontWeight: "bold" }}>Sunbursts Chart</span>
         (daily partial of vaccination by districts)
       </p>
-      <div id="chart" style={{ textAlign: "center" }} />
+      <div ref={chartRef} style={{ textAlign: "center" }} />
     </div>
   );
 };
