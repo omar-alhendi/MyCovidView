@@ -5,23 +5,14 @@ import { TreemapChart } from "@carbon/charts-react";
 import "@carbon/styles/css/styles.css";
 import "@carbon/charts/styles.css";
 
+const options = {
+  title: "Treemap(daily partial of vaccination by districts)",
+  height: "400px",
+};
+
 const TreeMapPage = () => {
-    const data = useLoaderData() as LoaderData<typeof treeMapLoader>;
-    const state = {
-      data,
-      options: {
-        "title": "Treemap(daily partial of vaccination by districts)",
-        "height": "400px"
-      }
-    }
-    console.log(data);
-  
-    return (
-      <TreemapChart
-        data={state.data}
-        options={state.options}
-      />
-    );
-  };
-  
-  export default TreeMapPage;
+  const data = useLoaderData() as LoaderData<typeof treeMapLoader>;
+  return <TreemapChart data={data} options={options} />;
+};
+
+export default TreeMapPage;
