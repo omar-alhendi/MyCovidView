@@ -10,7 +10,7 @@ const TreeMapPage = () => {
     const state = {
       data,
       options: {
-        "title": "Treemap",
+        "title": "Treemap(daily partial of vaccination by districts)",
         "height": "400px"
       }
     }
