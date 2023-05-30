@@ -20,6 +20,7 @@ import {
   stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
+import TreeMapPage from "./pages/TreeMapPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -55,6 +56,11 @@ function App() {
           path="/sunburst"
           element={<SunburstPage />}
           loader={sunburstLoader}
+        />
+        <Route
+          path="/treemap"
+          element={<TreeMapPage />}
+          loader={treeMapLoader}
         />
       </Route>
     )
