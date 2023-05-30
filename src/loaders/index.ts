@@ -86,11 +86,14 @@ export const treeMapLoader = (async (): Promise<any[]> => {
       );
 
       if (districtNode) {
-        districtNode.size += parseInt(daily_partial, 10);
+        districtNode.value += parseInt(daily_partial, 10);
+        if (districtNode.value > 500000) {
+          districtNode.showLabel = true;
+        }
       } else {
         stateNode.children.push({
           name: district,
-          size: parseInt(daily_partial, 10),
+          value: parseInt(daily_partial, 10),
         });
       }
 
