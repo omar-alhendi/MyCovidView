@@ -40,9 +40,15 @@ function App() {
           loader={treeMapLoader}
         />
         <Route
+<<<<<<< HEAD
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
+=======
+          path="/test-positive-gauge"
+          element={<TestPositiveGauge/>}
+          loader={testPositiveLoader}
+>>>>>>> edd02f4 (Created Test Positive Rate Gauge)
         />
       </Route>
     )
