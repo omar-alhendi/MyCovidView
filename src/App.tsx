@@ -5,18 +5,18 @@ import {
   Route,
 } from "react-router-dom";
 import {
-  feedbackLoader,
-  sunburstLoader,
-  treeMapLoader,
-  vacRateLoader,
-} from "./loaders";
-import {
   Feedback,
   Overview,
   VaccinationRate,
   SunburstPage,
   TreemapPage,
 } from "./pages";
+import {
+  feedbackLoader,
+  sunburstLoader,
+  treeMapLoader,
+  vacRateLoader,
+} from "./loaders";
 import { Container } from "./layout";
 
 function App() {
