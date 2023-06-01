@@ -10,7 +10,7 @@ import {
   VaccinationRate,
   SunburstPage,
   TreemapPage,
-  G11StackedBarChart,
+  StackedBarChartPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -48,7 +48,7 @@ function App() {
         />
         <Route
           path="/stackbarchart"
-          element={<G11StackedBarChart />}
+          element={<StackedBarChartPage />}
           loader={stackedBarLoader}
         />
         <Route
