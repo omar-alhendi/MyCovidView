@@ -19,6 +19,21 @@ function App() {
           element={<Feedback />}
           loader={feedbackLoader}
         />
+        <Route
+          path="/sunburst"
+          element={<SunburstPage />}
+          loader={sunburstLoader}
+        />
+        <Route
+          path="/treemap"
+          element={<TreeMapPage />}
+          loader={treeMapLoader}
+        />
+        <Route
+          path="/vaccination-rate"
+          element={<VaccinationRate />}
+          loader={vacRateLoader}
+        />
       </Route>
     )
   );
