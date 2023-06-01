@@ -3,8 +3,8 @@ import '@carbon/charts/styles.css';
 import "@carbon/styles/css/styles.css";
 import { ScaleTypes } from '@carbon/charts/interfaces';
 import { useLoaderData } from 'react-router-dom';
-import { stackedBarLoader } from '../../loaders';
-import { LoaderData } from '../../types';
+import { stackedBarLoader } from '../loaders';
+import { LoaderData } from '../types';
 
 const options = {
 	title: 'Daily Covid Cases and Deaths in Each State',
@@ -23,7 +23,7 @@ const options = {
 	height: '400px',
 };
 
-function G11StackedBarChart () {
+function StackedBarChartPage () {
 	const loaderData = useLoaderData() as LoaderData<typeof stackedBarLoader>;
 	let data: any[] = [];
 	loaderData.forEach((item: any) => {
@@ -38,4 +38,4 @@ function G11StackedBarChart () {
 	);
 }
 
-export default G11StackedBarChart;
+export default StackedBarChartPage;
