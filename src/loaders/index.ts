@@ -105,7 +105,7 @@ export const treeMapLoader = (async (): Promise<any[]> => {
   return treeMapData;
 }) satisfies LoaderFunction;
 
-export const vacRateLoader = (async (): Promise<ChartTabularData> => {
+export const vacRateLoader = async (): Promise<ChartTabularData> => {
   const populationData = await fetcher("static/population.csv");
   const popMalaysiaDataRow: any = populationData.find(
     ({ state }: any) => state === "Malaysia"
@@ -173,4 +173,4 @@ export const vacRateLoader = (async (): Promise<ChartTabularData> => {
   ];
 
   return data_display;
-}) satisfies LoaderFunction;
+};
