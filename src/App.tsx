@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Feedback, KpiDashboard, Overview } from "./pages";
+import { Feedback, KpiDashboard, Overview, Balanceboard } from "./pages";
 import { feedbackLoader } from "./loaders";
 import { Container } from "./layout";
 
@@ -21,6 +21,10 @@ function App() {
         <Route
           path="/kpidashboard"
           element={<KpiDashboard />}
+        />
+        <Route
+          path="/balanceboard"
+          element={<Balanceboard />}
         />
       </Route>
     )
