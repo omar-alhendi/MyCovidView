@@ -20,7 +20,6 @@ import {
   stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
-import TreeMapPage from "./pages/TreeMapPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -59,8 +58,13 @@ function App() {
         />
         <Route
           path="/treemap"
-          element={<TreeMapPage />}
+          element={<TreemapPage />}
           loader={treeMapLoader}
+        />
+        <Route
+          path="/vaccination-rate"
+          element={<VaccinationRate />}
+          loader={vacRateLoader}
         />
       </Route>
     )
