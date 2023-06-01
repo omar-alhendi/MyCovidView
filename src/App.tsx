@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import {
+  barLoader,
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
@@ -16,6 +17,7 @@ import {
   VaccinationRate,
   SunburstPage,
   TreemapPage,
+  BarChart,
 } from "./pages";
 import { Container } from "./layout";
 
@@ -43,6 +45,11 @@ function App() {
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
+        />
+        <Route
+          path="/bar"
+          element={<BarChart />}
+          loader={barLoader}
         />
       </Route>
     )
