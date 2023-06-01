@@ -4,9 +4,10 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Feedback, Overview, VaccinationRate } from "./pages";
-import { vacRateLoader, feedbackLoader } from "./loaders";
+import { Feedback, Overview, SunburstPage, VaccinationRate } from "./pages";
+import { vacRateLoader, feedbackLoader, sunburstLoader, treeMapLoader } from "./loaders";
 import { Container } from "./layout";
+import TreeMapPage from "./pages/TreeMapPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -17,11 +18,6 @@ function App() {
           path="/feedback"
           element={<Feedback />}
           loader={feedbackLoader}
-        />
-        <Route
-          path="/vaccination-rate"
-          element={<VaccinationRate />}
-          loader={vacRateLoader}
         />
       </Route>
     )
