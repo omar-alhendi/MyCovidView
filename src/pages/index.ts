@@ -10,3 +10,4 @@ export { default as Dendrogram } from "./Dendrogram";
 export { default as Heatmap } from "./Heatmap";
 export { default as ImportPage } from "./Import";
 export { default as GroupGalaxyPage } from "./GroupGalaxy";
+export { default as BarChart } from "./Bar";

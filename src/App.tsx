@@ -30,9 +30,11 @@ import {
   heatmapLoader,
   fantasyLoader,
   groupGalaxyLoader,
+  barLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
+import BarChart from "./pages/Bar";
 
 function App() {
   const router = createBrowserRouter(
@@ -82,6 +84,11 @@ function App() {
           path="/group-galaxy"
           element={<GroupGalaxyPage />}
           loader={groupGalaxyLoader}
+        />
+        <Route
+          path="/bar"
+          element={<BarChart />}
+          loader={barLoader}
         />
       </Route>
     )
