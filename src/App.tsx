@@ -30,7 +30,7 @@ import {
   heatmapLoader,
   fantasyLoader,
   groupGalaxyLoader,
-  barLoader,
+  simpleBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -86,9 +86,9 @@ function App() {
           loader={groupGalaxyLoader}
         />
         <Route
-          path="/bar"
+          path="/bar/:sortOrder?"
           element={<BarChart />}
-          loader={barLoader}
+          loader={simpleBarLoader}
         />
       </Route>
     )
