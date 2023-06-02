@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import {
-  barLoader,
+  simpleBarLoader,
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
@@ -47,9 +47,9 @@ function App() {
           loader={vacRateLoader}
         />
         <Route
-          path="/bar"
+          path="/bar/:sortOrder?"
           element={<BarChart />}
-          loader={barLoader}
+          loader={simpleBarLoader}
         />
       </Route>
     )
