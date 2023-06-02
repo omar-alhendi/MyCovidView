@@ -18,6 +18,7 @@ import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { columnChartLoader } from "./groupGalaxy";
 import { ChartTabularData } from "@carbon/charts/interfaces";
+import { DeathsStateType } from "../types";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -117,22 +118,8 @@ export const groupGalaxyLoader = (async (): Promise<any> => {
   return { columnChartData };
 }) satisfies LoaderFunction;
 
-export const barLoader = (async (): Promise<ChartTabularData> => {
-  // const vaccinationData = await fetcher("vaccination/vax_state.csv");
-  // const populationData = await fetcher("static/population.csv");
-  const deathData = await fetcher<{
-    date: string,
-    state: string,
-    deaths_new: string,
-    deaths_bid: string,
-    deaths_new_dod: string,
-    deaths_bid_dod: string,
-    deaths_unvax: string,
-    deaths_pvax: string,
-    deaths_fvax: string,
-    deaths_boost: string,
-    deaths_tat: string
-  }>("epidemic/deaths_state.csv");
+export const simpleBarLoader = (async ({ params }): Promise<ChartTabularData> => {
+  const deathData = await fetcher<DeathsStateType>("epidemic/deaths_state.csv");
 
   const sumOfDeathForEachState: {[k: string]: number} = {};
 
@@ -150,6 +137,11 @@ export const barLoader = (async (): Promise<ChartTabularData> => {
     group: state,
     value: sumOfDeathForEachState[state],
   }))
+
+  // take sort order from the route path params
+  const { sortOrder } = params;
+  if (sortOrder === undefined) return data;
+  data.sort((a, b) => sortOrder === "asc" ? b.value - a.value : a.value - b.value);
 
   return data;
 }) satisfies LoaderFunction;
