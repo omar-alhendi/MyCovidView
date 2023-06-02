@@ -4,10 +4,11 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Feedback, Overview, SunburstPage } from "./pages";
-import { feedbackLoader, sunburstLoader, treeMapLoader } from "./loaders";
+import { Feedback, ScatterPlotPage, Overview, SunburstPage, AreaChartPage, LineChartPage } from "./pages";
+import { feedbackLoader, sunburstLoader, treeMapLoader, scatterPlotLoader, lineChartLoader,areaChartLoader} from "./loaders";
 import { Container } from "./layout";
 import TreeMapPage from "./pages/TreeMapPage";
+
 
 function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,21 @@ function App() {
           path="/feedback"
           element={<Feedback />}
           loader={feedbackLoader}
+        />
+        <Route
+          path="/scatter-plot"
+          element={<ScatterPlotPage />}
+          loader={scatterPlotLoader}
+        />
+        <Route
+          path="/line-chart"
+          element={<LineChartPage />}
+          loader={lineChartLoader}
+        />
+        <Route
+          path="/area-chart"
+          element={<AreaChartPage />}
+          loader={areaChartLoader}
         />
         <Route
           path="/sunburst"
