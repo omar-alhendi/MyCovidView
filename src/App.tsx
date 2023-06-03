@@ -11,6 +11,7 @@ import {
   SunburstPage,
   TreemapPage,
   StackedBarChartPage,
+  LollipopChart,
 } from "./pages";
 import {
   feedbackLoader,
@@ -18,6 +19,7 @@ import {
   treeMapLoader,
   vacRateLoader,
   stackedBarLoader,
+  lollipopLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -65,6 +67,11 @@ function App() {
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
+        />
+        <Route
+          path="/lollipopchart"
+          element={<LollipopChart />}
+          loader={lollipopLoader}
         />
       </Route>
     )
