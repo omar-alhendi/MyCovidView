@@ -23,3 +23,41 @@ export const progressBarLoader = async () => {
 
   return data;
 };
+
+export const icuCapacityMeterLoader = async () => {
+  const icuData = await fetcher("epidemic/icu.csv");
+  const latestIcuData = icuData.slice(-17).filter((row: any) => !!row.state);
+
+  let totalIcuBeds = 0;
+
+  const icuProportionalMeterData = latestIcuData.map((row: any) => {
+    const { state, beds_icu_total, icu_covid, icu_pui, icu_noncovid } = row;
+    totalIcuBeds += parseInt(beds_icu_total);
+    return {
+      group: state,
+      value: parseInt(icu_covid) + parseInt(icu_pui) + parseInt(icu_noncovid),
+    };
+  });
+
+  const icuMeterDataByState = latestIcuData.map((row: any) => {
+    const { state, beds_icu_total, icu_covid, icu_pui, icu_noncovid } = row;
+    return [
+      {
+        group: state,
+        value: (
+          ((parseInt(icu_covid) + parseInt(icu_pui) + parseInt(icu_noncovid)) /
+            parseInt(beds_icu_total)) *
+          100
+        ).toFixed(2),
+      },
+    ];
+  });
+
+  const icuCapacityMeterData = {
+    icuProportionalMeterData,
+    icuMeterDataByState,
+    totalIcuBeds,
+  };
+
+  return icuCapacityMeterData;
+};
