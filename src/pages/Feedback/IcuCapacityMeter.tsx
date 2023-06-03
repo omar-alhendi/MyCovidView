@@ -25,7 +25,7 @@ const meterChartOptions: any = {
     },
   },
   toolbar: { enabled: false },
-  height: "80px",
+  height: "32px",
 };
 
 const IcuCapacityMeter = ({ data }: { data: any }) => {
