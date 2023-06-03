@@ -24,6 +24,17 @@ export const progressBarLoader = async () => {
   return data;
 };
 
+const vacciantedPercentageLoader = async () => {
+  const populationData = await fetcher("static/population.csv");
+  const vaccinationData = await fetcher("vax_malaysia.csv");
+
+  const totalPopulation = populationData
+    .slice(-17)
+    .filter((row: any) => row.state === "malaysia");
+
+  const totalVaccination = vaccinationData.slice(-1);
+};
+
 export const icuCapacityMeterLoader = async () => {
   const icuData = await fetcher("epidemic/icu.csv");
   const latestIcuData = icuData.slice(-17).filter((row: any) => !!row.state);

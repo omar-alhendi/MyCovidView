@@ -12,7 +12,6 @@ const FeedbackPage = () => {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
         gap: "2rem",
         background: "#e0e0e0",
         padding: "2rem",
@@ -20,9 +19,9 @@ const FeedbackPage = () => {
         margin: "2rem",
       }}
     >
-      <TestPositiveGauge data={testPositiveGaugeData}/>
-      <IcuCapacityMeter data={icuCapacityMeterData} />
       <VaccinationProgress data={progresssBarData} />
+      <TestPositiveGauge data={testPositiveGaugeData} />
+      <IcuCapacityMeter data={icuCapacityMeterData} />
     </div>
   );
 };
