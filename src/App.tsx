@@ -20,8 +20,6 @@ import {
   stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
-import KpiDashboard from "./pages/KpiDashboard";
-import Balanceboard from "./pages/Balanceboard";
 
 function App() {
   const router = createBrowserRouter(
@@ -66,16 +64,6 @@ function App() {
         <Route
           path="/vaccination-rate"
           element={<VaccinationRate />}
-          loader={vacRateLoader}
-        />
-        <Route
-          path="/kpiboard"
-          element={<KpiDashboard />}
-          loader={vacRateLoader}
-        />
-        <Route
-          path="/balancedBoard"
-          element={<Balanceboard />}
           loader={vacRateLoader}
         />
       </Route>
