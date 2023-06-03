@@ -1,29 +1,11 @@
 import { fetcher } from "../utils";
 import { ChartTabularData } from "@carbon/charts/interfaces";
 import { LoaderFunction } from "react-router-dom";
+import { progressBarLoader } from "./feedback";
 
-export const feedbackLoader = (async (): Promise<ChartTabularData> => {
-  const vaccinationData = await fetcher("vaccination/vax_state.csv");
-  const populationData = await fetcher("static/population.csv");
-
-  const filteredVaccinationData = vaccinationData
-    .slice(-17)
-    .filter((row: any) => !!row.state);
-  const filteredPopulationdata = populationData.filter(
-    (row: any) => !!row.state
-  );
-
-  const data = filteredVaccinationData.map((row: any) => {
-    const state: any = filteredPopulationdata.find(
-      ({ state }: any) => state === row.state
-    );
-    return {
-      group: row["state"],
-      value: (+row["cumul_full"] / +state["pop"]) * 100,
-    };
-  });
-
-  return data;
+export const feedbackLoader = (async (): Promise<any> => {
+  const progresssBarData = await progressBarLoader();
+  return { progresssBarData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
