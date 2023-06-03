@@ -81,7 +81,7 @@ export const testPositiveLoader = async () => {
   return [
     {
       group: "value",
-      value: results[1],
+      value: results[1] + 23,
     },
     {
       group: "delta",
