@@ -5,6 +5,9 @@ import {
   progressBarLoader,
   testPositiveLoader,
 } from "./feedback";
+import {
+  boxPlotLoader
+} from "./distribution"
 import { ChartTabularData } from "@carbon/charts/interfaces";
 
 export const feedbackLoader = (async (): Promise<any> => {
@@ -12,6 +15,11 @@ export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
   const testPositiveGaugeData = await testPositiveLoader();
   return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
+}) satisfies LoaderFunction;
+
+export const distributionLoader = (async (): Promise<any> => {
+  const boxPlotData = await boxPlotLoader();
+  return { boxPlotData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
