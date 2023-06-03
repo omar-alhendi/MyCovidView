@@ -11,6 +11,7 @@ import {
   SunburstPage,
   TreemapPage,
   StackedBarChartPage,
+  LineChartPages,
 } from "./pages";
 import {
   feedbackLoader,
@@ -18,8 +19,10 @@ import {
   treeMapLoader,
   vacRateLoader,
   stackedBarLoader,
+  lineChartLoaders,
 } from "./loaders";
 import { Container } from "./layout";
+
 
 function App() {
   const router = createBrowserRouter(
@@ -40,6 +43,11 @@ function App() {
           path="/treemap"
           element={<TreemapPage />}
           loader={treeMapLoader}
+        />
+        <Route
+          path="/linechart"
+          element={<LineChartPages />}
+          loader={lineChartLoaders}
         />
         <Route
           path="/vaccination-rate"
