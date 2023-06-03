@@ -10,6 +10,10 @@ import {
   deathRateLoader,
 } from "./group11";
 
+import {
+  lollipopChartLoader,
+} from "./group5";
+
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -21,6 +25,11 @@ export const group11Loader = (async (): Promise<any> => {
   const vacRateData = await vacRateLoader();
   const deathRateData = await deathRateLoader();
   return { vacRateData, deathRateData };
+}) satisfies LoaderFunction;
+
+export const group5Loader = (async (): Promise<any> => {
+  const lollipopData = await lollipopChartLoader();
+  return { lollipopData};
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
