@@ -7,19 +7,17 @@ import {
 import {
   Feedback,
   Overview,
-  VaccinationRate,
   SunburstPage,
   TreemapPage,
-  StackedBarChartPage,
-  StackedAreaChartPage,
+  Group11Page,
+  Group5Page
 } from "./pages";
 import {
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
-  vacRateLoader,
-  stackedBarLoader,
-  stackedAreaLoader,
+  group11Loader,
+  group5Loader
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -34,9 +32,19 @@ function App() {
           loader={feedbackLoader}
         />
         <Route
-          path="/stackbarchart"
-          element={<StackedBarChartPage />}
-          loader={stackedBarLoader}
+          path="/sunburst"
+          element={<SunburstPage />}
+          loader={sunburstLoader}
+        />
+        <Route
+          path="/treemap"
+          element={<TreemapPage />}
+          loader={treeMapLoader}
+        />
+        <Route
+          path="/group-11"
+          element={<Group11Page />}
+          loader={group11Loader}
         />
         <Route
           path="/sunburst"
@@ -49,14 +57,9 @@ function App() {
           loader={treeMapLoader}
         />
         <Route
-          path="/vaccination-rate"
-          element={<VaccinationRate />}
-          loader={vacRateLoader}
-        />
-        <Route
-          path="/stacked-area-chart"
-          element={<StackedAreaChartPage />}
-          loader={stackedAreaLoader}
+          path="/group-5"
+          element={<Group5Page />}
+          loader={group5Loader}
         />
       </Route>
     )
