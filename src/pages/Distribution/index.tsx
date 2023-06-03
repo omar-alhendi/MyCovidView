@@ -24,5 +24,4 @@ const DistributionPage = () => {
     </div>
   );
 };
-
 export default DistributionPage;
