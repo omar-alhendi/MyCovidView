@@ -16,7 +16,6 @@ const options = {
       title: "New Cases",
     },
   },
-
   height: "400px",
 };
 
@@ -29,4 +28,4 @@ const BoxPlot = ({ data }: { data: any }) => {
   );
 };
 
-export default BoxPlot;
+export default BoxPlot;
