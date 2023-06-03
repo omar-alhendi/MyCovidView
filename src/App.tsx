@@ -9,18 +9,15 @@ import {
   Overview,
   VaccinationRate,
   SunburstPage,
-  TreemapPage,
   StackedBarChartPage,
 } from "./pages";
 import {
   feedbackLoader,
   sunburstLoader,
-  treeMapLoader,
   vacRateLoader,
   stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
-import TreeMapPage from "./pages/TreeMapPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -38,11 +35,6 @@ function App() {
           loader={sunburstLoader}
         />
         <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
@@ -51,21 +43,6 @@ function App() {
           path="/stackbarchart"
           element={<StackedBarChartPage />}
           loader={stackedBarLoader}
-        />
-        <Route
-          path="/sunburst"
-          element={<SunburstPage />}
-          loader={sunburstLoader}
-        />
-        <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
-          path="/vaccination-rate"
-          element={<VaccinationRate />}
-          loader={vacRateLoader}
         />
       </Route>
     )

@@ -4,6 +4,7 @@ import {
   icuCapacityMeterLoader,
   progressBarLoader,
   testPositiveLoader,
+  treeMapLoader
 } from "./feedback";
 import { ChartTabularData } from "@carbon/charts/interfaces";
 
@@ -11,7 +12,8 @@ export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
   const icuCapacityMeterData = await icuCapacityMeterLoader();
   const testPositiveGaugeData = await testPositiveLoader();
-  return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
+  const treeMapData = await treeMapLoader();
+  return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData, treeMapData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
@@ -50,47 +52,6 @@ export const sunburstLoader = (async (): Promise<any> => {
   );
 
   return chartData;
-}) satisfies LoaderFunction;
-
-export const treeMapLoader = (async (): Promise<any[]> => {
-  const districtData = await fetcher("vaccination/vax_district.csv");
-  const treeMapData: any[] = (districtData as any[]).reduce(
-    (result: any, row: any) => {
-      const { state, district, daily_partial } = row;
-
-      if (!state || !district) {
-        return result;
-      }
-
-      let stateNode = result.find((node: any) => node.name === state);
-
-      if (!stateNode) {
-        stateNode = { name: state, children: [] };
-        result.push(stateNode);
-      }
-
-      const districtNode = stateNode.children.find(
-        (node: any) => node.name === district
-      );
-
-      if (districtNode) {
-        districtNode.value += parseInt(daily_partial, 10);
-        if (districtNode.value > 500000) {
-          districtNode.showLabel = true;
-        }
-      } else {
-        stateNode.children.push({
-          name: district,
-          value: parseInt(daily_partial, 10),
-        });
-      }
-
-      return result;
-    },
-    []
-  );
-
-  return treeMapData;
 }) satisfies LoaderFunction;
 
 export const vacRateLoader = (async (): Promise<ChartTabularData> => {

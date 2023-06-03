@@ -4,9 +4,10 @@ import TestPositiveGauge from "./TestPositiveGauge";
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { feedbackLoader } from "../../loaders";
+import TreeMapPage from "./TreeMapPage";
 
 const FeedbackPage = () => {
-  const { progresssBarData, icuCapacityMeterData, testPositiveGaugeData } =
+  const { progresssBarData, icuCapacityMeterData, testPositiveGaugeData, treeMapData } =
     useLoaderData() as LoaderData<typeof feedbackLoader>;
   return (
     <div
@@ -22,6 +23,7 @@ const FeedbackPage = () => {
       <VaccinationProgress data={progresssBarData} />
       <TestPositiveGauge data={testPositiveGaugeData} />
       <IcuCapacityMeter data={icuCapacityMeterData} />
+      <TreeMapPage data={treeMapData} />
     </div>
   );
 };
