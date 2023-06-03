@@ -26,7 +26,7 @@ const IcuCapacityMeter = () => {
     meter: {
       title: null,
       style: {
-        ".header": {display: "none"}
+        ".header": { display: "none" },
       },
       peak: 80,
       status: {
@@ -46,15 +46,20 @@ const IcuCapacityMeter = () => {
         ],
       },
     },
-    toolbar: {enabled: false},
+    toolbar: { enabled: false },
     height: "80px",
   };
 
   return (
     <div>
       <h1>my covid view</h1>
-      <MeterChart data={data.icuProportionalMeterData} options={proportionalMeterChartOptions} />
-      <h5 style={{marginTop: '50px',marginBottom: '20px'}}>Meter Chart (ICU Utilisation Percentage For Each State)</h5>
+      <MeterChart
+        data={data.icuProportionalMeterData}
+        options={proportionalMeterChartOptions}
+      />
+      <h5 style={{ marginTop: "50px", marginBottom: "20px" }}>
+        Meter Chart (ICU Utilisation Percentage For Each State)
+      </h5>
       {data.icuMeterDataByState.map((state: any) => (
         <MeterChart data={state} options={meterChartOptions} />
       ))}
