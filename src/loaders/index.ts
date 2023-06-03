@@ -4,6 +4,9 @@ import {
   progressBarLoader,
   testPositiveLoader,
 } from "./feedback";
+import {
+  boxPlotLoader
+} from "./distribution"
 import { vacRateLoader, deathRateLoader } from "./group11";
 import {
   lollipopChartLoader,
@@ -24,6 +27,11 @@ export const group11Loader = (async (): Promise<any> => {
   const vacRateData = await vacRateLoader();
   const deathRateData = await deathRateLoader();
   return { vacRateData, deathRateData };
+}) satisfies LoaderFunction;
+
+export const distributionLoader = (async (): Promise<any> => {
+  const boxPlotData = await boxPlotLoader();
+  return { boxPlotData };
 }) satisfies LoaderFunction;
 
 export const group5Loader = (async (): Promise<any> => {
