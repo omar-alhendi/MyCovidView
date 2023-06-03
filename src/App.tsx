@@ -20,6 +20,9 @@ import {
   stackedBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
+import IcuCapacityMeter from "./pages/Feedback/IcuCapacityMeter";
+import { icuCapacityMeterLoader } from "./loaders/feedback";
+import { MeterChart } from "@carbon/charts-react";
 
 function App() {
   const router = createBrowserRouter(
@@ -51,7 +54,8 @@ function App() {
           element={<StackedBarChartPage />}
           loader={stackedBarLoader}
         />
-        <Route
+    
+        {/* <Route
           path="/sunburst"
           element={<SunburstPage />}
           loader={sunburstLoader}
@@ -65,7 +69,7 @@ function App() {
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
-        />
+        /> */}
       </Route>
     )
   );
