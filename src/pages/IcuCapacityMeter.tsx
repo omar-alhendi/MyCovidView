@@ -3,10 +3,9 @@ import { MeterChart } from "@carbon/charts-react";
 import "@carbon/charts/styles.css";
 import "@carbon/styles/css/styles.css";
 import { LoaderData } from "../types";
-import { icuCapacityMeterLoader } from "../loaders";
 
 const IcuCapacityMeter = () => {
-  const data = useLoaderData() as LoaderData<typeof icuCapacityMeterLoader>;
+  const data = useLoaderData() as LoaderData<typeof feedbackLoader>;
   const proportionalMeterChartOptions = {
     title: "Proportional Meter Chart (ICU Capacity)",
     height: "200px",

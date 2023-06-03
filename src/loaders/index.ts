@@ -1,11 +1,11 @@
 import { fetcher } from "../utils";
-import { ChartTabularData } from "@carbon/charts/interfaces";
 import { LoaderFunction } from "react-router-dom";
-import { progressBarLoader } from "./feedback";
+import { icuCapacityMeterLoader, progressBarLoader } from "./feedback";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
-  return { progresssBarData };
+  const icuCapacityMeterData = await icuCapacityMeterLoader();
+  return { progresssBarData, icuCapacityMeterData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
