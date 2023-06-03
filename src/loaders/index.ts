@@ -110,3 +110,35 @@ export const treeMapLoader = (async (): Promise<any[]> => {
 
   return treeMapData;
 }) satisfies LoaderFunction;
+
+export const stackedAreaLoader = (async (): Promise<any> => {
+    let vaccinationData: any = (await fetcher("vaccination/vax_malaysia.csv"));
+    vaccinationData.pop();
+    vaccinationData = vaccinationData.slice(-30);
+    let data: any = [];
+
+    vaccinationData.forEach((row: any) => {
+        data.push({
+            group: "Partial Dose",
+            date: row["date"],
+            value: row["daily_partial"]
+        });
+        data.push({
+            group: "Full Dose",
+            date: row["date"],
+            value: row["daily_full"]
+        });
+        data.push({
+            group: "Booster 1",
+            date: row["date"],
+            value: row["daily_booster"]
+        });
+        data.push({
+            group: "Booster 2",
+            date: row["date"],
+            value: row["daily_booster2"]
+        });
+    })
+
+    return data;
+}) satisfies LoaderFunction;

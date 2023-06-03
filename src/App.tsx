@@ -10,14 +10,16 @@ import {
   SunburstPage,
   TreemapPage,
   Group11Page,
-  Group5Page
+  Group5Page,
+  StackedAreaPage
 } from "./pages";
 import {
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
   group11Loader,
-  group5Loader
+  group5Loader,
+  stackedAreaLoader
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -45,6 +47,11 @@ function App() {
           path="/group-11"
           element={<Group11Page />}
           loader={group11Loader}
+        />
+        <Route
+            path="/stacked-area-chart"
+            element={<StackedAreaPage />}
+            loader={stackedAreaLoader}
         />
         <Route
           path="/sunburst"
