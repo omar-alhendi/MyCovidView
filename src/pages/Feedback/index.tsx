@@ -1,11 +1,12 @@
 import VaccinationProgress from "./VaccinationProgress";
 import IcuCapacityMeter from "./IcuCapacityMeter";
+import TestPositiveGauge from "./TestPositiveGauge";
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { feedbackLoader } from "../../loaders";
 
 const FeedbackPage = () => {
-  const { progresssBarData, icuCapacityMeterData } =
+  const { progresssBarData, icuCapacityMeterData, testPositiveGaugeData } =
     useLoaderData() as LoaderData<typeof feedbackLoader>;
   return (
     <div
@@ -19,6 +20,7 @@ const FeedbackPage = () => {
         margin: "2rem",
       }}
     >
+      <TestPositiveGauge data={testPositiveGaugeData}/>
       <IcuCapacityMeter data={icuCapacityMeterData} />
       <VaccinationProgress data={progresssBarData} />
     </div>
