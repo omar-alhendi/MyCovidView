@@ -1,12 +1,13 @@
 import { fetcher } from "../utils";
 import { LoaderFunction } from "react-router-dom";
-import { icuCapacityMeterLoader, progressBarLoader } from "./feedback";
+import { icuCapacityMeterLoader, progressBarLoader, testPositiveLoader } from "./feedback";
 import { ChartTabularData } from "@carbon/charts/interfaces";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
   const icuCapacityMeterData = await icuCapacityMeterLoader();
-  return { progresssBarData, icuCapacityMeterData };
+  const testPositiveGaugeData = await testPositiveLoader()
+  return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
@@ -156,35 +157,4 @@ export const vacRateLoader = (async (): Promise<ChartTabularData> => {
   ];
 
   return data_display;
-}) satisfies LoaderFunction;
-
-
-export const testPositiveLoader = (async()=>{
-  const testCaseData = await fetcher("epidemic/tests_malaysia.csv");
-  const newCaseData = await fetcher("epidemic/cases_malaysia.csv");
-
-  // Get new test case record and positive cases of the most recent two days (Last Row is Empty)
-  // To calculate the delta change between the two days
-  const testNum = testCaseData.slice(-3).filter((row: any)=>!!row.date);
-  const postitiveNum =  newCaseData.slice(-3).filter((row: any)=>!!row.date);
-
-  const results = testNum.map((row: any, index)=>{
-    const totalTest = parseInt(row['pcr']) + parseInt(row['rtk-ag'])
-    const newCase: any = postitiveNum[index];
-    const positiveRate = parseInt(newCase['cases_new'])/totalTest;
-    return positiveRate;
-  })
-
-  
-  
-  return [
-    {
-      "group": "value",
-      "value": results[1]
-    },
-    {
-      "group": "delta",
-      "value": results[1]-results[0]
-    }
-  ]
 }) satisfies LoaderFunction;
