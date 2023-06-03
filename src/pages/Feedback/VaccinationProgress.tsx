@@ -1,10 +1,5 @@
-import { useLoaderData } from "react-router-dom";
 import { StackedBarChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
-import "@carbon/charts/styles.css";
-import "@carbon/styles/css/styles.css";
-import { LoaderData } from "../types";
-import { feedbackLoader } from "../loaders";
 
 const options = {
   title:
@@ -22,15 +17,12 @@ const options = {
   },
   height: "400px",
 };
-const Feedback = () => {
-  const data = useLoaderData() as LoaderData<typeof feedbackLoader>;
-
+const VaccinationProgress = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>my covid view</h1>
       <StackedBarChart data={data} options={options} />
     </div>
   );
 };
 
-export default Feedback;
+export default VaccinationProgress;
