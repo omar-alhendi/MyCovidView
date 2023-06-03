@@ -9,6 +9,7 @@ import {
   sunburstLoader,
   treeMapLoader,
   vacRateLoader,
+  comboChartLoader,
 } from "./loaders";
 import {
   Feedback,
@@ -16,6 +17,7 @@ import {
   VaccinationRate,
   SunburstPage,
   TreemapPage,
+  ComboChartPage,
 } from "./pages";
 import { Container } from "./layout";
 
@@ -43,6 +45,11 @@ function App() {
           path="/vaccination-rate"
           element={<VaccinationRate />}
           loader={vacRateLoader}
+        />
+        <Route
+          path="/combochart"
+          element={<ComboChartPage />}
+          loader={comboChartLoader}
         />
       </Route>
     )

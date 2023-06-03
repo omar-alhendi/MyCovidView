@@ -174,3 +174,34 @@ export const vacRateLoader = (async (): Promise<ChartTabularData> => {
 
   return data_display;
 }) satisfies LoaderFunction;
+
+export const comboChartLoader = (async (): Promise<ChartTabularData> => {
+  const casesData = await fetcher("epidemic/cases_malaysia.csv");
+  const comboChartData: any[] = (casesData as any[]).reduce(
+    (result: any, row: any) => {
+      const { cases_new, cases_active, date } = row;
+
+      if (!cases_new || !cases_active || !date) {
+        return result;
+      }
+
+      const group_new_case = {
+        "group": "cases_new",
+        "key": date,
+        "new_cases": cases_new,
+      }
+
+      const group_active_case = {
+        "group": "cases_active",
+        "key": date,
+        "active_cases": cases_active,
+      }
+
+      result.push(group_new_case)
+      result.push(group_active_case)
+      return result;
+    },
+    []
+  );
+  return comboChartData;
+}) satisfies LoaderFunction;
