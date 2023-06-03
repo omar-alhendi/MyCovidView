@@ -4,8 +4,21 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { Feedback, Overview, SunburstPage } from "./pages";
-import { feedbackLoader, sunburstLoader, treeMapLoader } from "./loaders";
+import {
+  Feedback,
+  Overview,
+  VaccinationRate,
+  SunburstPage,
+  TreemapPage,
+  StackedBarChartPage,
+} from "./pages";
+import {
+  feedbackLoader,
+  sunburstLoader,
+  treeMapLoader,
+  vacRateLoader,
+  stackedBarLoader,
+} from "./loaders";
 import { Container } from "./layout";
 import TreeMapPage from "./pages/TreeMapPage";
 
@@ -26,8 +39,33 @@ function App() {
         />
         <Route
           path="/treemap"
-          element={<TreeMapPage />}
+          element={<TreemapPage />}
           loader={treeMapLoader}
+        />
+        <Route
+          path="/vaccination-rate"
+          element={<VaccinationRate />}
+          loader={vacRateLoader}
+        />
+        <Route
+          path="/stackbarchart"
+          element={<StackedBarChartPage />}
+          loader={stackedBarLoader}
+        />
+        <Route
+          path="/sunburst"
+          element={<SunburstPage />}
+          loader={sunburstLoader}
+        />
+        <Route
+          path="/treemap"
+          element={<TreemapPage />}
+          loader={treeMapLoader}
+        />
+        <Route
+          path="/vaccination-rate"
+          element={<VaccinationRate />}
+          loader={vacRateLoader}
         />
       </Route>
     )
