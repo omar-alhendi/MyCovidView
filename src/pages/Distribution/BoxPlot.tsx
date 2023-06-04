@@ -16,12 +16,11 @@ const options = {
       title: "New Cases",
     },
   },
-  
+
   height: "400px",
 };
 
 const BoxPlot = ({ data }: { data: any }) => {
-  console.log(data);
   return (
     <div>
       <h1>My Box Plot View</h1>
@@ -30,4 +29,4 @@ const BoxPlot = ({ data }: { data: any }) => {
   );
 };
 
-export default BoxPlot;
+export default BoxPlot;
