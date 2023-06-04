@@ -52,3 +52,49 @@ export const boxPlotLoader = async () => {
   
     return boxPlotData;
   }
+
+  export const histogramLoader = async () => {
+    const casesData = await fetcher("epidemic/cases_malaysia.csv");
+  
+    const quarterlyCases: Record<string, Record<string, number[]>> = {};
+  
+    const cleanedData = casesData.filter((data: any) => {
+      return data.date && data.cases_new;
+    });
+  
+    cleanedData.forEach((data: any) => {
+      const date = new Date(data.date);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const quarter = Math.ceil(month / 3);
+      const quarterKey = `Q${quarter}`;
+  
+      const cases = parseInt(data.cases_new, 10);
+  
+      if (quarterlyCases[year]) {
+        if (quarterlyCases[year][quarterKey]) {
+          quarterlyCases[year][quarterKey].push(cases);
+        } else {
+          quarterlyCases[year][quarterKey] = [cases];
+        }
+      } else {
+        quarterlyCases[year] = { [quarterKey]: [cases] };
+      }
+    });
+  
+    const histogramData: { group: string; value: number; year: number }[] = [];
+  
+    Object.entries(quarterlyCases).forEach(([year, quarterData]) => {
+      Object.entries(quarterData).forEach(([quarter, values]) => {
+        const sumValues = values.reduce((sum, current) => sum + current, 0);
+  
+        histogramData.push({
+          group: `${year} ${quarter}`,
+          value: sumValues,
+          year: parseInt(year, 10),
+        });
+      });
+    });
+  
+    return histogramData;
+  };

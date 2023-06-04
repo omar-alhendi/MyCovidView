@@ -2,10 +2,12 @@ import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { distributionLoader } from "../../loaders";
 import BoxPlot from "./BoxPlot.tsx";
+import Histogram from "./Histogram.tsx";
 
 const DistributionPage = () => {
-  const { boxPlotData } =
-    useLoaderData() as LoaderData<typeof distributionLoader>;
+  const { boxPlotData, histogramData } = useLoaderData() as LoaderData<
+    typeof distributionLoader
+  >;
   return (
     <div
       style={{
@@ -18,6 +20,7 @@ const DistributionPage = () => {
       }}
     >
       <BoxPlot data={boxPlotData} />
+      <Histogram data={histogramData} />
     </div>
   );
 };

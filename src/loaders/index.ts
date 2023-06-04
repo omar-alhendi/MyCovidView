@@ -5,7 +5,8 @@ import {
   testPositiveLoader,
 } from "./feedback";
 import {
-  boxPlotLoader
+  boxPlotLoader, 
+  histogramLoader,
 } from "./distribution"
 import { vacRateLoader, deathRateLoader } from "./group11";
 import {
@@ -31,7 +32,9 @@ export const group11Loader = (async (): Promise<any> => {
 
 export const distributionLoader = (async (): Promise<any> => {
   const boxPlotData = await boxPlotLoader();
-  return { boxPlotData };
+  const histogramData = await histogramLoader();
+  return { boxPlotData, histogramData };
+
 }) satisfies LoaderFunction;
 
 export const group5Loader = (async (): Promise<any> => {
