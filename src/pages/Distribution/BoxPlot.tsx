@@ -16,6 +16,7 @@ const options = {
       title: "New Cases",
     },
   },
+
   height: "400px",
 };
 
