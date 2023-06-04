@@ -1,11 +1,12 @@
-import { fetcher } from "../utils";
 import { LoaderFunction } from "react-router-dom";
+import { fetcher } from "../utils";
 import {
   icuCapacityMeterLoader,
   progressBarLoader,
   testPositiveLoader,
 } from "./feedback";
 import { ChartTabularData } from "@carbon/charts/interfaces";
+
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
@@ -161,4 +162,138 @@ export const vacRateLoader = (async (): Promise<ChartTabularData> => {
   ];
 
   return data_display;
+}) satisfies LoaderFunction;
+
+export const stackedBarLoader = (async (): Promise<ChartTabularData> => {
+  const death_state = await fetcher("epidemic/deaths_state.csv");
+  const case_state = await fetcher("epidemic/cases_state.csv");
+
+  const filtered_death_state = death_state
+    .slice(-17)
+    .filter((row: any) => !!row.state);
+  const filtered_case_state = case_state
+    .slice(-17)
+    .filter((row: any) => !!row.state);
+
+  let data = filtered_death_state.map((row: any) => {
+    const cases: any = filtered_case_state.find(
+      ({ state }: any) => state === row.state
+    );
+    let data = [
+      {
+        key: row["state"],
+        group: "deaths_new",
+        value: +row["deaths_new"],
+      },
+      {
+        key: row["state"],
+        group: "cases_new",
+        value: +cases["cases_new"],
+      },
+    ];
+    return data;
+  });
+
+  return data;
+}) satisfies LoaderFunction;
+
+
+
+/*
+export const lineChartLoader = (async (): Promise<ChartData> => {
+  const response = await fetch('https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv');
+  const csvData = await (response as Response).text();
+
+  const parsedData = Papa.parse(csvData, { header: true });
+  const chartData = parsedData.data.map((row:any) => parseFloat(row['cases_new']));
+  const chartLabels = parsedData.data.map((row:any) => row['date']);
+
+  return {
+    chartData,
+    chartLabels,
+  };
+})satisfies LoaderFunction;;*/
+/*
+export const lineChartLoader = (async (): Promise<any[]> => {
+  const districtData = await fetcher("epidemic/cases_malaysia.csv");
+  const lineChartData: any[] = (districtData as any[]).reduce(
+    (result: any, row: any) => {
+      const { date, cases_new } = row;
+
+      if (!date || !cases_new) {
+        return result;
+      }
+
+      result.push({
+        date: new Date(date), // Assuming the date is in a valid format
+        cases_new: parseInt(cases_new, 10),
+      });
+
+      return result;
+    },
+    []
+  );
+
+  return lineChartData;
+}
+/*
+export const lineChartLoader = (async (): Promise<any[]> => {
+  const districtData = await fetcher("epidemic/cases_malaysia.csv");
+  const lineChartData: any[] = (districtData as any[]).reduce(
+    (result: any, row: any) => {
+      const { date, cases_active, cases_new } = row;
+
+      if (!date || !cases_active || !cases_new) {
+        return result;
+      }
+
+      result.push({
+        date: new Date(date), // Assuming the date is in a valid format
+        cases_active: parseInt(cases_active, 10),
+        cases_new: parseInt(cases_new, 10),
+      });
+
+      return result;
+    },
+    []
+  );
+
+  return lineChartData;
+}) satisfies LoaderFunction;
+*/
+
+/*export const lineChartLoader = (async (): Promise<any[]> => {
+  const districtData = await fetcher("epidemic/cases_malaysia.csv");
+  
+  // Process the CSV data and obtain the desired columns
+  const processedData = districtData.map((row: any) => {
+    const date = row["date"];
+    const newcases = row["cases_new"];
+    const activecases = row["cases_active"];
+    // Add more columns as needed
+    
+    return { date, newcases, activecases };
+  });
+  
+  return processedData;
+}) satisfies LoaderFunction; */
+
+export const lineChartLoaders = (async (): Promise<any[]> => {
+  console.log('Fetching CSV data...');
+  const districtData = await fetcher("epidemic/cases_malaysia.csv");
+  console.log('Fetched CSV data:', districtData);
+
+  // Process the CSV data and obtain the desired columns
+  const processedData = districtData.map((row: any) => {
+    const date = row["date"];
+    const newcases = parseInt(row["cases_new"]);
+    
+    // Add more columns as needed
+
+    return { "group":"new cases", "date":date, "value":newcases };
+  });
+
+  console.log('Processed data:', processedData);
+
+  return processedData;
 }) satisfies LoaderFunction;
