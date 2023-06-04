@@ -7,17 +7,15 @@ import {
 import {
   Feedback,
   Overview,
-  SunburstPage,
-  TreemapPage,
+  ImpactPage,
   Group11Page,
-  Group5Page
+  Group5Page,
 } from "./pages";
 import {
   feedbackLoader,
-  sunburstLoader,
-  treeMapLoader,
+  impactLoader,
   group11Loader,
-  group5Loader
+  group5Loader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -32,36 +30,12 @@ function App() {
           loader={feedbackLoader}
         />
         <Route
-          path="/sunburst"
-          element={<SunburstPage />}
-          loader={sunburstLoader}
-        />
-        <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
           path="/group-11"
           element={<Group11Page />}
           loader={group11Loader}
         />
-        <Route
-          path="/sunburst"
-          element={<SunburstPage />}
-          loader={sunburstLoader}
-        />
-        <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
-          path="/group-5"
-          element={<Group5Page />}
-          loader={group5Loader}
-        />
-
+        <Route path="/group-5" element={<Group5Page />} loader={group5Loader} />
+        <Route path="/impact" element={<ImpactPage />} loader={impactLoader} />
       </Route>
     )
   );
