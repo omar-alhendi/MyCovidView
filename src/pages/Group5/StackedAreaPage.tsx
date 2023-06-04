@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-import { LoaderData } from "../types";
+import { LoaderData } from "../../types";
 import "@carbon/charts/styles.css";
 import "@carbon/styles/css/styles.css";
-import { stackedAreaLoader } from "../loaders";
+import { stackedAreaLoader } from "../../loaders";
 import { StackedAreaChart } from "@carbon/charts-react";
 import {
     ScaleTypes,
