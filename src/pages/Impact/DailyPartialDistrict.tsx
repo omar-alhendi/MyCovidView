@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { scaleOrdinal, schemePaired } from "d3";
 import Sunburst from "sunburst-chart";
 import { TreemapChart } from "@carbon/charts-react";
@@ -15,7 +15,6 @@ function DailyPartialDistrict({
   treeMapData,
 }: DailyPartialDistrictProps) {
   const chartRef = useRef<HTMLDivElement>(null);
-  const [chartSize, setChartSize] = useState({ width: 400, height: 400 });
 
   useEffect(() => {
     const chartElement = chartRef.current;
@@ -28,8 +27,6 @@ function DailyPartialDistrict({
 
         const width = window.innerWidth <= 500 ? 200 : 400;
         const height = window.innerWidth <= 500 ? 200 : 400;
-
-        setChartSize({ width, height });
 
         Sunburst()
           .data(sunburstData)
@@ -70,8 +67,8 @@ function DailyPartialDistrict({
           style={{
             textAlign: "center",
             marginTop: "1rem",
-            width: chartSize.width,
-            height: chartSize.height,
+            width: 400,
+            height: 400,
             margin: "0 auto",
           }}
         />
