@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { scaleOrdinal, schemePaired } from "d3";
 import Sunburst from "sunburst-chart";
 import { TreemapChart } from "@carbon/charts-react";
@@ -15,9 +15,11 @@ function DailyPartialDistrict({
   treeMapData,
 }: DailyPartialDistrictProps) {
   const chartRef = useRef<HTMLDivElement>(null);
+  const [chartSize, setChartSize] = useState({ width: 400, height: 400 });
 
   useEffect(() => {
     const chartElement = chartRef.current;
+
     const updateChart = () => {
       const color = scaleOrdinal(schemePaired);
       if (chartElement && Object.keys(sunburstData).length !== 0) {
@@ -26,6 +28,8 @@ function DailyPartialDistrict({
 
         const width = window.innerWidth <= 500 ? 200 : 400;
         const height = window.innerWidth <= 500 ? 200 : 400;
+
+        setChartSize({ width, height });
 
         Sunburst()
           .data(sunburstData)
@@ -38,7 +42,7 @@ function DailyPartialDistrict({
     updateChart();
 
     const handleResize = () => {
-      updateChart(); //for sunburst
+      updateChart(); // Update the sunburst chart on window resize
     };
 
     window.addEventListener("resize", handleResize);
@@ -49,7 +53,7 @@ function DailyPartialDistrict({
   }, [sunburstData]);
 
   const options = {
-    title: "Treemap(daily partial of vaccination by districts)",
+    title: "Treemap (daily partial of vaccination by districts)",
     height: "400px",
     width: "100%",
   };
@@ -58,14 +62,17 @@ function DailyPartialDistrict({
     <div>
       <div style={{ marginBottom: "5rem" }}>
         <h1>Sunburst Chart</h1>
-        <p style={{ fontWeight: "bold" }}>
-          Sunburst(daily partial of vaccination by districts)
+        <p style={{ fontWeight: "bold", marginTop: "1rem" }}>
+          Sunburst (daily partial of vaccination by districts)
         </p>
         <div
           ref={chartRef}
           style={{
             textAlign: "center",
-            marginTop: "1rem"
+            marginTop: "1rem",
+            width: chartSize.width,
+            height: chartSize.height,
+            margin: "0 auto",
           }}
         />
       </div>
