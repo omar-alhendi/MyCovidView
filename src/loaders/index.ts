@@ -1,18 +1,13 @@
-import { fetcher } from "../utils";
-import { LoaderFunction } from "react-router-dom";
+import { fetcher } from '../utils';
+import { LoaderFunction } from 'react-router-dom';
 import {
   icuCapacityMeterLoader,
   progressBarLoader,
   testPositiveLoader,
-} from "./feedback";
-import {
-  vacRateLoader,
-  deathRateLoader,
-} from "./group11";
+} from './feedback';
+import { vacRateLoader, deathRateLoader } from './group11';
 
-import {
-  lollipopChartLoader,
-} from "./group5";
+import { lollipopChartLoader, donutChartLoader } from './group5';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
@@ -29,11 +24,12 @@ export const group11Loader = (async (): Promise<any> => {
 
 export const group5Loader = (async (): Promise<any> => {
   const lollipopData = await lollipopChartLoader();
-  return { lollipopData};
+  const donutData = await donutChartLoader();
+  return { lollipopData, donutData };
 }) satisfies LoaderFunction;
 
 export const sunburstLoader = (async (): Promise<any> => {
-  const districtData = await fetcher("vaccination/vax_district.csv");
+  const districtData = await fetcher('vaccination/vax_district.csv');
   const chartData = districtData.reduce(
     (result: any, row: any) => {
       const { state, district, daily_partial } = row;
@@ -64,14 +60,14 @@ export const sunburstLoader = (async (): Promise<any> => {
 
       return result;
     },
-    { name: "home", children: [] }
+    { name: 'home', children: [] }
   );
 
   return chartData;
 }) satisfies LoaderFunction;
 
 export const treeMapLoader = (async (): Promise<any[]> => {
-  const districtData = await fetcher("vaccination/vax_district.csv");
+  const districtData = await fetcher('vaccination/vax_district.csv');
   const treeMapData: any[] = (districtData as any[]).reduce(
     (result: any, row: any) => {
       const { state, district, daily_partial } = row;
