@@ -1,25 +1,40 @@
 import VaccinatedPeople from "./VaccinatedPeople";
+import VaccineDoseType from "./VaccineDoseType";
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { group5Loader } from "../../loaders";
 
-const LollipopChartPage = () => {
-  const {lollipopData} =
-    useLoaderData() as LoaderData<typeof group5Loader>;
-  return (
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        background: "#e0e0e0",
-        padding: "2rem",
-        borderRadius: "1rem",
-        margin: "2rem",
-      }}
-    >
-      <VaccinatedPeople data={lollipopData} />
-    </div>
-  );
+const Group5Page = () => {
+    const { lollipopData, stackedAreaData } =
+        useLoaderData() as LoaderData<typeof group5Loader>;
+    return (
+        <div>
+            <div
+                style={{
+                    display: "grid",
+                    gap: "2rem",
+                    background: "#e0e0e0",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    margin: "2rem",
+                }}
+            >
+                <VaccinatedPeople data={lollipopData} />
+            </div>
+            <div
+                style={{
+                    display: "grid",
+                    gap: "2rem",
+                    background: "#e0e0e0",
+                    padding: "2rem",
+                    borderRadius: "1rem",
+                    margin: "2rem",
+                }}
+            >
+                <VaccineDoseType data={stackedAreaData} />
+            </div>
+        </div>
+    );
 };
 
-export default LollipopChartPage;
+export default Group5Page;
