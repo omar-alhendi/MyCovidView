@@ -7,6 +7,7 @@ import {
 import { vacRateLoader, deathRateLoader } from "./group11";
 import { lollipopChartLoader } from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
+import { stackedLineLoader, comboChartLoader } from "./group2";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
@@ -30,4 +31,10 @@ export const impactLoader = (async (): Promise<any> => {
   const treeMapData = await treeMapLoader();
   const sunburstData = await sunburstLoader();
   return { treeMapData, sunburstData };
+}) satisfies LoaderFunction;
+
+export const group2Loader = (async (): Promise<any> => {
+  const stackedLineData = await stackedLineLoader();
+  const comboChartData = await comboChartLoader();
+  return { stackedLineData, comboChartData };
 }) satisfies LoaderFunction;
