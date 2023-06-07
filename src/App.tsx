@@ -7,22 +7,19 @@ import {
 import {
   Feedback,
   Overview,
-  VaccinationRate,
-  SunburstPage,
-  TreemapPage,
-  StackedBarChartPage,
+  ImpactPage,
+  Group11Page,
+  Group5Page,
+  Group2Page,
 } from "./pages";
 import {
   feedbackLoader,
-  sunburstLoader,
-  treeMapLoader,
-  vacRateLoader,
-  stackedBarLoader,
+  impactLoader,
+  group11Loader,
+  group5Loader,
+  group2Loader,
 } from "./loaders";
 import { Container } from "./layout";
-import IcuCapacityMeter from "./pages/Feedback/IcuCapacityMeter";
-import { icuCapacityMeterLoader } from "./loaders/feedback";
-import { MeterChart } from "@carbon/charts-react";
 
 function App() {
   const router = createBrowserRouter(
@@ -35,41 +32,13 @@ function App() {
           loader={feedbackLoader}
         />
         <Route
-          path="/sunburst"
-          element={<SunburstPage />}
-          loader={sunburstLoader}
+          path="/group-11"
+          element={<Group11Page />}
+          loader={group11Loader}
         />
-        <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
-          path="/vaccination-rate"
-          element={<VaccinationRate />}
-          loader={vacRateLoader}
-        />
-        <Route
-          path="/stackbarchart"
-          element={<StackedBarChartPage />}
-          loader={stackedBarLoader}
-        />
-    
-        {/* <Route
-          path="/sunburst"
-          element={<SunburstPage />}
-          loader={sunburstLoader}
-        />
-        <Route
-          path="/treemap"
-          element={<TreemapPage />}
-          loader={treeMapLoader}
-        />
-        <Route
-          path="/vaccination-rate"
-          element={<VaccinationRate />}
-          loader={vacRateLoader}
-        /> */}
+        <Route path="/group-5" element={<Group5Page />} loader={group5Loader} />
+        <Route path="/impact" element={<ImpactPage />} loader={impactLoader} />
+        <Route path="/group-2" element={<Group2Page />} loader={group2Loader} />
       </Route>
     )
   );
