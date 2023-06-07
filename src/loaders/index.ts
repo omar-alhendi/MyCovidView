@@ -101,43 +101,17 @@ export const dendrogramLoader = (async (): Promise<any[]> => {
 }) satisfies LoaderFunction;
 
 export const heatmapLoader = (async (): Promise<any[]> => {
-  const districtData = await fetcher("vaccination/vax_malaysia.csv");
-  const treeMapData: any[] = (districtData as any[]).reduce(
-    (result: any, row: any) => {
-      const { state, district, daily_partial } = row;
+  const dataset = await fetcher("vaccination/vax_snapshot.csv");
+  // Filter the data for the specific state (e.g., Malaysia)
+  const filteredData = dataset.filter((row: any) => row.state === "Malaysia");
+  
+  // Create the desired array with age_group, dose, and value
+  const result = filteredData.map((row: any) => ({
+    age_group: row.age_group,
+    dose: row.dose,
+    value: row.value
+  }));
 
-      if (!state || !district) {
-        return result;
-      }
-
-      let stateNode = result.find((node: any) => node.name === state);
-
-      if (!stateNode) {
-        stateNode = { name: state, children: [] };
-        result.push(stateNode);
-      }
-
-      const districtNode = stateNode.children.find(
-        (node: any) => node.name === district
-      );
-
-      if (districtNode) {
-        districtNode.value += parseInt(daily_partial, 10);
-        if (districtNode.value > 500000) {
-          districtNode.showLabel = true;
-        }
-      } else {
-        stateNode.children.push({
-          name: district,
-          value: parseInt(daily_partial, 10),
-        });
-      }
-
-      return result;
-    },
-    []
-  );
-
-  return treeMapData;
+  return result;
 }) satisfies LoaderFunction;
 
