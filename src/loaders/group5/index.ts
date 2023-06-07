@@ -13,10 +13,9 @@ export const lollipopChartLoader = async () => {
       value: +row['cumul_full'],
     };
   });
-  console.log(data);
+
   return data;
 };
-
 export const donutChartLoader = async () => {
   const vaccinatedPeopleData = await fetcher('vaccination/vax_district.csv');
 
@@ -48,19 +47,26 @@ export const donutChartLoader = async () => {
   return data;
 };
 
-// export const donutChartLoader = async () => {
-//   const vaccinatedData = await fetcher('vaccination/vax_district.csv');
+export const stackedAreaLoader = async (): Promise<any> => {
+  let vaccinationData: any = await fetcher('vaccination/vax_malaysia.csv');
+  vaccinationData.pop();
+  vaccinationData = vaccinationData.slice(-30);
 
-//   const filteredVaccinatedData = vaccinatedData
-//     .slice(-100)
-//     .filter((row: any) => !!row.district);
+  const groups = ['Partial Dose', 'Full Dose', 'Booster 1', 'Booster 2'];
+  const dailyKeys = [
+    'daily_partial',
+    'daily_full',
+    'daily_booster',
+    'daily_booster2',
+  ];
 
-//   const data = filteredVaccinatedData.map((row: any) => {
-//     return {
-//       group: row['district'],
-//       value: +row['cumul_full'],
-//     };
-//   });
-//   console.log(data);
-//   return data;
-// };
+  const data = vaccinationData.flatMap((row: any) =>
+    groups.map((group, index) => ({
+      group,
+      date: row['date'],
+      value: row[dailyKeys[index]],
+    }))
+  );
+
+  return data;
+};
