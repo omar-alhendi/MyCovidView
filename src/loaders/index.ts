@@ -60,43 +60,29 @@ export const group13Loader = (async (): Promise<any> => {
 }) satisfies LoaderFunction;
 
 export const dendrogramLoader = (async (): Promise<any[]> => {
-  const districtData = await fetcher("epidemic/clusters.csv");
-  const dendrogramData: any[] = (districtData as any[]).reduce(
-    (result: any, row: any) => {
-      const { state, district, daily_partial } = row;
+  const data = await fetcher("epidemic/linelist/param_geo.csv");
 
-      if (!state || !district) {
-        return result;
-      }
+  const dendrogramData: any[] = data.reduce((result: any[], row: any) => {
+    const { state, district, idxd } = row;
 
-      let stateNode = result.find((node: any) => node.name === state);
-
-      if (!stateNode) {
-        stateNode = { name: state, children: [] };
-        result.push(stateNode);
-      }
-
-      const districtNode = stateNode.children.find(
-        (node: any) => node.name === district
-      );
-
-      if (districtNode) {
-        districtNode.value += parseInt(daily_partial, 10);
-        if (districtNode.value > 500000) {
-          districtNode.showLabel = true;
-        }
-      } else {
-        stateNode.children.push({
-          name: district,
-          value: parseInt(daily_partial, 10),
-        });
-      }
-
+    if (!state || !district) {
       return result;
-    },
-    []
-  );
+    }
 
+    let stateNode = result.find((node: any) => node.name === state);
+
+    if (!stateNode) {
+      stateNode = { name: state, children: [] };
+      result.push(stateNode);
+    }
+
+    stateNode.children.push({
+      name: district,
+      idxd: idxd.toString(),
+    });
+
+    return result;
+  }, []);
   return dendrogramData;
 }) satisfies LoaderFunction;
 
@@ -104,7 +90,7 @@ export const heatmapLoader = (async (): Promise<any[]> => {
   const dataset = await fetcher("vaccination/vax_snapshot.csv");
   // Filter the data for the specific state (e.g., Malaysia)
   const filteredData = dataset.filter((row: any) => row.state === "Malaysia");
-  
+
   // Create the desired array with age_group, dose, and value
   const result = filteredData.map((row: any) => ({
     age_group: row.age_group,
