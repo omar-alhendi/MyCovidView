@@ -8,7 +8,7 @@ import { TreeTypes } from "@carbon/charts/interfaces/enums"
 
 const options = {
     title: "States with districts in Malaysia",
-    height: "400px",
+    height: "4000px",
     tree: {
         type: TreeTypes.DENDROGRAM,
         rootTitle: "Malaysia"
