@@ -3,10 +3,11 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 import { LineChart } from "@carbon/charts-react";
 import "@carbon/charts/styles.css";
 import "@carbon/styles/css/styles.css";
+import styles from "/src/styles/Style.module.css";
 
 
 const options = {
-    title: "Stacked Line Chart (Recovered & Active Cases)",
+    // title: "Stacked Line Chart (Recovered & Active Cases)",
     points: {
       enabled: false,
       radius: 3,
@@ -40,8 +41,8 @@ const options = {
 
     return (
       <div>
-        {/* <h1>Stacked Line Chart</h1> */}
-        <LineChart data={data} options={options} />
+        <h5 className={styles.titleChart}>Stacked Line Chart (Recovered & Active Cases)</h5>
+        <section><LineChart data={data} options={options} /></section>
       </div>
     );
   };

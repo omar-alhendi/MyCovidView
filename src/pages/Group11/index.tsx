@@ -7,18 +7,28 @@ import DeathRate from './DeathRate';
 function Group11Page() {
   const { vacRateData, deathRateData } = useLoaderData() as LoaderData<typeof group11Loader>;
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        background: "#e0e0e0",
-        padding: "2rem",
-        borderRadius: "1rem",
-        margin: "2rem",
-      }}
-    >
-      <VaccinationRate data={vacRateData} />
-      <DeathRate data={deathRateData} />
+    <div>
+      <div
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}>
+        <VaccinationRate data={vacRateData} /></div>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}>
+        <DeathRate data={deathRateData} /></div>
     </div>
   );
 }

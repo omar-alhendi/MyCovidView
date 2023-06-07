@@ -3,9 +3,10 @@ import { ComboChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 import "@carbon/styles/css/styles.css";
 import "@carbon/charts/styles.css";
+import styles from "/src/styles/Style.module.css";
 
 const options = {
-    "title": "Combo (Area + Line) Active vs New Cases",
+    // "title": "Combo (Area + Line) Active vs New Cases",
 	"points": {
 		"enabled": false
 	},
@@ -52,7 +53,11 @@ const options = {
 };
 
 const ActiveNewCases = ({ data }: { data: any }) => {
-  return <ComboChart data={data} options={options} />;
+  return( 
+	<div><h5 className={styles.titleChart}>Combo (Area + Line) Active vs New Cases</h5>
+		<section><ComboChart data={data} options={options} /></section>
+	</div>
+  );
 };
 
 export default ActiveNewCases;

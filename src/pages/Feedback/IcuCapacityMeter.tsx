@@ -1,4 +1,5 @@
 import { MeterChart } from "@carbon/charts-react";
+import styles from "/src/styles/Style.module.css";
 
 const meterChartOptions: any = {
   meter: {
@@ -30,7 +31,7 @@ const meterChartOptions: any = {
 
 const IcuCapacityMeter = ({ data }: { data: any }) => {
   const proportionalMeterChartOptions = {
-    title: "Proportional Meter Chart (ICU Capacity)",
+    // title: "Proportional Meter Chart (ICU Capacity)",
     height: "200px",
     meter: {
       proportional: {
@@ -45,12 +46,12 @@ const IcuCapacityMeter = ({ data }: { data: any }) => {
     },
   };
   return (
-    <div>
+    <div><h5 className={styles.titleChart}>Proportional Meter Chart (ICU Capacity)</h5>
       <MeterChart
         data={data.icuProportionalMeterData}
         options={proportionalMeterChartOptions}
       />
-      <h5 style={{ marginTop: "50px", marginBottom: "20px" }}>
+      <h5 className={styles.titleChart} style={{ marginTop: "50px", marginBottom: "20px" }}>
         Meter Chart (ICU Utilisation Percentage For Each State)
       </h5>
       {data.icuMeterDataByState.map((state: any) => (

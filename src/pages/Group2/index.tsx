@@ -10,18 +10,28 @@ const Group2Page = () => {
   const { stackedLineData , comboChartData} =
     useLoaderData() as LoaderData<typeof group2Loader>;
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        background: "#e0e0e0",
-        padding: "2rem",
-        borderRadius: "1rem",
-        margin: "2rem",
-      }}
-    >
-      <RecoverTrend data={stackedLineData} />
-      <ActiveNewCases data={comboChartData} />
+    <div>
+      <div
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}>
+        <RecoverTrend data={stackedLineData} /></div>
+        
+        <div
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}>
+        <ActiveNewCases data={comboChartData} /></div>
     </div>
   );
 };
