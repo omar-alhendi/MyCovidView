@@ -60,8 +60,8 @@ export const group13Loader = (async (): Promise<any> => {
 }) satisfies LoaderFunction;
 
 export const dendrogramLoader = (async (): Promise<any[]> => {
-  const districtData = await fetcher("epidermic/deaths_malaysia.csv");
-  const treeMapData: any[] = (districtData as any[]).reduce(
+  const districtData = await fetcher("epidemic/clusters.csv");
+  const dendrogramData: any[] = (districtData as any[]).reduce(
     (result: any, row: any) => {
       const { state, district, daily_partial } = row;
 
@@ -97,7 +97,7 @@ export const dendrogramLoader = (async (): Promise<any[]> => {
     []
   );
 
-  return treeMapData;
+  return dendrogramData;
 }) satisfies LoaderFunction;
 
 export const heatmapLoader = (async (): Promise<any[]> => {
