@@ -30,13 +30,13 @@ const VaccinatedPeopleByDistrict = ({ data }: { data: any }) => {
     setSelectedState(event.target.value);
   };
 
-  const states = Array.from(new Set(districtData.map((row) => row.state)));
+  const states = Array.from(new Set(districtData.map((row: any) => row.state)));
 
   const filteredData = districtData.filter(
-    (row) => row.state === selectedState
+    (row: any) => row.state === selectedState
   );
 
-  const chartData = filteredData.map((row) => ({
+  const chartData = filteredData.map((row: any) => ({
     group: row.district,
     value: row.value,
   }));
