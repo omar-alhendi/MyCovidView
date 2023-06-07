@@ -8,25 +8,26 @@ const Container = () => {
       name: "Overview",
     },
     {
+      link: "/group-2",
+      name: "Group 2",
+    },
+    {
+      link: "/group-5",
+      name: "Group 5",
+    },
+    {
+      link: "/group-11",
+      name: "Group 11",
+    },
+    {
+      link: "/impact",
+      name: "Impact",
+    },
+    {
       link: "/feedback",
       name: "Feedback",
     },
-    {
-      link: "/sunburst",
-      name: "Sunburst",
-    },
-    {
-      link: "/treemap",
-      name: "Tree Map",
-    },
-    {
-      link: "/vaccination-rate",
-      name: "Vaccination Rate",
-    },
-    {
-      link: "/stackbarchart",
-      name: "Stacked Bar Chart",
-    },
+
   ];
 
   const location = useLocation();
