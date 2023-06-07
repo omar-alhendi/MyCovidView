@@ -7,23 +7,23 @@ import "@carbon/charts/styles.css";
 import { ColorLegendType } from '@carbon/charts/interfaces/enums';
 
 const options = {
-  title: "Heatmap",
+  title: "Heatmap (Type of Dose By Age Group in Malaysia)",
   axes: {
     bottom: {
-      title: "Letters",
-      mapsTo: "letter",
+      title: "Age Group",
+      mapsTo: "age_group",
       scaleType: "labels"
     },
     left: {
-      title: "Months",
-      mapsTo: "month",
+      title: "Type of Dose",
+      mapsTo: "dose",
       scaleType: "labels"
     }
   },
   heatmap: {
     colorLegend: {
-      title: "Legend title",
-      type: ColorLegendType.LINEAR,
+      title: "Indicator",
+      type: ColorLegendType.QUANTIZE,
     }
   },
   height: "400px"
