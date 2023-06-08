@@ -10,6 +10,7 @@ import {
   ImpactPage,
   Group11Page,
   Group5Page,
+  DistributionPage,
   Group2Page,
   ScatterPlotPage,
   AreaChartPage,
@@ -21,6 +22,7 @@ import {
   group11Loader,
   group5Loader,
   group2Loader,
+  distributionLoader,
 } from "./loaders";
 import {
   scatterPlotLoader,
@@ -61,6 +63,11 @@ function App() {
           path="/fantasy/area-chart"
           element={<AreaChartPage />}
           loader={areaChartLoader}
+        />
+        <Route
+          path="/distribution"
+          element={<DistributionPage />}
+          loader={distributionLoader}
         />
       </Route>
     )

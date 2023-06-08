@@ -4,6 +4,7 @@ import {
   progressBarLoader,
   testPositiveLoader,
 } from "./feedback";
+import { boxPlotLoader, histogramLoader } from "./distribution";
 import { vacRateLoader, deathRateLoader } from "./group11";
 import {
   lollipopChartLoader,
@@ -46,8 +47,15 @@ export const group2Loader = (async (): Promise<any> => {
   return { stackedLineData, comboChartData };
 }) satisfies LoaderFunction;
 
+
 export const fantasyLoader = (async (): Promise<any> => {
   const scatterPlotData = await scatterPlotLoader();
   const lineChartData = await lineChartLoader(); 
   const areaChartData = await areaChartLoader();
-})
+}) satisfies LoaderFunction;
+
+export const distributionLoader = (async (): Promise<any> => {
+  const boxPlotData = await boxPlotLoader();
+  const histogramData = await histogramLoader();
+  return { boxPlotData, histogramData };
+}) satisfies LoaderFunction;

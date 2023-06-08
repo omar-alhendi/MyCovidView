@@ -7,3 +7,4 @@ export { default as Group2Page } from "./Group2";
 export { default as ScatterPlotPage } from "./fantasy/ScatterPlotPage";
 export { default as LineChartPage } from "./fantasy/LineChartPage";
 export { default as AreaChartPage } from "./fantasy/AreaChartPage";
+export { default as DistributionPage } from "./Distribution";
