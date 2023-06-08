@@ -14,7 +14,8 @@ const links: Link[] = [
   { to: "/group-2", label: "Group 2" },
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
-  {to: "/distribution", label: "Distribution"}
+  { to: "/distribution", label: "Distribution" },
+  { to: "/group-13", label: "Group 13" }
 ];
 
 const Container = () => {
@@ -30,9 +31,8 @@ const Container = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`sidebar-link ${
-                  pathname === link.to ? "active" : ""
-                }`}
+                className={`sidebar-link ${pathname === link.to ? "active" : ""
+                  }`}
               >
                 {link.label}
               </Link>

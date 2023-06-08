@@ -13,6 +13,7 @@ import {
 } from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
+import { casesLoader, testsLoader } from "./group13";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -50,4 +51,10 @@ export const distributionLoader = (async (): Promise<any> => {
   const boxPlotData = await boxPlotLoader();
   const histogramData = await histogramLoader();
   return { boxPlotData, histogramData };
+}) satisfies LoaderFunction;
+
+export const group13Loader = (async (): Promise<any> => {
+  const balancedData = await testsLoader();
+  const kpiData = await casesLoader();
+  return { balancedData, kpiData };
 }) satisfies LoaderFunction;
