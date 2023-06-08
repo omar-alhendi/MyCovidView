@@ -21,8 +21,10 @@ import {
   group5Loader,
   group2Loader,
   distributionLoader,
+  group13Loader,
 } from "./loaders";
 import { Container } from "./layout";
+import Group13Page from "./pages/Group13";
 
 function App() {
   const router = createBrowserRouter(
@@ -48,6 +50,11 @@ function App() {
           loader={distributionLoader}
         />
         <Route path="/import" element={<ImportPage />} />
+        <Route
+          path="/group-13"
+          element={<Group13Page />}
+          loader={group13Loader}
+        />
       </Route>
     )
   );
