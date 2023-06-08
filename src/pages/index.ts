@@ -4,4 +4,6 @@ export { default as ImpactPage } from "./Impact";
 export { default as Group11Page } from "./Group11";
 export { default as Group5Page } from "./Group5";
 export { default as Group2Page } from "./Group2";
-
+export { default as ScatterPlotPage } from "./fantasy/ScatterPlotPage";
+export { default as LineChartPage } from "./fantasy/LineChartPage";
+export { default as AreaChartPage } from "./fantasy/AreaChartPage";

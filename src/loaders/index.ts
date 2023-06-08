@@ -12,6 +12,7 @@ import {
 } from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
+import { scatterPlotLoader, lineChartLoader, areaChartLoader } from "./fantasy";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const progresssBarData = await progressBarLoader();
@@ -44,3 +45,9 @@ export const group2Loader = (async (): Promise<any> => {
   const comboChartData = await comboChartLoader();
   return { stackedLineData, comboChartData };
 }) satisfies LoaderFunction;
+
+export const fantasyLoader = (async (): Promise<any> => {
+  const scatterPlotData = await scatterPlotLoader();
+  const lineChartData = await lineChartLoader(); 
+  const areaChartData = await areaChartLoader();
+})
