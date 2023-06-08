@@ -11,15 +11,21 @@ import {
   SunburstPage,
   TreemapPage,
   StackedBarChartPage,
-  LineChartPages,
+  HistogramPage,
 } from "./pages";
+import{
+  DailyCase,
+}from "./pages/group15"
+import{
+  lineChartLoaders,
+}from "./loaders/group15"
 import {
   feedbackLoader,
   sunburstLoader,
   treeMapLoader,
   vacRateLoader,
   stackedBarLoader,
-  lineChartLoaders,
+  histogramLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -45,9 +51,14 @@ function App() {
           loader={treeMapLoader}
         />
         <Route
-          path="/linechart"
-          element={<LineChartPages />}
+          path="/DailyCase"
+          element={<DailyCase />}
           loader={lineChartLoaders}
+        />
+        <Route
+          path="/histogram"
+          element={<HistogramPage />}
+          loader={histogramLoader}
         />
         <Route
           path="/vaccination-rate"
