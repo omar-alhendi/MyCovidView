@@ -24,7 +24,7 @@ export const progressBarLoader = async () => {
   return data;
 };
 
-const vacciantedPercentageLoader = async () => {
+export const vacciantedPercentageLoader = async () => {
   const populationData = await fetcher("static/population.csv");
   const vaccinationData = await fetcher("vax_malaysia.csv");
 

@@ -15,6 +15,7 @@ const links: Link[] = [
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
 ];
+
 const Container = () => {
   const { pathname } = useLocation();
 
@@ -31,7 +32,9 @@ const Container = () => {
                 className={`sidebar-link ${
                   pathname === link.to ? "active" : ""
                 }`}
-              />
+              >
+                {link.label}
+              </Link>
             ))}
           </SideNavItems>
         </SideNav>

@@ -1,6 +1,6 @@
 import { fetcher } from "../../utils";
 
-export const treeMapLoader = (async (): Promise<any[]> => {
+export const treeMapLoader = async (): Promise<any[]> => {
   const districtData = await fetcher("vaccination/vax_district.csv");
   const treeMapData: any[] = (districtData as any[]).reduce(
     (result: any, row: any) => {
@@ -39,9 +39,9 @@ export const treeMapLoader = (async (): Promise<any[]> => {
   );
 
   return treeMapData;
-})
+};
 
-export const sunburstLoader = (async (): Promise<any> => {
+export const sunburstLoader = async (): Promise<any> => {
   const districtData = await fetcher("vaccination/vax_district.csv");
   const chartData = districtData.reduce(
     (result: any, row: any) => {
@@ -77,4 +77,4 @@ export const sunburstLoader = (async (): Promise<any> => {
   );
 
   return chartData;
-})
+};
