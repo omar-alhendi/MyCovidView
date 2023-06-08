@@ -16,6 +16,7 @@ import {
   Dendrogram,
   Heatmap,
   FantasyPage,
+  ColumnChart,
 } from "./pages";
 import {
   feedbackLoader,
@@ -28,6 +29,7 @@ import {
   dendrogramLoader,
   heatmapLoader,
   fantasyLoader,
+  columnChartLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -74,7 +76,12 @@ function App() {
         <Route
           path="/heatmap"
           element={<Heatmap />}
-          loader={heatmapLoader}
+          loader={heatmapLoader} 
+        />
+        <Route
+          path="/columnchart"
+          element={<ColumnChart />}
+          loader={columnChartLoader}
         />
       </Route>
     )
