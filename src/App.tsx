@@ -26,16 +26,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Container />}>
         <Route index element={<Overview />} />
-        <Route
-          path="/feedback"
-          element={<Feedback />}
-          loader={feedbackLoader}
-        />
-        <Route
-          path="/group-11"
-          element={<Group11Page />}
-          loader={group11Loader}
-        />
+        <Route path="/feedback" element={<Feedback />} loader={feedbackLoader}/>
+        <Route path="/group-11" element={<Group11Page />} loader={group11Loader}/>
         <Route path="/group-5" element={<Group5Page />} loader={group5Loader} />
         <Route path="/impact" element={<ImpactPage />} loader={impactLoader} />
         <Route path="/group-2" element={<Group2Page />} loader={group2Loader} />
