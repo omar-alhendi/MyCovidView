@@ -12,6 +12,7 @@ import {
   TreemapPage,
   StackedBarChartPage,
   LineChartPages,
+  HistogramPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -20,6 +21,7 @@ import {
   vacRateLoader,
   stackedBarLoader,
   lineChartLoaders,
+  histogramLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -48,6 +50,11 @@ function App() {
           path="/linechart"
           element={<LineChartPages />}
           loader={lineChartLoaders}
+        />
+        <Route
+          path="/histogram"
+          element={<HistogramPage />}
+          loader={histogramLoader}
         />
         <Route
           path="/vaccination-rate"
