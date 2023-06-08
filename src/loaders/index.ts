@@ -5,7 +5,11 @@ import {
   testPositiveLoader,
 } from "./feedback";
 import { vacRateLoader, deathRateLoader } from "./group11";
-import { lollipopChartLoader, stackedAreaLoader, donutChartLoader } from "./group5";
+import {
+  lollipopChartLoader,
+  stackedAreaLoader,
+  donutChartLoader,
+} from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 
@@ -26,7 +30,7 @@ export const group5Loader = (async (): Promise<any> => {
   const lollipopData = await lollipopChartLoader();
   const stackedAreaData = await stackedAreaLoader();
   const donutData = await donutChartLoader();
-  return { lollipopData, stackedAreaData , donutData };
+  return { lollipopData, stackedAreaData, donutData };
 }) satisfies LoaderFunction;
 
 export const impactLoader = (async (): Promise<any> => {

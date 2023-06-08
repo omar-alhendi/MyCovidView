@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { DonutChart } from '@carbon/charts-react';
+import React, { useState, useEffect } from "react";
+import { DonutChart } from "@carbon/charts-react";
 
 const options = {
-  title: 'The number of vaccinated people by states',
+  title: "The number of vaccinated people by states",
   axes: {
     left: {
-      title: 'The number of vaccinated people',
-      mapsTo: 'value',
+      title: "The number of vaccinated people",
+      mapsTo: "value",
     },
     bottom: {
-      mapsTo: 'group',
-      title: 'District',
+      mapsTo: "group",
+      title: "District",
     },
   },
-  height: '500px',
+  height: "500px",
 };
 
 const VaccinatedPeopleByDistrict = ({ data }: { data: any }) => {
   const [districtData, setDistrictData] = useState([]);
-  const [selectedState, setSelectedState] = useState('');
+  const [selectedState, setSelectedState] = useState("");
 
   useEffect(() => {
     setDistrictData(data);
@@ -30,13 +30,14 @@ const VaccinatedPeopleByDistrict = ({ data }: { data: any }) => {
     setSelectedState(event.target.value);
   };
 
-  const states = Array.from(new Set(districtData.map((row) => row.state)));
+
+  const states = Array.from(new Set(districtData.map((row: any) => row.state)));
 
   const filteredData = districtData.filter(
-    (row) => row.state === selectedState
+    (row: any) => row.state === selectedState
   );
 
-  const chartData = filteredData.map((row) => ({
+  const chartData = filteredData.map((row: any) => ({
     group: row.district,
     value: row.value,
   }));

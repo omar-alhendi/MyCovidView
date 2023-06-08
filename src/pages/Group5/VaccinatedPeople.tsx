@@ -2,8 +2,7 @@ import { LollipopChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title:
-    "The number of vaccinated people by states",
+  title: "The number of vaccinated people by states",
   axes: {
     left: {
       title: "The number of vaccinated people",
@@ -21,8 +20,8 @@ const options = {
 const VaccinatedPeople = ({ data }: { data: any }) => {
   return (
     <div>
-        <h1>Lollipop Chart</h1>
-        <LollipopChart data={data} options={options}/>
+      <h1>Lollipop Chart</h1>
+      <LollipopChart data={data} options={options} />
     </div>
   );
 };
