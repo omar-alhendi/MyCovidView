@@ -12,10 +12,11 @@ const GroupGalaxyPage = () => {
         style={{
           display: "grid",
           gap: "2rem",
-          background: "#e0e0e0",
+          background: "#b4d0e7",
           padding: "2rem",
-          borderRadius: "1rem",
+          borderRadius: "2rem",
           margin: "2rem",
+          boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
         }}
       >
         <ColumnChart data={columnChartData} />
