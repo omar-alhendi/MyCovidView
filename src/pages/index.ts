@@ -9,3 +9,4 @@ export { default as DistributionPage } from "./Distribution";
 export { default as Dendrogram } from "./Dendrogram";
 export { default as Heatmap } from "./Heatmap";
 export { default as ImportPage } from "./Import";
+export { default as ColumnChart } from "./ColumnChart";
