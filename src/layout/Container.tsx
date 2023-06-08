@@ -19,6 +19,7 @@ const links: Link[] = [
   { to: "/dendrogram", label: "Dendrogram" },
   { to: "/heatmap", label: "Heatmap" },
   { to: "/import", label: "Import" },
+  { to: "/group-galaxy", label: "Group Galaxy" }
 ];
 
 const Container = () => {
