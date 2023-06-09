@@ -1,7 +1,7 @@
 import { LoaderFunction } from "react-router-dom";
 import {
-  icuCapacityMeterLoader,
   progressBarLoader,
+  icuCapacityMeterLoader,
   testPositiveLoader,
 } from "./feedback";
 import { boxPlotLoader, histogramLoader } from "./distribution";
@@ -15,9 +15,9 @@ import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 
 export const feedbackLoader = (async (): Promise<any> => {
-  const progresssBarData = await progressBarLoader();
   const icuCapacityMeterData = await icuCapacityMeterLoader();
   const testPositiveGaugeData = await testPositiveLoader();
+  const progresssBarData = await progressBarLoader();
   return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
 }) satisfies LoaderFunction;
 
