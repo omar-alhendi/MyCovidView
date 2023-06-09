@@ -28,9 +28,9 @@ const meterChartOptions: any = {
   height: "32px",
 };
 
-const IcuCapacityMeter = ({ data }: { data: any }) => {
+const Meter = ({ data }: { data: any }) => {
   const proportionalMeterChartOptions = {
-    title: "Proportional Meter Chart (ICU Capacity)",
+    title: "ICU Capacity",
     height: "200px",
     meter: {
       proportional: {
@@ -46,13 +46,15 @@ const IcuCapacityMeter = ({ data }: { data: any }) => {
   };
   return (
     <div>
+      <h1>Proportional Meter Chart</h1>
       <MeterChart
         data={data.icuProportionalMeterData}
         options={proportionalMeterChartOptions}
       />
-      <h5 style={{ marginTop: "50px", marginBottom: "20px" }}>
-        Meter Chart (ICU Utilisation Percentage For Each State)
-      </h5>
+      <h1 style={{ marginTop: "50px", marginBottom: "20px" }}>
+        Meter Chart
+      </h1>
+      <h5> ICU Utilisation Percentage For Each State</h5>
       {data.icuMeterDataByState.map((state: any) => (
         <MeterChart data={state} options={meterChartOptions} />
       ))}
@@ -60,4 +62,4 @@ const IcuCapacityMeter = ({ data }: { data: any }) => {
   );
 };
 
-export default IcuCapacityMeter;
+export default Meter;
