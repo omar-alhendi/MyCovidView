@@ -16,9 +16,8 @@ import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { barChartLoader, columnChartLoader } from "./groupGalaxy";
-import { lollipopLoader, stackedBarLoader } from "./comparison";
-import { boxPlotLoader, donutLoader, histogramLoader } from "./distribution";
-import { comboLoader } from "./trends";
+import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
+import { boxPlotLoader, donutLoader } from "./distribution";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -60,17 +59,15 @@ export const fantasyLoader = (async (): Promise<any> => {
 }) satisfies LoaderFunction;
 
 export const comparisonLoader = (async (): Promise<any> => {
+  const horizontalBarData = await horizontalBarLoader();
   const stackedBarData = await stackedBarLoader();
   const stackedLineData = await stackedLineLoader();
   const lollipopData = await lollipopLoader();
-  return { stackedBarData, stackedLineData, lollipopData };
+  return { horizontalBarData, stackedBarData, stackedLineData, lollipopData };
 }) satisfies LoaderFunction;
 
 export const trendsLoader = (async (): Promise<any> => {
-  const stackedLineData = await stackedLineLoader();
-  const comboData = await comboLoader();
-  const stackedAreaData = await stackedAreaLoader();
-  return { stackedLineData, comboData, stackedAreaData };
+  return {  };
 }) satisfies LoaderFunction;
 
 export const correlationLoader = (async (): Promise<any> => {
@@ -79,9 +76,8 @@ export const correlationLoader = (async (): Promise<any> => {
 
 export const distributionLoader = (async (): Promise<any> => {
   const boxPlotData = await boxPlotLoader();
-  const histogramData = await histogramLoader();
   const donutData = await donutLoader();
-  return { boxPlotData, histogramData, donutData };
+  return { boxPlotData, donutData };
 }) satisfies LoaderFunction;
 
 export const group13Loader = (async (): Promise<any> => {

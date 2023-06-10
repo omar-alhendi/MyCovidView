@@ -5,10 +5,12 @@ import StackedBar from "./StackedBar";
 import StackedLine from "./StackedLine";
 import Lollipop from "./Lollipop";
 import "../../styles/chart-bg.css";
+import HorizontalBar from "./HorizontalBar";
 
 // bar, column, stackedBar, stackedLine, lollipop
 const ComparisonPage = () => {
   const {
+    horizontalBarData,
     stackedBarData,
     stackedLineData,
     lollipopData
@@ -16,6 +18,9 @@ const ComparisonPage = () => {
 
   return (
     <div>
+      <div className="chart-bg">
+        <HorizontalBar data={horizontalBarData} />
+      </div>
       <div className="chart-bg">
         <StackedBar data={stackedBarData} />
       </div>
