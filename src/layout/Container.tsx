@@ -16,6 +16,7 @@ const links: Link[] = [
   { to: "/group-2", label: "Group 2" },
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
+  { to: "/comparison", label: "Comparison" },
   { to: "/distribution", label: "Distribution" },
   { to: "/group-13", label: "Group 13" },
   { to: "/dendrogram", label: "Dendrogram" },

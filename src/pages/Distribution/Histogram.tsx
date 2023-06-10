@@ -2,7 +2,7 @@ import { SimpleBarChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title: "Histogram Chart (New Cases by Quarterly Year)",
+  title: "New Cases by Quarterly Year",
   axes: {
     bottom: {
       mapsTo: "value",
@@ -23,7 +23,7 @@ const options = {
 const Histogram = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>My Histogram View</h1>
+      <h1>Histogram Chart</h1>
       <SimpleBarChart data={data} options={options} />
     </div>
   );
