@@ -4,7 +4,6 @@ import {
   icuCapacityMeterLoader,
   testPositiveLoader,
 } from "./feedback";
-import { boxPlotLoader, histogramLoader } from "./distribution";
 import { vacRateLoader, deathRateLoader } from "./group11";
 import {
   lollipopChartLoader,
@@ -17,6 +16,8 @@ import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { barChartLoader, columnChartLoader } from "./groupGalaxy";
+import { lollipopLoader, stackedBarLoader } from "./comparison";
+import { boxPlotLoader, donutLoader, histogramLoader } from "./distribution";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -57,10 +58,18 @@ export const fantasyLoader = (async (): Promise<any> => {
   return { scatterPlotData, lineChartData, areaChartData };
 }) satisfies LoaderFunction;
 
+export const comparisonLoader = (async (): Promise<any> => {
+  const stackedBarData = await stackedBarLoader();
+  const stackedLineData = await stackedLineLoader();
+  const lollipopData = await lollipopLoader();
+  return { stackedBarData, stackedLineData, lollipopData };
+}) satisfies LoaderFunction;
+
 export const distributionLoader = (async (): Promise<any> => {
   const boxPlotData = await boxPlotLoader();
   const histogramData = await histogramLoader();
-  return { boxPlotData, histogramData };
+  const donutData = await donutLoader();
+  return { boxPlotData, histogramData, donutData };
 }) satisfies LoaderFunction;
 
 export const group13Loader = (async (): Promise<any> => {

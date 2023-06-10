@@ -17,6 +17,7 @@ import {
   Heatmap,
   FantasyPage,
   GroupGalaxyPage,
+  ComparisonPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -30,6 +31,7 @@ import {
   heatmapLoader,
   fantasyLoader,
   groupGalaxyLoader,
+  comparisonLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -63,6 +65,11 @@ function App() {
           path="/group-2" 
           element={<Group2Page />} 
           loader={group2Loader} 
+        />
+        <Route 
+          path="/comparison" 
+          element={<ComparisonPage />} 
+          loader={comparisonLoader} 
         />
         <Route
           path="/distribution"

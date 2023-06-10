@@ -3,7 +3,7 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 
 
 const options = {
-  title: "Box Plot Chart (New Cases by Quarterly Year)",
+  title: "New Cases by Quarterly Year",
   axes: {
     left: {
       mapsTo: "group",
@@ -22,7 +22,7 @@ const options = {
 const BoxPlot = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>My Box Plot View</h1>
+      <h1>Box Plot Chart</h1>
       <BoxplotChart data={data} options={options} />
     </div>
   );
