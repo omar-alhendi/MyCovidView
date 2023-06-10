@@ -20,13 +20,13 @@ const options = {
   height: "400px",
 };
 
-const Histogram = ({ data }: { data: any }) => {
+const HorizontalBar = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>Histogram Chart</h1>
+      <h1>Horizontal Bar Chart</h1>
       <SimpleBarChart data={data} options={options} />
     </div>
   );
 };
 
-export default Histogram;
+export default HorizontalBar;
