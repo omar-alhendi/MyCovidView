@@ -15,7 +15,9 @@ const links: Link[] = [
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
   { to: "/distribution", label: "Distribution" },
-  { to: "/group-13", label: "Group 13" }
+  { to: "/group-13", label: "Group 13" },
+  { to: "/dendrogram", label: "Dendrogram" },
+  { to: "/heatmap", label: "Heatmap" }
 ];
 
 const Container = () => {
