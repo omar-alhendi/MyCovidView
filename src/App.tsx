@@ -18,6 +18,8 @@ import {
   FantasyPage,
   GroupGalaxyPage,
   ComparisonPage,
+  TrendsPage,
+  CorrelationPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -32,6 +34,8 @@ import {
   fantasyLoader,
   groupGalaxyLoader,
   comparisonLoader,
+  trendsLoader,
+  correlationLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -70,6 +74,16 @@ function App() {
           path="/comparison" 
           element={<ComparisonPage />} 
           loader={comparisonLoader} 
+        />
+        <Route 
+          path="/trend-identification" 
+          element={<TrendsPage />} 
+          loader={trendsLoader} 
+        />
+        <Route 
+          path="/correlation" 
+          element={<CorrelationPage />} 
+          loader={correlationLoader} 
         />
         <Route
           path="/distribution"

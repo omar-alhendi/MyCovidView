@@ -18,6 +18,7 @@ import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { barChartLoader, columnChartLoader } from "./groupGalaxy";
 import { lollipopLoader, stackedBarLoader } from "./comparison";
 import { boxPlotLoader, donutLoader, histogramLoader } from "./distribution";
+import { comboLoader } from "./trends";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -63,6 +64,17 @@ export const comparisonLoader = (async (): Promise<any> => {
   const stackedLineData = await stackedLineLoader();
   const lollipopData = await lollipopLoader();
   return { stackedBarData, stackedLineData, lollipopData };
+}) satisfies LoaderFunction;
+
+export const trendsLoader = (async (): Promise<any> => {
+  const stackedLineData = await stackedLineLoader();
+  const comboData = await comboLoader();
+  const stackedAreaData = await stackedAreaLoader();
+  return { stackedLineData, comboData, stackedAreaData };
+}) satisfies LoaderFunction;
+
+export const correlationLoader = (async (): Promise<any> => {
+  return { };
 }) satisfies LoaderFunction;
 
 export const distributionLoader = (async (): Promise<any> => {

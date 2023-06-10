@@ -17,13 +17,15 @@ const links: Link[] = [
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
   { to: "/comparison", label: "Comparison" },
+  { to: "/trend-identification", label: "Trend Identification" },
+  { to: "/correlation", label: "Correlation" },
   { to: "/distribution", label: "Distribution" },
   { to: "/group-13", label: "Group 13" },
   { to: "/dendrogram", label: "Dendrogram" },
   { to: "/heatmap", label: "Heatmap" },
   { to: "/import", label: "Import" },
   { to: "/group-galaxy", label: "Group Galaxy" },
-  { to: "/fantasy", label: "Fantasy" },
+  { to: "/fantasy", label: "Fantasy" },,
 ];
 
 const Container = () => {
