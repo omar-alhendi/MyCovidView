@@ -53,7 +53,6 @@ export const fantasyLoader = (async (): Promise<any> => {
   const scatterPlotData = await scatterPlotLoader();
   const lineChartData = await lineChartLoader();
   const areaChartData = await areaChartLoader();
-  console.log("rea char", areaChartData);
   return { scatterPlotData, lineChartData, areaChartData };
 }) satisfies LoaderFunction;
 

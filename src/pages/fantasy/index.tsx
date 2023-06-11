@@ -8,7 +8,6 @@ import ScatterPlotPage from "./ScatterPlotPage";
 const FantasyPage = () => {
   const { areaChartData, lineChartData, scatterPlotData } =
     useLoaderData() as LoaderData<typeof fantasyLoader>;
-  console.log(areaChartData, "page");
 
   return (
     <div
