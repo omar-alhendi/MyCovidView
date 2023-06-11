@@ -14,6 +14,7 @@ import {
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 import { casesLoader, testsLoader } from "./group13";
+import { fetcher } from "../utils";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
