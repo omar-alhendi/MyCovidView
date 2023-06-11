@@ -43,8 +43,6 @@ export const areaChartLoader = async () => {
     }))
   );
 
-  console.log(data, "from the arechart");
-
   return data;
 };
 
