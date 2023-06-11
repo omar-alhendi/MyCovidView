@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { db } from "../../indexedDB";
+import { db, initDB } from "../../indexedDB";
 import {
   DenormalizedRow,
   Loading,
@@ -28,12 +28,16 @@ const ImportPage = () => {
     sortInfo: { columnId: "", direction: "NONE" },
   });
   const totalItemsLength = useLiveQuery(
-    () => db.store.filter(searchText).count(),
+    async () => {
+      if (!db.isOpen()) return 0;
+      return db.store.filter(searchText).count();
+    },
     [queryParams.searchString],
     0
   );
   const data = useLiveQuery(
     async () => {
+      if (!db.isOpen()) return [];
       const { page, pageSize, sortInfo } = queryParams;
       const record = (await db.store.get(1)) ?? {};
       const sortHeaderExists = Object.keys(record).includes(sortInfo.columnId);
@@ -45,8 +49,8 @@ const ImportPage = () => {
           sortInfo.direction === "ASC"
             ? db.store.orderBy(sortInfo.columnId)
             : sortInfo.direction === "DESC"
-              ? db.store.orderBy(sortInfo.columnId).reverse()
-              : db.store;
+            ? db.store.orderBy(sortInfo.columnId).reverse()
+            : db.store;
       }
       return sortedResults
         .filter(searchText)
@@ -194,8 +198,9 @@ const ImportPage = () => {
     }
   };
 
-  const removeDataset = () => {
+  const removeDataset = async () => {
     setIsLoading(true);
+    await initDB("++id");
     db.store
       .clear()
       .then(() => {
@@ -224,7 +229,12 @@ const ImportPage = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        background: "rgb(224, 224, 224)",
+        borderRadius: "1rem",
+      }}
+    >
       {showNotification === "success" || showNotification === "error" ? (
         <ToastNotification
           kind={showNotification}

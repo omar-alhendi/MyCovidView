@@ -17,7 +17,8 @@ const links: Link[] = [
   { to: "/distribution", label: "Distribution" },
   { to: "/group-13", label: "Group 13" },
   { to: "/dendrogram", label: "Dendrogram" },
-  { to: "/heatmap", label: "Heatmap" }
+  { to: "/heatmap", label: "Heatmap" },
+  { to: "/import", label: "Import" },
 ];
 
 const Container = () => {
@@ -33,8 +34,9 @@ const Container = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`sidebar-link ${pathname === link.to ? "active" : ""
-                  }`}
+                className={`sidebar-link ${
+                  pathname === link.to ? "active" : ""
+                }`}
               >
                 {link.label}
               </Link>
