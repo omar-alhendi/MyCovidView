@@ -2,9 +2,10 @@ import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { groupGalaxyLoader } from "../../loaders";
 import ColumnChart from "./ColumnChart";
+import BarChart from "./BarChart";
 
 const GroupGalaxyPage = () => {
-  const { columnChartData } =
+  const { columnChartData, barChartData } =
     useLoaderData() as LoaderData<typeof groupGalaxyLoader>;
   return (
     <div>
@@ -20,6 +21,7 @@ const GroupGalaxyPage = () => {
         }}
       >
         <ColumnChart data={columnChartData} />
+        <BarChart data={barChartData} />
       </div>
     </div>
   );

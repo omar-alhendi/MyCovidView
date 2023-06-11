@@ -1,5 +1,6 @@
 import { fetcher } from "../../utils";
 import { ChartTabularData } from "@carbon/charts/interfaces";
+import { DeathsStateType } from "../../types";
 
 export const columnChartLoader = (async (): Promise<ChartTabularData> => {
   const vaccinationData = await fetcher("vaccination/vax_state.csv");
@@ -33,3 +34,26 @@ export const columnChartLoader = (async (): Promise<ChartTabularData> => {
 
   return data;
 })
+
+export const barChartLoader = async () => {
+  const deathData = await fetcher<DeathsStateType>("epidemic/deaths_state.csv");
+
+  const sumOfDeathForEachState: {[k: string]: number} = {};
+
+  deathData.forEach((row) => {
+    const newDeaths = Number(row.deaths_new);
+    if (isNaN(newDeaths)) return;
+    if (sumOfDeathForEachState[row.state] === undefined) {
+      sumOfDeathForEachState[row.state] = Number(row.deaths_new);
+    } else {
+      sumOfDeathForEachState[row.state] += Number(row.deaths_new);
+    }
+  });
+
+  const data = Object.keys(sumOfDeathForEachState).map((state) => ({
+    group: state,
+    value: sumOfDeathForEachState[state],
+  }))
+
+  return data;
+};
