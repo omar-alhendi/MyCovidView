@@ -11,17 +11,17 @@ const FeedbackPage = () => {
   return (
     <div>
       <div
-          style={{
-            display: "grid",
-            gap: "2rem",
-            background: "#e0e0e0",
-            padding: "2rem",
-            borderRadius: "1rem",
-            margin: "2rem",
-          }}
-        >
-          <ProgressBar data={progresssBarData} />
-        </div>
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}
+      >
+        <ProgressBar data={progresssBarData} />
+      </div>
       <div
         style={{
           display: "grid",
@@ -33,20 +33,20 @@ const FeedbackPage = () => {
         }}
       >
         <Gauge data={testPositiveGaugeData} />
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gap: "2rem",
+          background: "#e0e0e0",
+          padding: "2rem",
+          borderRadius: "1rem",
+          margin: "2rem",
+        }}
+      >
+        <Meter data={icuCapacityMeterData} />
+      </div>
     </div>
-    <div
-      style={{
-        display: "grid",
-        gap: "2rem",
-        background: "#e0e0e0",
-        padding: "2rem",
-        borderRadius: "1rem",
-        margin: "2rem",
-      }}
-    >
-      <Meter data={icuCapacityMeterData} />
-    </div>
-  </div>
   );
 };
 

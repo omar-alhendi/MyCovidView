@@ -2,8 +2,7 @@ import { StackedBarChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title:
-    "Percentage of Vaccinated People in Malaysian States",
+  title: "Percentage of Vaccinated People in Malaysian States",
   axes: {
     left: {
       mapsTo: "group",

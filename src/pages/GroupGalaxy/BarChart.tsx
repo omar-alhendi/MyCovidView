@@ -1,8 +1,6 @@
 import { SimpleBarChart } from "@carbon/charts-react";
-import "@carbon/charts/styles.css";
 import { ScaleTypes } from "@carbon/charts/interfaces";
-import "@carbon/charts/styles.css";
-import "@carbon/styles/css/styles.css";
+
 
 const options = {
 	"title": "Total Death in Each State",

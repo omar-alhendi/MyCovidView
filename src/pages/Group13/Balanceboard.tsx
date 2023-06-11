@@ -3,7 +3,6 @@ import EChartsReact from 'echarts-for-react'
 import * as XLSX from "xlsx";
 
 export default function Balanceboard({ data }: { data: any }) {
-    console.log(data);
 
     const [xAxis] = useState<string[]>(data.xAxis)
     const [pcr] = useState<number[]>(data.Pcr)

@@ -9,18 +9,9 @@ const meterChartOptions: any = {
     peak: 80,
     status: {
       ranges: [
-        {
-          range: [0, 50],
-          status: "success",
-        },
-        {
-          range: [50, 60],
-          status: "warning",
-        },
-        {
-          range: [60, 100],
-          status: "danger",
-        },
+        { range: [0, 50], status: "success" },
+        { range: [50, 60], status: "warning" },
+        { range: [60, 100], status: "danger" },
       ],
     },
   },
@@ -51,9 +42,7 @@ const Meter = ({ data }: { data: any }) => {
         data={data.icuProportionalMeterData}
         options={proportionalMeterChartOptions}
       />
-      <h1 style={{ marginTop: "50px", marginBottom: "20px" }}>
-        Meter Chart
-      </h1>
+      <h1 style={{ marginTop: "50px", marginBottom: "20px" }}>Meter Chart</h1>
       <h5> ICU Utilisation Percentage For Each State</h5>
       {data.icuMeterDataByState.map((state: any) => (
         <MeterChart data={state} options={meterChartOptions} />

@@ -2,14 +2,14 @@ import { fetcher } from "../../utils";
 import { ChartTabularData } from "@carbon/charts/interfaces";
 import { DeathsStateType } from "../../types";
 
-export const columnChartLoader = (async (): Promise<ChartTabularData> => {
+export const columnChartLoader = async (): Promise<ChartTabularData> => {
   const vaccinationData = await fetcher("vaccination/vax_state.csv");
   const populationData = await fetcher("static/population.csv");
 
   const filteredVaccinationData = vaccinationData
     .filter((row: any) => !!row.state)
     .slice(-17);
-  
+
   const filteredPopulationdata = populationData.filter(
     (row: any) => !!row.state
   );
@@ -33,12 +33,12 @@ export const columnChartLoader = (async (): Promise<ChartTabularData> => {
   });
 
   return data;
-})
+};
 
 export const barChartLoader = async () => {
   const deathData = await fetcher<DeathsStateType>("epidemic/deaths_state.csv");
 
-  const sumOfDeathForEachState: {[k: string]: number} = {};
+  const sumOfDeathForEachState: { [k: string]: number } = {};
 
   deathData.forEach((row) => {
     const newDeaths = Number(row.deaths_new);
@@ -53,7 +53,7 @@ export const barChartLoader = async () => {
   const data = Object.keys(sumOfDeathForEachState).map((state) => ({
     group: state,
     value: sumOfDeathForEachState[state],
-  }))
+  }));
 
   return data;
 };
