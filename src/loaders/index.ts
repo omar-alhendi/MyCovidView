@@ -17,7 +17,6 @@ import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { columnChartLoader } from "./groupGalaxy";
-import { ChartTabularData } from "@carbon/charts/interfaces";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -115,41 +114,4 @@ export const heatmapLoader = (async (): Promise<any[]> => {
 export const groupGalaxyLoader = (async (): Promise<any> => {
   const columnChartData = await columnChartLoader();
   return { columnChartData };
-}) satisfies LoaderFunction;
-
-export const barLoader = (async (): Promise<ChartTabularData> => {
-  // const vaccinationData = await fetcher("vaccination/vax_state.csv");
-  // const populationData = await fetcher("static/population.csv");
-  const deathData = await fetcher<{
-    date: string,
-    state: string,
-    deaths_new: string,
-    deaths_bid: string,
-    deaths_new_dod: string,
-    deaths_bid_dod: string,
-    deaths_unvax: string,
-    deaths_pvax: string,
-    deaths_fvax: string,
-    deaths_boost: string,
-    deaths_tat: string
-  }>("epidemic/deaths_state.csv");
-
-  const sumOfDeathForEachState: {[k: string]: number} = {};
-
-  deathData.forEach((row) => {
-    const newDeaths = Number(row.deaths_new);
-    if (isNaN(newDeaths)) return;
-    if (sumOfDeathForEachState[row.state] === undefined) {
-      sumOfDeathForEachState[row.state] = Number(row.deaths_new);
-    } else {
-      sumOfDeathForEachState[row.state] += Number(row.deaths_new);
-    }
-  });
-
-  const data = Object.keys(sumOfDeathForEachState).map((state) => ({
-    group: state,
-    value: sumOfDeathForEachState[state],
-  }))
-
-  return data;
 }) satisfies LoaderFunction;
