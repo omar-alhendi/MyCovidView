@@ -6,3 +6,5 @@ export { default as Group5Page } from "./Group5";
 export { default as Group2Page } from "./Group2";
 export { default as DistributionPage } from "./Distribution";
 export { default as ImportPage } from "./ImportPage";
+export { default as Dendrogram } from "./Dendrogram";
+export { default as Heatmap } from "./Heatmap";

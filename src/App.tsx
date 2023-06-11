@@ -13,6 +13,8 @@ import {
   DistributionPage,
   Group2Page,
   ImportPage,
+  Dendrogram,
+  Heatmap,
 } from "./pages";
 import {
   feedbackLoader,
@@ -22,6 +24,8 @@ import {
   group2Loader,
   distributionLoader,
   group13Loader,
+  dendrogramLoader,
+  heatmapLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -54,6 +58,16 @@ function App() {
           path="/group-13"
           element={<Group13Page />}
           loader={group13Loader}
+        />
+        <Route
+          path="/dendrogram"
+          element={<Dendrogram />}
+          loader={dendrogramLoader}
+        />
+        <Route
+          path="/heatmap"
+          element={<Heatmap />}
+          loader={heatmapLoader}
         />
       </Route>
     )
