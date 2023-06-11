@@ -15,6 +15,7 @@ import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
+import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -46,6 +47,13 @@ export const group2Loader = (async (): Promise<any> => {
   const stackedLineData = await stackedLineLoader();
   const comboChartData = await comboChartLoader();
   return { stackedLineData, comboChartData };
+}) satisfies LoaderFunction;
+
+export const fantasyLoader = (async (): Promise<any> => {
+  const scatterPlotData = await scatterPlotLoader();
+  const lineChartData = await lineChartLoader(); 
+  const areaChartData = await areaChartLoader();
+  return { scatterPlotData, lineChartData, areaChartData}
 }) satisfies LoaderFunction;
 
 export const distributionLoader = (async (): Promise<any> => {
