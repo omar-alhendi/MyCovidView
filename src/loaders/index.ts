@@ -1,4 +1,4 @@
-import { LoaderFunction } from "react-router-dom";
+import { LoaderFunction, Params } from "react-router-dom";
 import {
   progressBarLoader,
   icuCapacityMeterLoader,
