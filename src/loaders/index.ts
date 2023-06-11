@@ -16,7 +16,6 @@ import { stackedLineLoader, comboChartLoader } from "./group2";
 import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
-import { ChartTabularData } from "@carbon/charts/interfaces";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -109,82 +108,4 @@ export const heatmapLoader = (async (): Promise<any[]> => {
   }));
 
   return result;
-}) satisfies LoaderFunction;
-
-export const columnChartLoader = (async (): Promise<ChartTabularData> => {
-  const vaccinationData = await fetcher("vaccination/vax_state.csv");
-  const populationData = await fetcher("static/population.csv");
-
-  const filteredVaccinationData = vaccinationData
-    .filter((row: any) => !!row.state)
-    .slice(-17);
-
-  // const filteredFulllyVacinatedAdultData = vaccinationData
-  //   .filter((row: any) => !!row.state)
-  //   .filter((row: any) => row.columnName === "cumul_full_adol")
-  //   .slice(-17);
-  
-  // const filteredBoosterAdultData = vaccinationData
-  //   .filter((row: any) => !!row.state)
-  //   .filter((row: any) => row.columnName === "cumul_booster_adol")
-  //   .slice(-17);
-  
-  // const filteredBooster2AdultData = vaccinationData
-  //   .filter((row: any) => !!row.state)
-  //   .filter((row: any) => row.columnName === "cumul_booster2_adol")
-  //   .slice(-17);
-  
-  // const filteredFFulllyVacinatedChildData = vaccinationData
-  //   .filter((row: any) => !!row.state)
-  //   .filter((row: any) => row.columnName === "cumul_full_child")
-  //   .slice(-17);
-  
-  const filteredPopulationdata = populationData.filter(
-    (row: any) => !!row.state
-  );
-
-  const data = filteredVaccinationData.map((row: any) => {
-    const state: any = filteredPopulationdata.find(
-      ({ state }: any) => state === row.state
-    );
-    return [
-      // {
-      //   group: row["state"],
-      //   key: "Fully Vaccinated",
-      //   value: (+row["cumul_full"] / +state["pop"]) * 100,
-      // },
-      {
-        group: row["state"],
-        key: "Adult Fully Vaccinated",
-        value: (+row["cumul_full_adol"] / +state["pop"]) * 100,
-      },
-      {
-        group: row["state"],
-        key: "Adult Booster 1",
-        value: (+row["cumul_booster_adol"] / +state["pop"]) * 100,
-      },
-      // {
-      //   group: row["state"],
-      //   key: "Adult Booster 2",
-      //   value: (+row["cumul_booster2_adol"] / +state["pop"]) * 100,
-      // },
-      {
-        group: row["state"],
-        key: "Children Fully Vaccinated",
-        value: (+row["cumul_full_child"] / +state["pop"]) * 100,
-      },
-      {
-        group: row["state"],
-        key: "Children Booster 1",
-        value: (+row["cumul_booster_child"] / +state["pop"]) * 100,
-      },
-      // {
-      //   group: row["state"],
-      //   key: "Children Booster 2",
-      //   value: (+row["cumul_booster2_child"] / +state["pop"]) * 100,
-      // }
-    ];
-  });
-
-  return data;
 }) satisfies LoaderFunction;
