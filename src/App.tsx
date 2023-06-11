@@ -30,6 +30,7 @@ import {
   heatmapLoader,
   fantasyLoader,
   groupGalaxyLoader,
+  simpleBarLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -83,6 +84,11 @@ function App() {
           path="/group-galaxy"
           element={<GroupGalaxyPage />}
           loader={groupGalaxyLoader}
+        />
+        <Route
+          path="/bar/:sortOrder?"
+          element={<BarChart />}
+          loader={simpleBarLoader}
         />
       </Route>
     )

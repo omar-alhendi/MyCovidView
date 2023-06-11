@@ -1,4 +1,4 @@
-import { LoaderFunction, Params } from "react-router-dom";
+import { LoaderFunction } from "react-router-dom";
 import {
   progressBarLoader,
   icuCapacityMeterLoader,
@@ -16,7 +16,9 @@ import { stackedLineLoader, comboChartLoader } from "./group2";
 import { casesLoader, testsLoader } from "./group13";
 import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
-import { barChartLoader, columnChartLoader } from "./groupGalaxy";
+import { columnChartLoader } from "./groupGalaxy";
+import { ChartTabularData } from "@carbon/charts/interfaces";
+import { DeathsStateType } from "../types";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -111,8 +113,35 @@ export const heatmapLoader = (async (): Promise<any[]> => {
   return result;
 }) satisfies LoaderFunction;
 
-export const groupGalaxyLoader = (async () => {
+export const groupGalaxyLoader = (async (): Promise<any> => {
   const columnChartData = await columnChartLoader();
-  const barChartData = await barChartLoader();
-  return { columnChartData, barChartData };
+  return { columnChartData };
+}) satisfies LoaderFunction;
+
+export const simpleBarLoader = (async ({ params }): Promise<ChartTabularData> => {
+  const deathData = await fetcher<DeathsStateType>("epidemic/deaths_state.csv");
+
+  const sumOfDeathForEachState: {[k: string]: number} = {};
+
+  deathData.forEach((row) => {
+    const newDeaths = Number(row.deaths_new);
+    if (isNaN(newDeaths)) return;
+    if (sumOfDeathForEachState[row.state] === undefined) {
+      sumOfDeathForEachState[row.state] = Number(row.deaths_new);
+    } else {
+      sumOfDeathForEachState[row.state] += Number(row.deaths_new);
+    }
+  });
+
+  const data = Object.keys(sumOfDeathForEachState).map((state) => ({
+    group: state,
+    value: sumOfDeathForEachState[state],
+  }))
+
+  // take sort order from the route path params
+  const { sortOrder } = params;
+  if (sortOrder === undefined || sortOrder !== "asc" && sortOrder !== "desc") return data;
+  data.sort((a, b) => sortOrder === "asc" ? b.value - a.value : a.value - b.value);
+
+  return data;
 }) satisfies LoaderFunction;
