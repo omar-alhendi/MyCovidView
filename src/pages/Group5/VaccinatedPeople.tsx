@@ -3,7 +3,6 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
   title: "The number of vaccinated people by states",
-  resizable: true,
   axes: {
     left: {
       title: "The number of vaccinated people",

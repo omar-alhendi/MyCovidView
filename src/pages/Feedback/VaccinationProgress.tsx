@@ -3,7 +3,7 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
   title:
-    "Percentage of Vaccinated People in Malaysian States",
+    "Horizontal Progress Bar Chart (percentage of vaccinated people in malaysian states)",
   axes: {
     left: {
       mapsTo: "group",
@@ -17,13 +17,12 @@ const options = {
   },
   height: "400px",
 };
-const ProgressBar = ({ data }: { data: any }) => {
+const VaccinationProgress = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>Horizontal Progress Bar Chart</h1>
       <StackedBarChart data={data} options={options} />
     </div>
   );
 };
 
-export default ProgressBar;
+export default VaccinationProgress;
