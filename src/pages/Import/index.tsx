@@ -9,7 +9,7 @@ import IDataTable from "./DataTable";
 import IModal from "./IModal";
 import ImportModal from "./ImportModal";
 import { useLiveQuery } from "dexie-react-hooks";
-import { SortInfo } from "../../hooks/useSortInfo";
+import { SortInfo } from "./useSortInfo";
 
 const ImportPage = () => {
   const [open, setOpen] = useState<
@@ -45,8 +45,8 @@ const ImportPage = () => {
           sortInfo.direction === "ASC"
             ? db.store.orderBy(sortInfo.columnId)
             : sortInfo.direction === "DESC"
-            ? db.store.orderBy(sortInfo.columnId).reverse()
-            : db.store;
+              ? db.store.orderBy(sortInfo.columnId).reverse()
+              : db.store;
       }
       return sortedResults
         .filter(searchText)

@@ -25,7 +25,7 @@ import {
   TableToolbarSearch,
 } from "carbon-components-react";
 import { Edit, TrashCan } from "@carbon/icons-react";
-import { SortInfo, useSortInfo } from "../../hooks/useSortInfo";
+import { SortInfo, useSortInfo } from "./useSortInfo";
 import { DataTableSortState } from "carbon-components-react/lib/components/DataTable/state/sorting";
 
 const IDataTable = ({

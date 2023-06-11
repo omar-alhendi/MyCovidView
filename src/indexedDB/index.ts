@@ -20,5 +20,5 @@ export const initDB = async (fields: string) => {
   db.on("blocked", () => false); // Silence console warning of blocked event.
   await db.delete();
   db.version(1).stores({ [storeName]: fields });
-  db.open();
+  await db.open();
 };
