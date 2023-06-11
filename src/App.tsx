@@ -15,6 +15,7 @@ import {
   ImportPage,
   Dendrogram,
   Heatmap,
+  FantasyPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -26,6 +27,7 @@ import {
   group13Loader,
   dendrogramLoader,
   heatmapLoader,
+  fantasyLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -63,6 +65,11 @@ function App() {
           path="/dendrogram"
           element={<Dendrogram />}
           loader={dendrogramLoader}
+        />
+        <Route
+          path="/fantasy"
+          element={<FantasyPage />}
+          loader={fantasyLoader}
         />
         <Route
           path="/heatmap"
