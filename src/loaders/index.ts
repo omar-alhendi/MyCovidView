@@ -1,12 +1,13 @@
 import { LoaderFunction } from "react-router-dom";
 import { fetcher } from "../utils";
 import {
-  icuCapacityMeterLoader,
   progressBarLoader,
+  icuCapacityMeterLoader,
   testPositiveLoader,
 } from "./feedback";
 import { ChartTabularData } from "@carbon/charts/interfaces";
 
+import { boxPlotLoader, histogramLoader } from "./distribution";
 import { vacRateLoader, deathRateLoader } from "./group11";
 import {
   lollipopChartLoader,
@@ -17,9 +18,9 @@ import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 
 export const feedbackLoader = (async (): Promise<any> => {
-  const progresssBarData = await progressBarLoader();
   const icuCapacityMeterData = await icuCapacityMeterLoader();
   const testPositiveGaugeData = await testPositiveLoader();
+  const progresssBarData = await progressBarLoader();
   return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
 }) satisfies LoaderFunction;
 
@@ -606,3 +607,8 @@ export const histogramLoader = (async (): Promise<ChartTabularData> => {
 
 //   return processedData;
 // }) satisfies LoaderFunction;
+export const distributionLoader = (async (): Promise<any> => {
+  const boxPlotData = await boxPlotLoader();
+  const histogramData = await histogramLoader();
+  return { boxPlotData, histogramData };
+}) satisfies LoaderFunction;

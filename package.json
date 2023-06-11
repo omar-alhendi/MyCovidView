@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@carbon/charts": "^1.7.6",
     "@carbon/charts-react": "^1.7.6",
     "@types/d3": "^7.4.0",
     "@vitejs/plugin-react": "^4.0.0",
@@ -41,6 +42,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.9"
   }
 }

@@ -15,6 +15,7 @@ import {
   ImpactPage,
   Group11Page,
   Group5Page,
+  DistributionPage,
   Group2Page,
 } from "./pages";
 import{
@@ -34,6 +35,7 @@ import {
   group11Loader,
   group5Loader,
   group2Loader,
+  distributionLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -100,6 +102,7 @@ function App() {
         <Route path="/group-5" element={<Group5Page />} loader={group5Loader} />
         <Route path="/impact" element={<ImpactPage />} loader={impactLoader} />
         <Route path="/group-2" element={<Group2Page />} loader={group2Loader} />
+        <Route path="/distribution" element={<DistributionPage />} loader={distributionLoader}/>
       </Route>
     )
   );
