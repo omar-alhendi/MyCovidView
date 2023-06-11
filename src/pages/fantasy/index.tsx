@@ -1,13 +1,15 @@
-import { fantasyLoader } from '../../loaders';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../types';
+import { fantasyLoader } from "../../loaders";
+import { useLoaderData } from "react-router-dom";
+import { LoaderData } from "../../types";
 import AreaChartPage from "./AreaChartPage";
-import LineChartPage from './LineChartPage';
-import ScatterPlotPage from './ScatterPlotPage';
+import LineChartPage from "./LineChartPage";
+import ScatterPlotPage from "./ScatterPlotPage";
 
 const FantasyPage = () => {
-  const { AreaChartData , LineChartData, ScatterPlotData} =
+  const { areaChartData, lineChartData, scatterPlotData } =
     useLoaderData() as LoaderData<typeof fantasyLoader>;
+  console.log(areaChartData, "page");
+
   return (
     <div
       style={{
@@ -19,9 +21,9 @@ const FantasyPage = () => {
         margin: "2rem",
       }}
     >
-      <AreaChartPage data={AreaChartData} />
-      <LineChartPage data={LineChartData} />
-      <ScatterPlotPage data={ScatterPlotData} />
+      <AreaChartPage data={areaChartData} />
+      <LineChartPage data={lineChartData} />
+      <ScatterPlotPage data={scatterPlotData} />
     </div>
   );
 };

@@ -51,9 +51,10 @@ export const group2Loader = (async (): Promise<any> => {
 
 export const fantasyLoader = (async (): Promise<any> => {
   const scatterPlotData = await scatterPlotLoader();
-  const lineChartData = await lineChartLoader(); 
+  const lineChartData = await lineChartLoader();
   const areaChartData = await areaChartLoader();
-  return { scatterPlotData, lineChartData, areaChartData}
+  console.log("rea char", areaChartData);
+  return { scatterPlotData, lineChartData, areaChartData };
 }) satisfies LoaderFunction;
 
 export const distributionLoader = (async (): Promise<any> => {
@@ -104,9 +105,8 @@ export const heatmapLoader = (async (): Promise<any[]> => {
   const result = filteredData.map((row: any) => ({
     age_group: row.age_group,
     dose: row.dose,
-    value: row.value
+    value: row.value,
   }));
 
   return result;
 }) satisfies LoaderFunction;
-
