@@ -16,7 +16,7 @@ import {
   Dendrogram,
   Heatmap,
   FantasyPage,
-  GroupGalaxyPage,
+  ColumnChart,
 } from "./pages";
 import {
   feedbackLoader,
@@ -29,7 +29,7 @@ import {
   dendrogramLoader,
   heatmapLoader,
   fantasyLoader,
-  groupGalaxyLoader,
+  columnChartLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -79,9 +79,9 @@ function App() {
           loader={heatmapLoader} 
         />
         <Route
-          path="/group-galaxy"
-          element={<GroupGalaxyPage />}
-          loader={groupGalaxyLoader}
+          path="/columnchart"
+          element={<ColumnChart />}
+          loader={columnChartLoader}
         />
       </Route>
     )
