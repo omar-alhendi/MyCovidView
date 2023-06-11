@@ -140,7 +140,7 @@ export const simpleBarLoader = (async ({ params }): Promise<ChartTabularData> =>
 
   // take sort order from the route path params
   const { sortOrder } = params;
-  if (sortOrder === undefined || sortOrder !== "asc" && sortOrder !== "desc") return data;
+  if (sortOrder === undefined) return data;
   data.sort((a, b) => sortOrder === "asc" ? b.value - a.value : a.value - b.value);
 
   return data;

@@ -37,9 +37,9 @@ const BarChart = () => {
 			<select value={sortOrder} onChange={(event) => {
 				navigate(`/bar/${event.target.value}`)
 			}}>
-				<option value="">None</option>
 				<option value="asc">Ascending</option>
 				<option value="desc">Descending</option>
+				<option value="">None</option>
 			</select>
 		</div>
 	);
