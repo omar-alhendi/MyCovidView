@@ -22,6 +22,8 @@ import {
   group11Loader,
   group5Loader,
   group2Loader,
+  dendrogramLoader,
+  heatmapLoader,
   distributionLoader,
   group13Loader,
   dendrogramLoader,
