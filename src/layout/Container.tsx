@@ -22,6 +22,7 @@ const links: Link[] = [
   { to: "/heatmap", label: "Heatmap" },
   { to: "/import", label: "Import" },
   { to: "/group-galaxy", label: "Group Galaxy" },
+  { to: "/fantasy", label: "Fantasy" },
 ];
 
 const Container = () => {
