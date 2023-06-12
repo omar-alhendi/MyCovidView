@@ -18,7 +18,7 @@ import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { barChartLoader, columnChartLoader } from "./groupGalaxy";
 import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
 import { boxPlotLoader, donutLoader } from "./distribution";
-import { heatMapLoader} from "./patterns";
+import { boxPlotLoader1, heatMapLoader} from "./patterns";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -114,11 +114,6 @@ export const dendrogramLoader = (async (): Promise<any[]> => {
   return dendrogramData;
 }) satisfies LoaderFunction;
 
-export const patternsLoader = (async () => {
-  const heatMapData = await heatMapLoader();
-  return { heatMapData };
-}) satisfies LoaderFunction;
-
 export const heatmapLoader = (async (): Promise<any[]> => {
   const dataset = await fetcher("vaccination/vax_snapshot.csv");
   // Filter the data for the specific state (e.g., Malaysia)
@@ -138,4 +133,10 @@ export const groupGalaxyLoader = (async () => {
   const columnChartData = await columnChartLoader();
   const barChartData = await barChartLoader();
   return { columnChartData, barChartData };
+}) satisfies LoaderFunction;
+
+export const patternsLoader = (async () => {
+  const heatMapData = await heatMapLoader();
+  const boxPlotData = await boxPlotLoader1();
+  return { heatMapData, boxPlotData };
 }) satisfies LoaderFunction;
