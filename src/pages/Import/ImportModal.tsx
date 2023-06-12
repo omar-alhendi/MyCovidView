@@ -75,7 +75,7 @@ const ImportModal = (props: {
     results.meta.fields?.forEach((field) => fields.push(field));
     setIsLoading(true);
     await initDB(fields.join(","));
-    if (url.current.length > 0) await db.source.add({ url: url.current });
+    await db.source.add({ url: url.current });
     db.store
       .bulkAdd(results.data)
       .then(async () => {
