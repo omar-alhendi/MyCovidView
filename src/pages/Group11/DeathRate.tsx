@@ -1,6 +1,4 @@
 import { StackedBarChart } from '@carbon/charts-react';
-import '@carbon/charts/styles.css';
-import "@carbon/styles/css/styles.css";
 import { ScaleTypes } from '@carbon/charts/interfaces';
 
 const options = {

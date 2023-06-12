@@ -1,10 +1,10 @@
-import { ScaleTypes } from "@carbon/charts/interfaces";
 import { LineChart } from "@carbon/charts-react";
+import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title: "Stacked Line Chart (Recovered & Active Cases)",
+  title: "Line Chart (Active COVID-19 Cases)",
   points: {
-    enabled: false,
+    enabled: false, //hide data points
     radius: 3,
   },
   axes: {
@@ -32,13 +32,12 @@ const options = {
   },
 };
 
-const StackedLine = ({ data }: { data: any }) => {
+const LineChartPage = ({ data }: { data: any }) => {
   return (
     <div>
-      {/* <h1>Stacked Line Chart</h1> */}
       <LineChart data={data} options={options} />
     </div>
   );
 };
 
-export default StackedLine;
+export default LineChartPage;

@@ -1,5 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { SideNav, SideNavItems } from "carbon-components-react";
+import "@carbon/styles/css/styles.css";
+import "@carbon/charts/styles.css";
 import "./Container.css";
 
 interface Link {
@@ -14,7 +16,13 @@ const links: Link[] = [
   { to: "/group-2", label: "Group 2" },
   { to: "/group-5", label: "Group 5" },
   { to: "/group-11", label: "Group 11" },
-  {to: "/distribution", label: "Distribution"}
+  { to: "/distribution", label: "Distribution" },
+  { to: "/group-13", label: "Group 13" },
+  { to: "/dendrogram", label: "Dendrogram" },
+  { to: "/heatmap", label: "Heatmap" },
+  { to: "/import", label: "Import" },
+  { to: "/group-galaxy", label: "Group Galaxy" },
+  { to: "/fantasy", label: "Fantasy" },
 ];
 
 const Container = () => {

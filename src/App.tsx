@@ -12,6 +12,11 @@ import {
   Group5Page,
   DistributionPage,
   Group2Page,
+  ImportPage,
+  Dendrogram,
+  Heatmap,
+  FantasyPage,
+  GroupGalaxyPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -20,8 +25,14 @@ import {
   group5Loader,
   group2Loader,
   distributionLoader,
+  group13Loader,
+  dendrogramLoader,
+  heatmapLoader,
+  fantasyLoader,
+  groupGalaxyLoader,
 } from "./loaders";
 import { Container } from "./layout";
+import Group13Page from "./pages/Group13";
 
 function App() {
   const router = createBrowserRouter(
@@ -45,6 +56,32 @@ function App() {
           path="/distribution"
           element={<DistributionPage />}
           loader={distributionLoader}
+        />
+        <Route path="/import" element={<ImportPage />} />
+        <Route
+          path="/group-13"
+          element={<Group13Page />}
+          loader={group13Loader}
+        />
+        <Route
+          path="/dendrogram"
+          element={<Dendrogram />}
+          loader={dendrogramLoader}
+        />
+        <Route
+          path="/fantasy"
+          element={<FantasyPage />}
+          loader={fantasyLoader}
+        />
+        <Route
+          path="/heatmap"
+          element={<Heatmap />}
+          loader={heatmapLoader} 
+        />
+        <Route
+          path="/group-galaxy"
+          element={<GroupGalaxyPage />}
+          loader={groupGalaxyLoader}
         />
       </Route>
     )
