@@ -3,7 +3,7 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
   title:
-    "Percentage of Fully Vaccinated Adults and Children Across Differnet Malaysia States",
+    "Percentage of Fully Vaccinated Adults and Children Across Different Malaysia States",
   axes: {
     left: {
       title: "Percentage of fully vaccinated people (%)",
