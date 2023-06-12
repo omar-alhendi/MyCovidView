@@ -1,8 +1,10 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db, initDB } from "../../indexedDB";
 import {
   DenormalizedRow,
+  Dropdown,
   Loading,
+  OnChangeData,
   ToastNotification,
 } from "carbon-components-react";
 import IDataTable from "./DataTable";
@@ -10,6 +12,18 @@ import IModal from "./IModal";
 import ImportModal from "./ImportModal";
 import { useLiveQuery } from "dexie-react-hooks";
 import { SortInfo } from "./useSortInfo";
+import { boxPlotLoader, histogramLoader } from "../../loaders/distribution";
+import { areaChartLoader, lineChartLoader } from "../../loaders/fantasy";
+import { casesLoader } from "../../loaders/group13";
+import { stackedLineLoader } from "../../loaders/group2";
+import { stackedAreaLoader } from "../../loaders/group5";
+import BoxPlot from "../Distribution/BoxPlot";
+import Histogram from "../Distribution/Histogram";
+import LineChartPage from "../fantasy/LineChartPage";
+import KpiDashboard from "../Group13/KpiDashboard";
+import StackedLine from "../Group2/RecoverTrend";
+import AreaChartPage from "../fantasy/AreaChartPage";
+import VaccineDoseType from "../Group5/VaccineDoseType";
 
 const ImportPage = () => {
   const [open, setOpen] = useState<
@@ -29,15 +43,27 @@ const ImportPage = () => {
   });
   const totalItemsLength = useLiveQuery(
     async () => {
-      if (!db.isOpen()) return 0;
+      if (!db.isOpen()) await db.open();
       return db.store.filter(searchText).count();
     },
     [queryParams.searchString],
     0
   );
+  const source = useLiveQuery(
+    async () => {
+      if (!db.isOpen()) await db.open();
+      const record = await db.source.get(1);
+      return record.url.replace(
+        "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/",
+        ""
+      );
+    },
+    [],
+    ""
+  );
   const data = useLiveQuery(
     async () => {
-      if (!db.isOpen()) return [];
+      if (!db.isOpen()) await db.open();
       const { page, pageSize, sortInfo } = queryParams;
       const record = (await db.store.get(1)) ?? {};
       const sortHeaderExists = Object.keys(record).includes(sortInfo.columnId);
@@ -58,9 +84,74 @@ const ImportPage = () => {
         .limit(pageSize)
         .toArray();
     },
-    [queryParams],
+    [
+      queryParams.page,
+      queryParams.pageSize,
+      queryParams.searchString,
+      queryParams.sortInfo.columnId,
+      queryParams.sortInfo.direction,
+    ],
     []
   );
+  const chartsAvailable: {
+    [key: string]: Array<{
+      title: string;
+      loader: () => Promise<any>;
+      component: any;
+    }>;
+  } = {
+    "epidemic/cases_malaysia.csv": [
+      { title: "Box Plot", loader: boxPlotLoader, component: BoxPlot },
+      { title: "Histogram", loader: histogramLoader, component: Histogram },
+      {
+        title: "Line Chart",
+        loader: lineChartLoader,
+        component: LineChartPage,
+      },
+      { title: "KPI Dashboard", loader: casesLoader, component: KpiDashboard },
+      {
+        title: "Stacked Line Chart",
+        loader: stackedLineLoader,
+        component: StackedLine,
+      },
+    ],
+    "vaccination/vax_malaysia.csv": [
+      {
+        title: "Area Chart",
+        loader: areaChartLoader,
+        component: AreaChartPage,
+      },
+      {
+        title: "Stacked Area Chart",
+        loader: stackedAreaLoader,
+        component: VaccineDoseType,
+      },
+    ],
+  };
+  const [chartSelected, setChartSelected] = useState<any>("");
+  const [chartComponent, setChartComponent] = useState<any>(null);
+
+  useEffect(() => {
+    if (totalItemsLength === 0) setChartSelected("");
+  }, [totalItemsLength]);
+
+  useEffect(() => {
+    const renderChart = () => {
+      const chartConfig = chartsAvailable[source]?.find(
+        (chart) => chart.title === chartSelected
+      );
+      if (!chartConfig) return;
+      const Chart = chartConfig.component;
+      chartConfig.loader().then((data) => {
+        setChartComponent(<Chart data={data} />);
+      });
+    };
+    renderChart();
+  }, [chartSelected, data]);
+
+  const onChange = (e: OnChangeData) => {
+    setChartSelected(e.selectedItem);
+  };
 
   const searchText = (record: object) => {
     return (
@@ -231,8 +322,13 @@ const ImportPage = () => {
   return (
     <div
       style={{
-        background: "rgb(224, 224, 224)",
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+        background: "#e0e0e0",
+        padding: "2rem",
         borderRadius: "1rem",
+        margin: "2rem",
       }}
     >
       {showNotification === "success" || showNotification === "error" ? (
@@ -305,6 +401,20 @@ const ImportPage = () => {
           danger
         />
       ) : null}
+      {totalItemsLength !== 0 && chartsAvailable[source] && (
+        <>
+          <div style={{ width: 450, alignSelf: "end" }}>
+            <Dropdown
+              id="dropdown"
+              direction="top"
+              label="Choose the chart to display"
+              items={chartsAvailable[source].map((chart) => chart.title)}
+              onChange={onChange}
+            />
+          </div>
+          <div>{chartComponent}</div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { initDB, db } from "../../indexedDB";
 import {
   Button,
@@ -24,6 +24,7 @@ const ImportModal = (props: {
 }) => {
   const { closeModal, setIsLoading, setShowNotification } = props;
   const [dataSourceType, setDataSourceType] = useState<"file" | "url">("file");
+  const url = useRef("");
 
   const toggleDataSourceType = (event: ContentSwitcherOnChangeData) => {
     if (event.name !== "file" && event.name !== "url") return;
@@ -48,6 +49,7 @@ const ImportModal = (props: {
       setIsLoading(true);
       try {
         data = (await axios.get(input.value)).data;
+        url.current = input.value;
       } catch {
         setIsLoading(false);
         setShowNotification("error");
@@ -73,6 +75,7 @@ const ImportModal = (props: {
     results.meta.fields?.forEach((field) => fields.push(field));
     setIsLoading(true);
     await initDB(fields.join(","));
+    if (url.current.length > 0) await db.source.add({ url: url.current });
     db.store
       .bulkAdd(results.data)
       .then(async () => {
