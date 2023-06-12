@@ -27,6 +27,7 @@ function DeathRate ({ data }: { data: any }) {
 	return (
 		<div>
 			<h1>Stacked Bar Chart</h1>
+			<p>{processed_data[0].date}</p>
 			<StackedBarChart data={processed_data} options={options} />
 		</div>
 	);
