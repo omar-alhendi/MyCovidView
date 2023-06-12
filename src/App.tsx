@@ -20,6 +20,7 @@ import {
   ComparisonPage,
   TrendsPage,
   CorrelationPage,
+  PatternsPage,
 } from "./pages";
 import {
   feedbackLoader,
@@ -36,6 +37,7 @@ import {
   comparisonLoader,
   trendsLoader,
   correlationLoader,
+  patternsLoader,
 } from "./loaders";
 import { Container } from "./layout";
 import Group13Page from "./pages/Group13";
@@ -55,44 +57,44 @@ function App() {
           element={<Group11Page />}
           loader={group11Loader}
         />
-        <Route 
-          path="/group-5" 
-          element={<Group5Page />} 
-          loader={group5Loader} 
+        <Route
+          path="/group-5"
+          element={<Group5Page />}
+          loader={group5Loader}
         />
-        <Route 
-          path="/impact" 
-          element={<ImpactPage />} 
-          loader={impactLoader} 
+        <Route
+          path="/impact"
+          element={<ImpactPage />}
+          loader={impactLoader}
         />
-        <Route 
-          path="/group-2" 
-          element={<Group2Page />} 
-          loader={group2Loader} 
+        <Route
+          path="/group-2"
+          element={<Group2Page />}
+          loader={group2Loader}
         />
-        <Route 
-          path="/comparison" 
-          element={<ComparisonPage />} 
-          loader={comparisonLoader} 
+        <Route
+          path="/comparison"
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
-        <Route 
-          path="/trend-identification" 
-          element={<TrendsPage />} 
-          loader={trendsLoader} 
+        <Route
+          path="/trend-identification"
+          element={<TrendsPage />}
+          loader={trendsLoader}
         />
-        <Route 
-          path="/correlation" 
-          element={<CorrelationPage />} 
-          loader={correlationLoader} 
+        <Route
+          path="/correlation"
+          element={<CorrelationPage />}
+          loader={correlationLoader}
         />
         <Route
           path="/distribution"
           element={<DistributionPage />}
           loader={distributionLoader}
         />
-        <Route 
-          path="/import" 
-          element={<ImportPage />} 
+        <Route
+          path="/import"
+          element={<ImportPage />}
         />
         <Route
           path="/group-13"
@@ -112,7 +114,7 @@ function App() {
         <Route
           path="/heatmap"
           element={<Heatmap />}
-          loader={heatmapLoader} 
+          loader={heatmapLoader}
         />
         <Route
           path="/group-galaxy"
@@ -136,37 +138,37 @@ function App() {
         />
         <Route
           path="/charts/sunburst-chart"
-          element={<ImpactPage />} 
+          element={<ImpactPage />}
           loader={impactLoader}
         />
         <Route
           path="/charts/treemap"
-          element={<ImpactPage />} 
+          element={<ImpactPage />}
           loader={impactLoader}
         />
         <Route
           path="/charts/stacked-line-chart"
-          element={<Group2Page />} 
+          element={<Group2Page />}
           loader={group2Loader}
         />
         <Route
           path="/charts/data-dashboard"
-          element={<Group2Page />} 
+          element={<Group2Page />}
           loader={group2Loader}
         />
         <Route
           path="/charts/lollipop-chart"
-          element={<Group5Page />} 
+          element={<Group5Page />}
           loader={group5Loader}
         />
         <Route
           path="/charts/stacked-area-chart"
-          element={<Group5Page />} 
+          element={<Group5Page />}
           loader={group5Loader}
         />
         <Route
           path="/charts/donut-chart"
-          element={<Group5Page />} 
+          element={<Group5Page />}
           loader={group5Loader}
         />
         <Route
@@ -207,7 +209,7 @@ function App() {
         <Route
           path="/charts/heat-map"
           element={<Heatmap />}
-          loader={heatmapLoader} 
+          loader={heatmapLoader}
         />
         <Route
           path="/charts/column-chart"
@@ -233,6 +235,11 @@ function App() {
           path="/charts/scatter-plot"
           element={<FantasyPage />}
           loader={fantasyLoader}
+        />
+        <Route
+          path="/patterns"
+          element={<PatternsPage />}
+          loader={patternsLoader}
         />
       </Route>
     )

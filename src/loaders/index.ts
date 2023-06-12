@@ -18,6 +18,7 @@ import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { barChartLoader, columnChartLoader } from "./groupGalaxy";
 import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
 import { boxPlotLoader, donutLoader } from "./distribution";
+import { heatMapLoader} from "./patterns";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -111,6 +112,11 @@ export const dendrogramLoader = (async (): Promise<any[]> => {
     return result;
   }, []);
   return dendrogramData;
+}) satisfies LoaderFunction;
+
+export const patternsLoader = (async () => {
+  const heatMapData = await heatMapLoader();
+  return { heatMapData };
 }) satisfies LoaderFunction;
 
 export const heatmapLoader = (async (): Promise<any[]> => {
