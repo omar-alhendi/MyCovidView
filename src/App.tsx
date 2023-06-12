@@ -15,8 +15,19 @@ import {
   ImpactPage,
   Group11Page,
   Group5Page,
+  HistogramPage,
+  ImpactPage,
+  Group11Page,
+  Group5Page,
+  DistributionPage,
   Group2Page,
 } from "./pages";
+import{
+  DailyCase,
+}from "./pages/group15"
+import{
+  lineChartLoaders,
+}from "./loaders/group15"
 import {
   feedbackLoader,
   sunburstLoader,
@@ -24,10 +35,12 @@ import {
   vacRateLoader,
   stackedBarLoader,
   lineChartLoaders,
+  histogramLoader,
   impactLoader,
   group11Loader,
   group5Loader,
   group2Loader,
+  distributionLoader,
 } from "./loaders";
 import { Container } from "./layout";
 
@@ -53,9 +66,14 @@ function App() {
           loader={treeMapLoader}
         />
         <Route
-          path="/linechart"
-          element={<LineChartPages />}
+          path="/DailyCase"
+          element={<DailyCase />}
           loader={lineChartLoaders}
+        />
+        <Route
+          path="/histogram"
+          element={<HistogramPage />}
+          loader={histogramLoader}
         />
         <Route
           path="/vaccination-rate"
@@ -90,9 +108,11 @@ function App() {
         <Route path="/group-5" element={<Group5Page />} loader={group5Loader} />
         <Route path="/impact" element={<ImpactPage />} loader={impactLoader} />
         <Route path="/group-2" element={<Group2Page />} loader={group2Loader} />
+        <Route path="/distribution" element={<DistributionPage />} loader={distributionLoader}/>
       </Route>
     )
   );
+
   return <RouterProvider router={router} />;
 }
 
