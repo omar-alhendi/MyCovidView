@@ -1,11 +1,13 @@
-import { group11Loader } from '../../loaders';
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../types';
-import VaccinationRate from './VaccinationRate';
-import DeathRate from './DeathRate';
+import { group11Loader } from "../../loaders";
+import { useLoaderData } from "react-router-dom";
+import { LoaderData } from "../../types";
+import VaccinationRate from "./VaccinationRate";
+import DeathRate from "./DeathRate";
 
 function Group11Page() {
-  const { vacRateData, deathRateData } = useLoaderData() as LoaderData<typeof group11Loader>;
+  const { vacRateData, deathRateData } = useLoaderData() as LoaderData<
+    typeof group11Loader
+  >;
   return (
     <div
       style={{
@@ -23,4 +25,4 @@ function Group11Page() {
   );
 }
 
-export default Group11Page
+export default Group11Page;
