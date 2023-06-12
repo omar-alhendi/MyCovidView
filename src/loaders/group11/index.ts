@@ -90,11 +90,13 @@ export const deathRateLoader = async () => {
         key: row["state"],
         group: "deaths_new",
         value: +row["deaths_new"],
+        date: row["date"],
       },
       {
         key: row["state"],
         group: "cases_new",
         value: +cases["cases_new"],
+        date: cases["date"],
       },
     ];
     return data;
