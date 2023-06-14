@@ -3,12 +3,12 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import {
   Feedback,
   Overview,
   ImpactPage,
-  Group11Page,
+  // Group11Page,
   Group5Page,
   DistributionPage,
   Group2Page,
@@ -16,16 +16,17 @@ import {
   Dendrogram,
   Heatmap,
   FantasyPage,
-  GroupGalaxyPage,
+  // GroupGalaxyPage,
   ComparisonPage,
   TrendsPage,
   CorrelationPage,
   PatternsPage,
-} from "./pages";
+  RankingPage,
+} from './pages';
 import {
   feedbackLoader,
   impactLoader,
-  group11Loader,
+  // group11Loader,
   group5Loader,
   group2Loader,
   distributionLoader,
@@ -33,14 +34,15 @@ import {
   dendrogramLoader,
   heatmapLoader,
   fantasyLoader,
-  groupGalaxyLoader,
+  // groupGalaxyLoader,
   comparisonLoader,
   trendsLoader,
   correlationLoader,
   patternsLoader,
-} from "./loaders";
-import { Container } from "./layout";
-import Group13Page from "./pages/Group13";
+  rankingLoader,
+} from './loaders';
+import { Container } from './layout';
+import Group13Page from './pages/Group13';
 
 function App() {
   const router = createBrowserRouter(
@@ -52,11 +54,11 @@ function App() {
           element={<Feedback />}
           loader={feedbackLoader}
         />
-        <Route
+        {/* <Route
           path="/group-11"
           element={<Group11Page />}
           loader={group11Loader}
-        />
+        /> */}
         <Route
           path="/group-5"
           element={<Group5Page />}
@@ -116,11 +118,11 @@ function App() {
           element={<Heatmap />}
           loader={heatmapLoader}
         />
-        <Route
+        {/* <Route
           path="/group-galaxy"
           element={<GroupGalaxyPage />}
           loader={groupGalaxyLoader}
-        />
+        /> */}
         <Route
           path="/charts/progress-bar"
           element={<Feedback />}
@@ -171,7 +173,7 @@ function App() {
           element={<Group5Page />}
           loader={group5Loader}
         />
-        <Route
+        {/* <Route
           path="/charts/bullet-chart"
           element={<Group11Page />}
           loader={group11Loader}
@@ -180,7 +182,7 @@ function App() {
           path="/charts/stacked-bar-chart"
           element={<Group11Page />}
           loader={group11Loader}
-        />
+        /> */}
         <Route
           path="/charts/box-plot"
           element={<DistributionPage />}
@@ -211,7 +213,7 @@ function App() {
           element={<Heatmap />}
           loader={heatmapLoader}
         />
-        <Route
+        {/* <Route
           path="/charts/column-chart"
           element={<GroupGalaxyPage />}
           loader={groupGalaxyLoader}
@@ -220,7 +222,7 @@ function App() {
           path="/charts/bar-chart"
           element={<GroupGalaxyPage />}
           loader={groupGalaxyLoader}
-        />
+        /> */}
         <Route
           path="/charts/area-chart"
           element={<FantasyPage />}
@@ -240,6 +242,11 @@ function App() {
           path="/patterns"
           element={<PatternsPage />}
           loader={patternsLoader}
+        />
+        <Route
+          path="/ranking"
+          element={<RankingPage />}
+          loader={rankingLoader}
         />
       </Route>
     )

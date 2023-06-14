@@ -14,3 +14,4 @@ export { default as Heatmap } from "./Heatmap";
 export { default as ImportPage } from "./Import";
 export { default as GroupGalaxyPage } from "./GroupGalaxy";
 export { default as PatternsPage } from "./Patterns";
+export { default as RankingPage } from "./Ranking";
