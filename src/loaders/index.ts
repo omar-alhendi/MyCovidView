@@ -41,6 +41,7 @@ import {
   stackedAreaLoader,
 } from './proportion';
 import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
+import { heatMapLoader, scatterPlotLoader } from './exploration';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -182,4 +183,10 @@ export const compositionLoader = (async () => {
   const treeMapData = await treeMapLoader();
   const sunburstData = await sunburstLoader();
   return { deathRateData, treeMapData, sunburstData };
+}) satisfies LoaderFunction;
+
+export const explorationLoader = (async () => {
+  const heatMapData = await heatMapLoader();
+  const scatterPlotData = await scatterPlotLoader();
+  return { heatMapData, scatterPlotData };
 }) satisfies LoaderFunction;

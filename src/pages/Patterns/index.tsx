@@ -5,7 +5,6 @@ import { LoaderData } from "../../types";
 import { patternsLoader } from "../../loaders";
 import "../../styles/chart-bg.css";
 
-
 const PatternsPage = () => {
   const { boxPlotData, heatMapData } = 
     useLoaderData() as LoaderData<typeof patternsLoader>;

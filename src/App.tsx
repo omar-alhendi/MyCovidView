@@ -24,6 +24,7 @@ import {
   RankingPage,
   ProportionPage,
   CompositionPage,
+  ExplorationPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -44,6 +45,7 @@ import {
   rankingLoader,
   proportionLoader,
   compositionLoader,
+  explorationLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -261,6 +263,11 @@ function App() {
           path="/composition"
           element={<CompositionPage />}
           loader={compositionLoader}
+        />
+        <Route
+          path="/exploration"
+          element={<ExplorationPage />}
+          loader={explorationLoader}
         />
       </Route>
     )
