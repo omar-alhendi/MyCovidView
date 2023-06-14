@@ -27,6 +27,7 @@ const links: Link[] = [
   { to: "/group-galaxy", label: "Group Galaxy" },
   { to: "/fantasy", label: "Fantasy" },
   { to: "/patterns", label: "Pattern" },
+  { to: "/ranking", label: "Ranking" },
 ];
 
 const Container = () => {
