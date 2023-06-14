@@ -3,11 +3,11 @@ import { LoaderData } from '../../types';
 import { rankingLoader } from '../../loaders';
 import BarChart from './BarChart';
 import VaccinationRate from './VaccinationRate';
-import DeathRate from './DeathRate';
 
 const RankingPage = () => {
-  const { barChartData, vacRateData, deathRateData } =
-    useLoaderData() as LoaderData<typeof rankingLoader>;
+  const { barChartData, vacRateData } = useLoaderData() as LoaderData<
+    typeof rankingLoader
+  >;
   return (
     <div>
       <div
@@ -23,7 +23,6 @@ const RankingPage = () => {
       >
         <BarChart data={barChartData} />
         <VaccinationRate data={vacRateData} />
-        <DeathRate data={deathRateData} />
       </div>
     </div>
   );
