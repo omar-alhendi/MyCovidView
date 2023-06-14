@@ -6,9 +6,8 @@ import VaccineDoseType from './VaccineDoseType';
 import VaccinatedPeopleByDistrict from './VaccinatedPeopleByDistrict';
 
 const ProportionPage = () => {
-  const { deathRateData, donutData, stackedAreaData } = useLoaderData() as LoaderData<
-    typeof proportionLoader
-  >;
+  const { deathRateData, donutData, stackedAreaData } =
+    useLoaderData() as LoaderData<typeof proportionLoader>;
   return (
     <div>
       <div

@@ -40,6 +40,7 @@ import {
   donutChartLoader,
   stackedAreaLoader,
 } from './proportion';
+import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -174,4 +175,11 @@ export const proportionLoader = (async () => {
   const donutData = await donutLoader();
   const stackedAreaData = await stackedAreaLoader();
   return { deathRateData, donutData, stackedAreaData };
+}) satisfies LoaderFunction;
+
+export const compositionLoader = (async () => {
+  const deathRateData = await deathRateLoader();
+  const treeMapData = await treeMapLoader();
+  const sunburstData = await sunburstLoader();
+  return { deathRateData, treeMapData, sunburstData };
 }) satisfies LoaderFunction;

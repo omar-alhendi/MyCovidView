@@ -29,6 +29,7 @@ const links: Link[] = [
   { to: "/patterns", label: "Pattern" },
   { to: "/ranking", label: "Ranking" },
   { to: "/proportion", label: "Proportion" },
+  { to: "/composition", label: "Composition" },
 ];
 
 const Container = () => {
