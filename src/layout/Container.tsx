@@ -31,6 +31,7 @@ const links: Link[] = [
   { to: '/proportion', label: 'Proportion' },
   { to: '/composition', label: 'Composition' },
   { to: '/exploration', label: 'Exploration' },
+  { to: '/anomaly-detection', label: 'Anomaly Detection' },
 ];
 
 const Container = () => {
