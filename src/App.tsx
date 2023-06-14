@@ -22,6 +22,7 @@ import {
   CorrelationPage,
   PatternsPage,
   RankingPage,
+  ProportionPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -40,6 +41,7 @@ import {
   correlationLoader,
   patternsLoader,
   rankingLoader,
+  proportionLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -247,6 +249,11 @@ function App() {
           path="/ranking"
           element={<RankingPage />}
           loader={rankingLoader}
+        />
+        <Route
+          path="/proportion"
+          element={<ProportionPage />}
+          loader={proportionLoader}
         />
       </Route>
     )

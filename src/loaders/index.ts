@@ -34,7 +34,12 @@ import { lineChartLoader, areaChartLoader, scatterPlotLoader } from './fantasy';
 import { barChartLoader, columnChartLoader } from './groupGalaxy';
 >>>>>>> 7f77518 (enabled group 11 and galaxy original pages and charts)
 import { boxPlotLoader1, heatMapLoader } from './patterns';
-import { vacRateLoader, deathRateLoader, barChartLoader } from './ranking';
+import { vacRateLoader, barChartLoader } from './ranking';
+import {
+  deathRateLoader,
+  donutChartLoader,
+  stackedAreaLoader,
+} from './proportion';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -162,4 +167,11 @@ export const rankingLoader = (async () => {
   const deathRateData = await deathRateLoader();
   const barChartData = await barChartLoader();
   return { vacRateData, deathRateData, barChartData };
+}) satisfies LoaderFunction;
+
+export const proportionLoader = (async () => {
+  const deathRateData = await deathRateLoader();
+  const donutData = await donutLoader();
+  const stackedAreaData = await stackedAreaLoader();
+  return { deathRateData, donutData, stackedAreaData };
 }) satisfies LoaderFunction;
