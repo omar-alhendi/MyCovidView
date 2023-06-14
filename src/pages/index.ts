@@ -16,3 +16,4 @@ export { default as GroupGalaxyPage } from './GroupGalaxy';
 export { default as PatternsPage } from './Patterns';
 export { default as RankingPage } from './Ranking';
 export { default as ProportionPage } from './Proportion';
+export { default as CompositionPage } from './Composition';

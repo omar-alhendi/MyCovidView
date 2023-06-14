@@ -23,6 +23,7 @@ import {
   PatternsPage,
   RankingPage,
   ProportionPage,
+  CompositionPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -42,6 +43,7 @@ import {
   patternsLoader,
   rankingLoader,
   proportionLoader,
+  compositionLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -254,6 +256,11 @@ function App() {
           path="/proportion"
           element={<ProportionPage />}
           loader={proportionLoader}
+        />
+        <Route
+          path="/composition"
+          element={<CompositionPage />}
+          loader={compositionLoader}
         />
       </Route>
     )
