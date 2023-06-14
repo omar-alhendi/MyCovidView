@@ -25,6 +25,7 @@ import {
   ProportionPage,
   CompositionPage,
   ExplorationPage,
+  AnomalyDetectionPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -46,6 +47,7 @@ import {
   proportionLoader,
   compositionLoader,
   explorationLoader,
+  anomalyDetectionLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -268,6 +270,11 @@ function App() {
           path="/exploration"
           element={<ExplorationPage />}
           loader={explorationLoader}
+        />
+        <Route
+          path="anomaly-detection"
+          element={<AnomalyDetectionPage />}
+          loader={anomalyDetectionLoader}
         />
       </Route>
     )

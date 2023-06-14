@@ -42,6 +42,11 @@ import {
 } from './proportion';
 import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 import { heatMapLoader, scatterPlotLoader } from './exploration';
+import {
+  heatMapLoader,
+  scatterPlotLoader,
+  boxPlotLoader,
+} from './anomalyDetection';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -189,4 +194,11 @@ export const explorationLoader = (async () => {
   const heatMapData = await heatMapLoader();
   const scatterPlotData = await scatterPlotLoader();
   return { heatMapData, scatterPlotData };
+}) satisfies LoaderFunction;
+
+export const anomalyDetectionLoader = (async () => {
+  const heatMapData = await heatMapLoader();
+  const scatterPlotData = await scatterPlotLoader();
+  const boxPlotData = await boxPlotLoader();
+  return { heatMapData, scatterPlotData, boxPlotData };
 }) satisfies LoaderFunction;
