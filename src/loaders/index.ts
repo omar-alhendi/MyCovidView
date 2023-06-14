@@ -4,11 +4,12 @@ import {
   icuCapacityMeterLoader,
   testPositiveLoader,
 } from './feedback';
-// import { vacRateLoader, deathRateLoader } from "./group11";
+import { vacRateLoader, deathRateLoader } from './group11';
 import {
   lollipopChartLoader,
   stackedAreaLoader,
   donutChartLoader,
+<<<<<<< HEAD
 } from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
@@ -18,6 +19,20 @@ import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
 import { boxPlotLoader, donutLoader } from "./distribution";
 // import { barChartLoader, columnChartLoader } from "./groupGalaxy";
+=======
+} from './group5';
+import { treeMapLoader, sunburstLoader } from './impact';
+import { stackedLineLoader, comboChartLoader } from './group2';
+import { casesLoader, testsLoader } from './group13';
+import {
+  horizontalBarLoader,
+  lollipopLoader,
+  stackedBarLoader,
+} from './comparison';
+import { boxPlotLoader, donutLoader } from './distribution';
+import { lineChartLoader, areaChartLoader, scatterPlotLoader } from './fantasy';
+import { barChartLoader, columnChartLoader } from './groupGalaxy';
+>>>>>>> 7f77518 (enabled group 11 and galaxy original pages and charts)
 import { boxPlotLoader1, heatMapLoader } from './patterns';
 import { vacRateLoader, deathRateLoader, barChartLoader } from './ranking';
 
@@ -28,11 +43,11 @@ export const feedbackLoader = (async (): Promise<any> => {
   return { progresssBarData, icuCapacityMeterData, testPositiveGaugeData };
 }) satisfies LoaderFunction;
 
-// export const group11Loader = (async (): Promise<any> => {
-//   const vacRateData = await vacRateLoader();
-//   const deathRateData = await deathRateLoader();
-//   return { vacRateData, deathRateData };
-// }) satisfies LoaderFunction;
+export const group11Loader = (async (): Promise<any> => {
+  const vacRateData = await vacRateLoader();
+  const deathRateData = await deathRateLoader();
+  return { vacRateData, deathRateData };
+}) satisfies LoaderFunction;
 
 export const group5Loader = (async (): Promise<any> => {
   const lollipopData = await lollipopChartLoader();
@@ -130,11 +145,11 @@ export const heatmapLoader = (async (): Promise<any[]> => {
   return result;
 }) satisfies LoaderFunction;
 
-// export const groupGalaxyLoader = (async () => {
-//   const columnChartData = await columnChartLoader();
-//   const barChartData = await barChartLoader();
-//   return { columnChartData, barChartData };
-// }) satisfies LoaderFunction;
+export const groupGalaxyLoader = (async () => {
+  const columnChartData = await columnChartLoader();
+  const barChartData = await barChartLoader();
+  return { columnChartData, barChartData };
+}) satisfies LoaderFunction;
 
 export const patternsLoader = (async () => {
   const heatMapData = await heatMapLoader();
