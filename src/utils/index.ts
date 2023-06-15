@@ -8,8 +8,8 @@ const root =
 export const fetcher = async <T extends { [key: string]: string }>(
   url: string
 ): Promise<T[]> => {
-  if ((await db.source.get(1)).url === root + url)
-    return await db.store.toArray();
+  const record = await db.source.get(1);
+  if ((record && record.url) === root + url) return await db.store.toArray();
   const { data: csvData } = await axios.get(root + url);
   const { data } = Papa.parse<T>(csvData, { header: true });
   return data;
