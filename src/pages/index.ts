@@ -19,3 +19,4 @@ export { default as ProportionPage } from './Proportion';
 export { default as CompositionPage } from './Composition';
 export { default as ExplorationPage } from './Exploration';
 export { default as AnomalyDetectionPage } from './AnomalyDetection';
+export { default as ClusteringPage } from './Clustering';

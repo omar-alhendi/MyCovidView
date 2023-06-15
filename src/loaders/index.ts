@@ -1,52 +1,22 @@
 import { LoaderFunction } from "react-router-dom";
-import {
-  progressBarLoader,
-  icuCapacityMeterLoader,
-  testPositiveLoader,
-} from './feedback';
+import { fetcher } from "../utils";
+import { progressBarLoader, icuCapacityMeterLoader, testPositiveLoader } from './feedback';
 import { vacRateLoader, deathRateLoader } from './group11';
-import {
-  lollipopChartLoader,
-  stackedAreaLoader,
-  donutChartLoader,
-<<<<<<< HEAD
-} from "./group5";
+import { lollipopChartLoader, stackedAreaLoader, donutChartLoader } from "./group5";
 import { treeMapLoader, sunburstLoader } from "./impact";
 import { stackedLineLoader, comboChartLoader } from "./group2";
 import { casesLoader, testsLoader } from "./group13";
-import { fetcher } from "../utils";
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
 import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
 import { boxPlotLoader, donutLoader } from "./distribution";
-// import { barChartLoader, columnChartLoader } from "./groupGalaxy";
-=======
-} from './group5';
-import { treeMapLoader, sunburstLoader } from './impact';
-import { stackedLineLoader, comboChartLoader } from './group2';
-import { casesLoader, testsLoader } from './group13';
-import {
-  horizontalBarLoader,
-  lollipopLoader,
-  stackedBarLoader,
-} from './comparison';
-import { boxPlotLoader, donutLoader } from './distribution';
-import { lineChartLoader, areaChartLoader, scatterPlotLoader } from './fantasy';
-import { barChartLoader, columnChartLoader } from './groupGalaxy';
->>>>>>> 7f77518 (enabled group 11 and galaxy original pages and charts)
-import { boxPlotLoader1, heatMapLoader } from './patterns';
+import { barChartLoader, columnChartLoader } from "./groupGalaxy";
+import { boxPlotLoader1, heatMapLoader, scatterPlotLoader } from './patterns';
 import { vacRateLoader, barChartLoader } from './ranking';
-import {
-  deathRateLoader,
-  donutChartLoader,
-  stackedAreaLoader,
-} from './proportion';
+import { deathRateLoader, donutChartLoader, stackedAreaLoader } from './proportion';
 import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 import { heatMapLoader, scatterPlotLoader } from './exploration';
-import {
-  heatMapLoader,
-  scatterPlotLoader,
-  boxPlotLoader,
-} from './anomalyDetection';
+import { heatMapLoader, scatterPlotLoader, boxPlotLoader } from './anomalyDetection';
+import { scatterPlotLoader } from './clustering';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -166,7 +136,8 @@ export const groupGalaxyLoader = (async () => {
 export const patternsLoader = (async () => {
   const heatMapData = await heatMapLoader();
   const boxPlotData = await boxPlotLoader1();
-  return { heatMapData, boxPlotData };
+  const scatterPlotData = await scatterPlotLoader();
+  return { heatMapData, boxPlotData, scatterPlotData };
 }) satisfies LoaderFunction;
 
 export const rankingLoader = (async () => {
@@ -201,4 +172,9 @@ export const anomalyDetectionLoader = (async () => {
   const scatterPlotData = await scatterPlotLoader();
   const boxPlotData = await boxPlotLoader();
   return { heatMapData, scatterPlotData, boxPlotData };
+}) satisfies LoaderFunction;
+
+export const clusteringLoader = (async () => {
+  const scatterPlotData = await scatterPlotLoader();
+  return { scatterPlotData };
 }) satisfies LoaderFunction;
