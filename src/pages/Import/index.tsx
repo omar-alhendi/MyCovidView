@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { db, initDB } from "../../indexedDB";
 import {
   DenormalizedRow,
@@ -24,6 +24,42 @@ import KpiDashboard from "../Group13/KpiDashboard";
 import StackedLine from "../Group2/RecoverTrend";
 import AreaChartPage from "../fantasy/AreaChartPage";
 import VaccineDoseType from "../Group5/VaccineDoseType";
+
+const chartsAvailable: {
+  [key: string]: Array<{
+    title: string;
+    loader: () => Promise<unknown>;
+    component: any;
+  }>;
+} = {
+  "epidemic/cases_malaysia.csv": [
+    { title: "Box Plot", loader: boxPlotLoader, component: BoxPlot },
+    { title: "Histogram", loader: histogramLoader, component: Histogram },
+    {
+      title: "Line Chart",
+      loader: lineChartLoader,
+      component: LineChartPage,
+    },
+    { title: "KPI Dashboard", loader: casesLoader, component: KpiDashboard },
+    {
+      title: "Stacked Line Chart",
+      loader: stackedLineLoader,
+      component: StackedLine,
+    },
+  ],
+  "vaccination/vax_malaysia.csv": [
+    {
+      title: "Area Chart",
+      loader: areaChartLoader,
+      component: AreaChartPage,
+    },
+    {
+      title: "Stacked Area Chart",
+      loader: stackedAreaLoader,
+      component: VaccineDoseType,
+    },
+  ],
+};
 
 const ImportPage = () => {
   const [open, setOpen] = useState<
@@ -53,6 +89,7 @@ const ImportPage = () => {
     async () => {
       if (!db.isOpen()) await db.open();
       const record = await db.source.get(1);
+      if (!record) return "";
       return record.url.replace(
         "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/",
         ""
@@ -93,42 +130,7 @@ const ImportPage = () => {
     ],
     []
   );
-  const chartsAvailable: {
-    [key: string]: Array<{
-      title: string;
-      loader: () => Promise<any>;
-      component: any;
-    }>;
-  } = {
-    "epidemic/cases_malaysia.csv": [
-      { title: "Box Plot", loader: boxPlotLoader, component: BoxPlot },
-      { title: "Histogram", loader: histogramLoader, component: Histogram },
-      {
-        title: "Line Chart",
-        loader: lineChartLoader,
-        component: LineChartPage,
-      },
-      { title: "KPI Dashboard", loader: casesLoader, component: KpiDashboard },
-      {
-        title: "Stacked Line Chart",
-        loader: stackedLineLoader,
-        component: StackedLine,
-      },
-    ],
-    "vaccination/vax_malaysia.csv": [
-      {
-        title: "Area Chart",
-        loader: areaChartLoader,
-        component: AreaChartPage,
-      },
-      {
-        title: "Stacked Area Chart",
-        loader: stackedAreaLoader,
-        component: VaccineDoseType,
-      },
-    ],
-  };
-  const [chartSelected, setChartSelected] = useState<any>("");
+  const [chartSelected, setChartSelected] = useState<string>("");
   const [chartComponent, setChartComponent] = useState<any>(null);
 
   useEffect(() => {
@@ -147,10 +149,10 @@ const ImportPage = () => {
       });
     };
     renderChart();
-  }, [chartSelected, data]);
+  }, [chartSelected, data, source]);
 
   const onChange = (e: OnChangeData) => {
-    setChartSelected(e.selectedItem);
+    if (e.selectedItem) setChartSelected(e.selectedItem);
   };
 
   const searchText = (record: object) => {
@@ -304,9 +306,7 @@ const ImportPage = () => {
       });
   };
 
-  const closeNotification = (
-    _e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const closeNotification = () => {
     setShowNotification("");
     return true;
   };
