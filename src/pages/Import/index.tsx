@@ -142,7 +142,11 @@ const ImportPage = () => {
       const chartConfig = chartsAvailable[source]?.find(
         (chart) => chart.title === chartSelected
       );
-      if (!chartConfig) return;
+      if (!chartConfig) {
+        setChartSelected("");
+        setChartComponent(null);
+        return;
+      }
       const Chart = chartConfig.component;
       chartConfig.loader().then((data) => {
         setChartComponent(<Chart data={data} />);
@@ -409,6 +413,7 @@ const ImportPage = () => {
               direction="top"
               label="Choose the chart to display"
               items={chartsAvailable[source].map((chart) => chart.title)}
+              selectedItem={chartSelected}
               onChange={onChange}
             />
           </div>
