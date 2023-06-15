@@ -27,6 +27,7 @@ import {
   ExplorationPage,
   AnomalyDetectionPage,
   ClusteringPage,
+  EvaluationPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -50,6 +51,7 @@ import {
   explorationLoader,
   anomalyDetectionLoader,
   clusteringLoader,
+  evaluationLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -282,6 +284,11 @@ function App() {
           path="clustering"
           element={<ClusteringPage />}
           loader={clusteringLoader}
+        />
+        <Route
+          path="evaluation"
+          element={<EvaluationPage />}
+          loader={evaluationLoader}
         />
       </Route>
     )

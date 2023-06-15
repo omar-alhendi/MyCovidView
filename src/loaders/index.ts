@@ -17,6 +17,8 @@ import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 import { heatMapLoader, scatterPlotLoader } from './exploration';
 import { heatMapLoader, scatterPlotLoader, boxPlotLoader } from './anomalyDetection';
 import { scatterPlotLoader } from './clustering';
+import { casesLoader } from './evaluation';
+
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -178,3 +180,9 @@ export const clusteringLoader = (async () => {
   const scatterPlotData = await scatterPlotLoader();
   return { scatterPlotData };
 }) satisfies LoaderFunction;
+
+export const evaluationLoader = (async () => {
+  const kpiData = await casesLoader();
+  return { kpiData };
+}) satisfies LoaderFunction;
+
