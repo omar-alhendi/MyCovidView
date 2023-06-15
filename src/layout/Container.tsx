@@ -32,6 +32,7 @@ const links: Link[] = [
   { to: '/composition', label: 'Composition' },
   { to: '/exploration', label: 'Exploration' },
   { to: '/anomaly-detection', label: 'Anomaly Detection' },
+  { to: '/clustering', label: 'Clustering' },
 ];
 
 const Container = () => {
