@@ -1,4 +1,5 @@
 import './Overview.css';
+import { Link } from 'react-router-dom';
 
 interface ChartTypeMap {
   [key: string]: {
@@ -67,10 +68,6 @@ const Overview = () => {
           image: "/chartImages/scatter_plot.svg",
         },
         {
-          name: "Bubble Chart",
-          image: "/chartImages/bubble_chart.svg",
-        },
-        {
           name: "Heat Map",
           image: "/chartImages/heat_map.svg",
         },
@@ -104,19 +101,11 @@ const Overview = () => {
           name: "Bullet Chart",
           image: "/chartImages/bullet_chart.svg",
         },
-        {
-          name: "Dot Plot",
-          image: "/chartImages/dot_plot.svg",
-        },
       ],
     },
     Proportion: {
       name: "Proportion",
       charts: [
-        {
-          name: "Pie Chart",
-          image: "/chartImages/pie_chart.svg",
-        },
         {
           name: "Stacked Bar Chart",
           image: "/chartImages/stacked_bar_chart.svg",
@@ -156,10 +145,6 @@ const Overview = () => {
           image: "/chartImages/scatter_plot.svg",
         },
         {
-          name: "Bubble Chart",
-          image: "/chartImages/bubble_chart.svg",
-        },
-        {
           name: "Heat Map",
           image: "/chartImages/heat_map.svg",
         },
@@ -190,10 +175,6 @@ const Overview = () => {
           image: "/chartImages/scatter_plot.svg",
         },
         {
-          name: "Bubble Chart",
-          image: "/chartImages/bubble_chart.svg",
-        },
-        {
           name: "Dendrogram",
           image: "/chartImages/dendrogram.svg",
         },
@@ -220,8 +201,8 @@ const Overview = () => {
           image: "/chartImages/gauge_chart.svg",
         },
         {
-          name: "Thermometer Chart",
-          image: "/chartImages/thermometer_chart.svg",
+          name: "Proportional Meter Chart",
+          image: "/chartImages/meter_chart.svg",
         },
       ],
     },
@@ -285,8 +266,10 @@ export default Overview;
 const ChartCard = ({ chartType }: { chartType: ChartType }) => {
   return (
     <div className="overview-card">
-      <p>{chartType.name}</p>
-      <img className="overview-image" src={chartType.image} alt={chartType.name} />
+      <Link to={`/charts/${chartType.name.toLowerCase().replace(/ /g, '-')}`}>
+        <p>{chartType.name}</p>
+        <img className="overview-image" src={chartType.image} alt={chartType.name} />
+      </Link>
     </div>
   );
 }
