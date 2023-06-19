@@ -7,24 +7,11 @@ import {
 import {
   Feedback,
   Overview,
-  ImpactPage,
-  Group11Page,
-  Group5Page,
+  CommunicationPage,
   DistributionPage,
-<<<<<<< HEAD
-  Group2Page,
-=======
   ComparisonPage,
   CorrelationPage,
->>>>>>> 4b926ed (Finished moving charts)
   ImportPage,
-  Dendrogram,
-  Heatmap,
-  FantasyPage,
-  GroupGalaxyPage,
-  ComparisonPage,
-  TrendsPage,
-  CorrelationPage,
   PatternsPage,
   RankingPage,
   ProportionPage,
@@ -37,23 +24,9 @@ import {
 } from './pages';
 import {
   feedbackLoader,
-  impactLoader,
-  group11Loader,
-  group5Loader,
-  group2Loader,
+  communicationLoader,
   distributionLoader,
-<<<<<<< HEAD
-  group13Loader,
-=======
   comparisonLoader,
-  correlationLoader,
->>>>>>> 4b926ed (Finished moving charts)
-  dendrogramLoader,
-  heatmapLoader,
-  fantasyLoader,
-  groupGalaxyLoader,
-  comparisonLoader,
-  trendsLoader,
   correlationLoader,
   patternsLoader,
   rankingLoader,
@@ -66,7 +39,6 @@ import {
   trendIdentificationLoader,
 } from './loaders';
 import { Container } from './layout';
-import Group13Page from './pages/Group13';
 
 function App() {
   const router = createBrowserRouter(
@@ -79,24 +51,9 @@ function App() {
           loader={feedbackLoader}
         />
         <Route
-          path="/group-11"
-          element={<Group11Page />}
-          loader={group11Loader}
-        />
-        <Route
-          path="/group-5"
-          element={<Group5Page />}
-          loader={group5Loader}
-        />
-        <Route
-          path="/impact"
-          element={<ImpactPage />}
-          loader={impactLoader}
-        />
-        <Route
-          path="/group-2"
-          element={<Group2Page />}
-          loader={group2Loader}
+          path="/communication"
+          element={<CommunicationPage />}
+          loader={communicationLoader}
         />
         <Route
           path="/comparison"
@@ -123,33 +80,6 @@ function App() {
           element={<ImportPage />}
         />
         <Route
-          path="/group-13"
-          element={<Group13Page />}
-          loader={group13Loader}
-        />
-        <Route
-          path="/dendrogram"
-          element={<Dendrogram />}
-          loader={dendrogramLoader}
-        />
-        <Route
-          path="/fantasy"
-          element={<FantasyPage />}
-          loader={fantasyLoader}
-        />
-        <Route
-          path="/heatmap"
-          element={<Heatmap />}
-          loader={heatmapLoader}
-        />
-        <Route
-          path="/group-galaxy"
-          element={<GroupGalaxyPage />}
-          loader={groupGalaxyLoader}
-        />
-        <Route
-<<<<<<< HEAD
-=======
           path="/patterns"
           element={<PatternsPage />}
           loader={patternsLoader}
@@ -190,7 +120,6 @@ function App() {
           loader={evaluationLoader}
         />
         <Route
->>>>>>> 4b926ed (Finished moving charts)
           path="/charts/progress-bar"
           element={<Feedback />}
           loader={feedbackLoader}
@@ -207,48 +136,48 @@ function App() {
         />
         <Route
           path="/charts/sunburst-chart"
-          element={<ImpactPage />}
-          loader={impactLoader}
+          element={<CompositionPage />}
+          loader={compositionLoader}
         />
         <Route
           path="/charts/treemap"
-          element={<ImpactPage />}
-          loader={impactLoader}
+          element={<CompositionPage />}
+          loader={compositionLoader}
         />
         <Route
           path="/charts/stacked-line-chart"
-          element={<Group2Page />}
-          loader={group2Loader}
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
         <Route
           path="/charts/data-dashboard"
-          element={<Group2Page />}
-          loader={group2Loader}
+          element={<CommunicationPage />}
+          loader={communicationLoader}
         />
         <Route
           path="/charts/lollipop-chart"
-          element={<Group5Page />}
-          loader={group5Loader}
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
         <Route
           path="/charts/stacked-area-chart"
-          element={<Group5Page />}
-          loader={group5Loader}
+          element={<ProportionPage />}
+          loader={proportionLoader}
         />
         <Route
           path="/charts/donut-chart"
-          element={<Group5Page />}
-          loader={group5Loader}
+          element={<DistributionPage />}
+          loader={distributionLoader}
         />
         <Route
           path="/charts/bullet-chart"
-          element={<Group11Page />}
-          loader={group11Loader}
+          element={<RankingPage />}
+          loader={rankingLoader}
         />
         <Route
           path="/charts/stacked-bar-chart"
-          element={<Group11Page />}
-          loader={group11Loader}
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
         <Route
           path="/charts/box-plot"
@@ -262,48 +191,48 @@ function App() {
         />
         <Route
           path="/charts/kpi-dashboard"
-          element={<Group13Page />}
-          loader={group13Loader}
+          element={<EvaluationPage />}
+          loader={evaluationLoader}
         />
         <Route
           path="/charts/balanced-scorecard"
-          element={<Group13Page />}
-          loader={group13Loader}
+          element={<EvaluationPage />}
+          loader={evaluationLoader}
         />
         <Route
           path="/charts/dendrogram"
-          element={<Dendrogram />}
-          loader={dendrogramLoader}
+          element={<ClusteringPage />}
+          loader={clusteringLoader}
         />
         <Route
           path="/charts/heat-map"
-          element={<Heatmap />}
-          loader={heatmapLoader}
+          element={<CorrelationPage />}
+          loader={correlationLoader}
         />
         <Route
           path="/charts/column-chart"
-          element={<GroupGalaxyPage />}
-          loader={groupGalaxyLoader}
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
         <Route
           path="/charts/bar-chart"
-          element={<GroupGalaxyPage />}
-          loader={groupGalaxyLoader}
+          element={<ComparisonPage />}
+          loader={comparisonLoader}
         />
         <Route
           path="/charts/area-chart"
-          element={<FantasyPage />}
-          loader={fantasyLoader}
+          element={<TrendIdentificationPage />}
+          loader={trendIdentificationLoader}
         />
         <Route
           path="/charts/line-chart"
-          element={<FantasyPage />}
-          loader={fantasyLoader}
+          element={<TrendIdentificationPage />}
+          loader={trendIdentificationLoader}
         />
         <Route
           path="/charts/scatter-plot"
-          element={<FantasyPage />}
-          loader={fantasyLoader}
+          element={<CorrelationPage />}
+          loader={correlationLoader}
         />
         <Route
           path="/patterns"
