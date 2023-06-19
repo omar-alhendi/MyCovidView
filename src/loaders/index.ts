@@ -2,14 +2,14 @@ import { LoaderFunction } from "react-router-dom";
 import { fetcher } from "../utils";
 import { progressBarLoader, icuCapacityMeterLoader, testPositiveLoader } from './feedback';
 import { vacRateLoader, deathRateLoader } from './group11';
-import { lollipopChartLoader, stackedAreaLoader, donutChartLoader } from "./group5";
-import { treeMapLoader, sunburstLoader } from "./impact";
-import { stackedLineLoader, comboChartLoader } from "./group2";
-import { casesLoader, testsLoader } from "./group13";
-import { lineChartLoader, areaChartLoader, scatterPlotLoader } from "./fantasy";
-import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from "./comparison";
-import { boxPlotLoader, donutLoader } from "./distribution";
-import { barChartLoader, columnChartLoader } from "./groupGalaxy";
+import { lollipopChartLoader, stackedAreaLoader, donutChartLoader } from './group5';
+import { treeMapLoader, sunburstLoader } from './impact';
+import { stackedLineLoader, comboChartLoader } from './group2';
+import { casesLoader, testsLoader } from './group13';
+import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from './comparison';
+import { boxPlotLoader, donutLoader, histogramLoader } from './distribution';
+import { lineChartLoader, areaChartLoader, scatterPlotLoader } from './fantasy';
+import { barChartLoader, columnChartLoader } from './groupGalaxy';
 import { boxPlotLoader1, heatMapLoader, scatterPlotLoader } from './patterns';
 import { vacRateLoader, barChartLoader } from './ranking';
 import { deathRateLoader, donutChartLoader, stackedAreaLoader } from './proportion';
@@ -78,7 +78,8 @@ export const correlationLoader = (async (): Promise<any> => {
 export const distributionLoader = (async (): Promise<any> => {
   const boxPlotData = await boxPlotLoader();
   const donutData = await donutLoader();
-  return { boxPlotData, donutData };
+  const histogramData = await histogramLoader();
+  return { boxPlotData, donutData, histogramData };
 }) satisfies LoaderFunction;
 
 export const group13Loader = (async (): Promise<any> => {
