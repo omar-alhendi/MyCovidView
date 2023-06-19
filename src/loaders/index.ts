@@ -17,7 +17,7 @@ import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 import { heatMapLoader, scatterPlotLoader } from './exploration';
 import { heatMapLoader, scatterPlotLoader, boxPlotLoader } from './anomalyDetection';
 import { scatterPlotLoader } from './clustering';
-import { casesLoader } from './evaluation';
+import { casesLoader, testsLoader } from './evaluation';
 
 
 export const feedbackLoader = (async (): Promise<any> => {
@@ -184,6 +184,7 @@ export const clusteringLoader = (async () => {
 
 export const evaluationLoader = (async () => {
   const kpiData = await casesLoader();
-  return { kpiData };
+  const balancedData = await testsLoader();
+  return { kpiData, balancedData };
 }) satisfies LoaderFunction;
 

@@ -1,11 +1,12 @@
 import KPIDashboard from "./KPIDashboard";
+import BalanceBoard from './BalanceBoard';
 import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../types';
 import { evaluationLoader } from '../../loaders';
 import '../../styles/chart-bg.css';
 
 const EvaluationPage = () => {
-  const { kpiData } =
+  const { kpiData, balancedData } =
     useLoaderData() as LoaderData<typeof evaluationLoader>;
 
   return (
@@ -21,6 +22,7 @@ const EvaluationPage = () => {
         }}
       >
         <KPIDashboard data={kpiData} />
+        <BalanceBoard data={balancedData} />
       </div>
     </div>
   );
