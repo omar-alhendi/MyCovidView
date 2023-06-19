@@ -13,17 +13,17 @@ import ImportModal from "./ImportModal";
 import { useLiveQuery } from "dexie-react-hooks";
 import { SortInfo } from "./useSortInfo";
 import { boxPlotLoader, histogramLoader } from "../../loaders/distribution";
-import { areaChartLoader, lineChartLoader } from "../../loaders/fantasy";
-import { casesLoader } from "../../loaders/group13";
-import { stackedLineLoader } from "../../loaders/group2";
-import { stackedAreaLoader } from "../../loaders/group5";
+import { areaLoader, lineLoader } from "../../loaders/trendIdentification";
+import { casesLoader } from "../../loaders/evaluation";
+import { stackedLineLoader } from "../../loaders/communication";
+import { stackedAreaLoader } from "../../loaders/proportion";
 import BoxPlot from "../Distribution/BoxPlot";
 import Histogram from "../Distribution/Histogram";
-import LineChartPage from "../fantasy/LineChartPage";
-import KpiDashboard from "../Group13/KpiDashboard";
-import StackedLine from "../Group2/RecoverTrend";
-import AreaChartPage from "../fantasy/AreaChartPage";
-import VaccineDoseType from "../Group5/VaccineDoseType";
+import LineChartPage from "../TrendIdentification/Line";
+import KpiDashboard from "../Evaluation/KPIDashboard";
+import StackedLine from "../Communication/RecoverTrend";
+import AreaChartPage from "../TrendIdentification/Area";
+import VaccineDoseType from "../Proportion/VaccineDoseType";
 
 const chartsAvailable: {
   [key: string]: Array<{
@@ -37,7 +37,7 @@ const chartsAvailable: {
     { title: "Histogram", loader: histogramLoader, component: Histogram },
     {
       title: "Line Chart",
-      loader: lineChartLoader,
+      loader: lineLoader,
       component: LineChartPage,
     },
     { title: "KPI Dashboard", loader: casesLoader, component: KpiDashboard },
@@ -50,7 +50,7 @@ const chartsAvailable: {
   "vaccination/vax_malaysia.csv": [
     {
       title: "Area Chart",
-      loader: areaChartLoader,
+      loader: areaLoader,
       component: AreaChartPage,
     },
     {
