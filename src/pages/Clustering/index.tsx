@@ -3,11 +3,11 @@ import { useLoaderData } from 'react-router-dom';
 import { LoaderData } from '../../types';
 import { clusteringLoader } from '../../loaders';
 import '../../styles/chart-bg.css';
+import Dendogram from "./Dendogram";
 
 const ClusteringPage = () => {
-  const { scatterPlotData } =
+  const { scatterPlotData, dendrogramD } =
     useLoaderData() as LoaderData<typeof clusteringLoader>;
-
   return (
     <div>
       <div
@@ -20,6 +20,7 @@ const ClusteringPage = () => {
           margin: '2rem',
         }}
       >
+        <Dendogram data={dendrogramD} />
         <ScatterPlot data={scatterPlotData} />
       </div>
     </div>

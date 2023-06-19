@@ -23,3 +23,30 @@ export const scatterPlotLoader = async () => {
   
     return data;
   };
+
+  export const dendrogramLoader = (async (): Promise<any[]> => {
+    const data = await fetcher('epidemic/linelist/param_geo.csv');
+  
+    const dendrogramData: any[] = data.reduce((result: any[], row: any) => {
+      const { state, district, idxd } = row;
+  
+      if (!state || !district) {
+        return result;
+      }
+  
+      let stateNode = result.find((node: any) => node.name === state);
+  
+      if (!stateNode) {
+        stateNode = { name: state, children: [] };
+        result.push(stateNode);
+      }
+  
+      stateNode.children.push({
+        name: district,
+        idxd: idxd.toString(),
+      });
+  
+      return result;
+    }, []);
+    return dendrogramData;
+  });

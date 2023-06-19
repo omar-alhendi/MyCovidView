@@ -16,7 +16,7 @@ import { deathRateLoader, donutChartLoader, stackedAreaLoader } from './proporti
 import { treeMapLoader, sunburstLoader, deathRateLoader } from './composition';
 import { heatMapLoader, scatterPlotLoader } from './exploration';
 import { heatMapLoader, scatterPlotLoader, boxPlotLoader } from './anomalyDetection';
-import { scatterPlotLoader } from './clustering';
+import { scatterPlotLoader, dendrogramLoader } from './clustering';
 import { casesLoader, testsLoader } from './evaluation';
 
 
@@ -179,7 +179,8 @@ export const anomalyDetectionLoader = (async () => {
 
 export const clusteringLoader = (async () => {
   const scatterPlotData = await scatterPlotLoader();
-  return { scatterPlotData };
+  const dendrogramD = await dendrogramLoader();
+  return { scatterPlotData, dendrogramD };
 }) satisfies LoaderFunction;
 
 export const evaluationLoader = (async () => {
