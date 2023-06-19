@@ -1,14 +1,12 @@
 import { AreaChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
-import "@carbon/charts/styles.css";
-import "@carbon/styles/css/styles.css";
 
 const options = {
-  title: "Area chart (Number of vaccinations by dose type in the last 30 days)",
+  title: "Number of Vaccinations by Dose Type in The Last 30 Days",
   axes: {
     left: {
       mapsTo: "value",
-      title: "Number of vaccinations",
+      title: "Number of Vaccinations",
       scaleType: ScaleTypes.LINEAR,
     },
     bottom: {
@@ -17,13 +15,14 @@ const options = {
       scaleType: ScaleTypes.TIME,
     },
   },
-  curve: "curveNatural",
-  height: "400px"
+	curve: "curveNatural",
+	height: "400px"
 };
 
 const Area = ({ data }: { data: any }) => {
   return (
     <div>
+      <h1>Area Chart</h1>
       <AreaChart data={data} options={options} />
     </div>
   );

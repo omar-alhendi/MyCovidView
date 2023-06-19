@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { distributionLoader } from "../../loaders";
-import BoxPlot from "./BoxPlot.tsx";
-import Donut from "./Donut.tsx";
-import Histogram from "./Histogram.tsx";
+import BoxPlot from "./BoxPlot";
+import Donut from "./Donut";
+import Histogram from "./Histogram";
 import "../../styles/chart-bg.css";
 
 const DistributionPage = () => {
@@ -16,15 +16,16 @@ const DistributionPage = () => {
   return (
     <div>
       <div className="chart-bg">
+        <Histogram data={histogramData} />
+      </div>
+      <div className="chart-bg">
         <BoxPlot data={boxPlotData} />
       </div>
       <div className="chart-bg">
         <Donut data={donutData} />
       </div>
-      <div className="chart-bg">
-        <Histogram data={histogramData} />
-      </div>
     </div>
   );
 };
+
 export default DistributionPage;
