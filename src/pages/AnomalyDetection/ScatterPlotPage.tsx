@@ -2,7 +2,8 @@ import { ScatterChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title: "Scatter Plot (Percentage of Vaccinated People in Malaysian States)",
+  title: "Percentage of Vaccinated People in Malaysian States",
+  resizable: true,
   axes: {
     bottom: {
       title: "Percentage of vaccinated people",
@@ -21,6 +22,7 @@ const options = {
 const ScatterPlotPage = ({ data }: { data: any }) => {
   return (
     <div>
+      <h1>Scatter Plot</h1>
       <ScatterChart data={data} options={options} />
     </div>
   );

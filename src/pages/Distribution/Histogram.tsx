@@ -23,7 +23,7 @@ const options = {
 const Histogram = ({ data }: { data: any }) => {
   return (
     <div>
-      <h1>Histogram Chart</h1>
+      <h1>Histogram</h1>
       <SimpleBarChart data={data} options={options} />
     </div>
   );

@@ -3,6 +3,7 @@ import { ColorLegendType } from '@carbon/charts/interfaces/enums';
 
 const options = {
   title: "Type of Dose By Age Group in Malaysia",
+  resizable: true,
   axes: {
     bottom: {
       title: "Age Group",
