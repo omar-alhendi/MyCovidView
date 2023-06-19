@@ -21,7 +21,29 @@ const ProportionPage = () => {
         }}
       >
         <DeathRate data={deathRateData} />
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gap: '2rem',
+          background: '#e0e0e0',
+          padding: '2rem',
+          borderRadius: '1rem',
+          margin: '2rem',
+        }}
+      >
         <VaccineDoseType data={stackedAreaData} />
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gap: '2rem',
+          background: '#e0e0e0',
+          padding: '2rem',
+          borderRadius: '1rem',
+          margin: '2rem',
+        }}
+      >
         <VaccinatedPeopleByDistrict data={donutData} />
       </div>
     </div>

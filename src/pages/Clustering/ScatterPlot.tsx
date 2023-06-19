@@ -3,6 +3,7 @@ import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
   title: "Percentage of Vaccinated People in Malaysian States",
+  resizable: true,
   axes: {
     bottom: {
       title: "Percentage of vaccinated people",

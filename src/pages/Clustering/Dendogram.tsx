@@ -3,6 +3,7 @@ import { TreeTypes } from "@carbon/charts/interfaces/enums";
 
 const options = {
     title: "States with districts in Malaysia",
+    resizable: true,
     height: "4000px",
     tree: {
       type: TreeTypes.DENDROGRAM,

@@ -3,6 +3,7 @@ import { ScaleTypes } from '@carbon/charts/interfaces';
 
 const options = {
   title: 'New Cases by Quarterly Year',
+  resizable: true,
   axes: {
     left: {
       mapsTo: 'group',

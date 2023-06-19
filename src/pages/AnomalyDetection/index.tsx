@@ -23,7 +23,29 @@ const AnomalyDetectionPage = () => {
         }}
       >
         <ScatterPlotPage data={scatterPlotData} />
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gap: '2rem',
+          background: '#e0e0e0',
+          padding: '2rem',
+          borderRadius: '1rem',
+          margin: '2rem',
+        }}
+      >
         <HeatMap data={heatMapData} />
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gap: '2rem',
+          background: '#e0e0e0',
+          padding: '2rem',
+          borderRadius: '1rem',
+          margin: '2rem',
+        }}
+      >
         <BoxPlot data={boxPlotData} />
       </div>
     </div>
