@@ -1,7 +1,6 @@
 import { BoxplotChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
-
 const options = {
   title: "New Cases by Quarterly Year",
   axes: {

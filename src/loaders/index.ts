@@ -6,7 +6,13 @@ import { lollipopChartLoader, stackedAreaLoader, donutChartLoader } from './grou
 import { treeMapLoader, sunburstLoader } from './impact';
 import { stackedLineLoader, comboChartLoader } from './group2';
 import { casesLoader, testsLoader } from './group13';
-import { horizontalBarLoader, lollipopLoader, stackedBarLoader } from './comparison';
+import {
+  barLoader,
+  columnLoader,
+  horizontalBarLoader,
+  lollipopLoader,
+  stackedBarLoader,
+} from './comparison';
 import { boxPlotLoader, donutLoader, histogramLoader } from './distribution';
 import { lineChartLoader, areaChartLoader, scatterPlotLoader } from './fantasy';
 import { barChartLoader, columnChartLoader } from './groupGalaxy';
@@ -18,7 +24,7 @@ import { heatMapLoader, scatterPlotLoader } from './exploration';
 import { heatMapLoader, scatterPlotLoader, boxPlotLoader } from './anomalyDetection';
 import { scatterPlotLoader, dendrogramLoader } from './clustering';
 import { casesLoader, testsLoader } from './evaluation';
-
+import { areaLoader, lineLoader } from './trendIdentification';
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();
@@ -60,19 +66,25 @@ export const fantasyLoader = (async (): Promise<any> => {
 }) satisfies LoaderFunction;
 
 export const comparisonLoader = (async (): Promise<any> => {
-  const horizontalBarData = await horizontalBarLoader();
+  const barData = await barLoader();
+  const columnData = await columnLoader();
   const stackedBarData = await stackedBarLoader();
   const stackedLineData = await stackedLineLoader();
   const lollipopData = await lollipopLoader();
-  return { horizontalBarData, stackedBarData, stackedLineData, lollipopData };
+  return { barData, columnData, stackedBarData, stackedLineData, lollipopData };
 }) satisfies LoaderFunction;
 
-export const trendsLoader = (async (): Promise<any> => {
-  return {};
+export const trendIdentificationLoader = (async (): Promise<any> => {
+  const lineData = await lineLoader();
+  const areaData = await areaLoader();
+  const scatterPlotData = await scatterPlotLoader();
+  return { lineData, areaData, scatterPlotData };
 }) satisfies LoaderFunction;
 
 export const correlationLoader = (async (): Promise<any> => {
-  return {};
+  const scatterPlotData = await scatterPlotLoader();
+  const heatmapData = await heatmapLoader();
+  return { scatterPlotData, heatmapData };
 }) satisfies LoaderFunction;
 
 export const distributionLoader = (async (): Promise<any> => {

@@ -11,7 +11,12 @@ import {
   Group11Page,
   Group5Page,
   DistributionPage,
+<<<<<<< HEAD
   Group2Page,
+=======
+  ComparisonPage,
+  CorrelationPage,
+>>>>>>> 4b926ed (Finished moving charts)
   ImportPage,
   Dendrogram,
   Heatmap,
@@ -28,6 +33,7 @@ import {
   AnomalyDetectionPage,
   ClusteringPage,
   EvaluationPage,
+  TrendIdentificationPage,
 } from './pages';
 import {
   feedbackLoader,
@@ -36,7 +42,12 @@ import {
   group5Loader,
   group2Loader,
   distributionLoader,
+<<<<<<< HEAD
   group13Loader,
+=======
+  comparisonLoader,
+  correlationLoader,
+>>>>>>> 4b926ed (Finished moving charts)
   dendrogramLoader,
   heatmapLoader,
   fantasyLoader,
@@ -52,6 +63,7 @@ import {
   anomalyDetectionLoader,
   clusteringLoader,
   evaluationLoader,
+  trendIdentificationLoader,
 } from './loaders';
 import { Container } from './layout';
 import Group13Page from './pages/Group13';
@@ -93,8 +105,8 @@ function App() {
         />
         <Route
           path="/trend-identification"
-          element={<TrendsPage />}
-          loader={trendsLoader}
+          element={<TrendIdentificationPage />}
+          loader={trendIdentificationLoader}
         />
         <Route
           path="/correlation"
@@ -136,6 +148,49 @@ function App() {
           loader={groupGalaxyLoader}
         />
         <Route
+<<<<<<< HEAD
+=======
+          path="/patterns"
+          element={<PatternsPage />}
+          loader={patternsLoader}
+        />
+        <Route
+          path="/ranking"
+          element={<RankingPage />}
+          loader={rankingLoader}
+        />
+        <Route
+          path="/proportion"
+          element={<ProportionPage />}
+          loader={proportionLoader}
+        />
+        <Route
+          path="/composition"
+          element={<CompositionPage />}
+          loader={compositionLoader}
+        />
+        <Route
+          path="/exploration"
+          element={<ExplorationPage />}
+          loader={explorationLoader}
+        />
+        <Route
+          path="anomaly-detection"
+          element={<AnomalyDetectionPage />}
+          loader={anomalyDetectionLoader}
+        />
+        <Route
+          path="clustering"
+          element={<ClusteringPage />}
+          loader={clusteringLoader}
+        />
+        <Route
+          path="evaluation"
+          element={<EvaluationPage />}
+          loader={evaluationLoader}
+        />
+        <Route
+>>>>>>> 4b926ed (Finished moving charts)
           path="/charts/progress-bar"
           element={<Feedback />}
           loader={feedbackLoader}

@@ -1,16 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
 import { comparisonLoader } from "../../loaders";
+import Bar from "./Bar";
+import Column from "./Column";
 import StackedBar from "./StackedBar";
 import StackedLine from "./StackedLine";
 import Lollipop from "./Lollipop";
 import "../../styles/chart-bg.css";
-import HorizontalBar from "./HorizontalBar";
 
 // bar, column, stackedBar, stackedLine, lollipop
 const ComparisonPage = () => {
   const {
-    horizontalBarData,
+    barData,
+    columnData,
     stackedBarData,
     stackedLineData,
     lollipopData
@@ -19,7 +21,10 @@ const ComparisonPage = () => {
   return (
     <div>
       <div className="chart-bg">
-        <HorizontalBar data={horizontalBarData} />
+        <Bar data={barData} />
+      </div>
+      <div className="chart-bg">
+        <Column data={columnData} />
       </div>
       <div className="chart-bg">
         <StackedBar data={stackedBarData} />
