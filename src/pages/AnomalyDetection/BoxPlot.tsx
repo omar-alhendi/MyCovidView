@@ -1,22 +1,22 @@
-import { BoxplotChart } from '@carbon/charts-react';
-import { ScaleTypes } from '@carbon/charts/interfaces';
+import { BoxplotChart } from "@carbon/charts-react";
+import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title: 'New Cases by Quarterly Year',
+  title: "New Cases by Quarterly Year",
   resizable: true,
   axes: {
     left: {
-      mapsTo: 'group',
-      title: 'Year Quarter',
+      mapsTo: "group",
+      title: "Year Quarter",
       scaleType: ScaleTypes.LABELS,
     },
     bottom: {
-      mapsTo: 'value',
-      title: 'New Cases',
+      mapsTo: "value",
+      title: "New Cases",
     },
   },
 
-  height: '400px',
+  height: "400px",
 };
 
 const BoxPlot = ({ data }: { data: any }) => {

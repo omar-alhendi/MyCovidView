@@ -1,7 +1,6 @@
 import { ComboChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
-
 const options = {
   title: "Combo (Area + Line) Active vs New Cases",
   points: {

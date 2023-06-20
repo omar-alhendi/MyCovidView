@@ -2,22 +2,22 @@ import { SimpleBarChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  "title": "Total Death in Each State",
-  "axes": {
-    "left": {
-      "mapsTo": "group",
-      "title": "State",
-      "scaleType": ScaleTypes.LABELS,
+  title: "Total Death in Each State",
+  axes: {
+    left: {
+      mapsTo: "group",
+      title: "State",
+      scaleType: ScaleTypes.LABELS,
     },
-    "bottom": {
-      "title": "Total Death",
-      "mapsTo": "value"
-    }
+    bottom: {
+      title: "Total Death",
+      mapsTo: "value",
+    },
   },
-  "height": "400px",
-}
+  height: "400px",
+};
 
-const Bar = <T extends Omit<SimpleBarChart['props'], 'options'>>(props: T) => {
+const Bar = <T extends Omit<SimpleBarChart["props"], "options">>(props: T) => {
   const { data, ...otherProps } = props;
 
   return (
@@ -26,6 +26,6 @@ const Bar = <T extends Omit<SimpleBarChart['props'], 'options'>>(props: T) => {
       <SimpleBarChart data={data} options={options} {...otherProps} />
     </div>
   );
-}
+};
 
 export default Bar;

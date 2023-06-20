@@ -10,13 +10,8 @@ import "../../styles/chart-bg.css";
 
 // bar, column, stackedBar, stackedLine, lollipop
 const ComparisonPage = () => {
-  const {
-    barData,
-    columnData,
-    stackedBarData,
-    stackedLineData,
-    lollipopData
-  } = useLoaderData() as LoaderData<typeof comparisonLoader>;
+  const { barData, columnData, stackedBarData, stackedLineData, lollipopData } =
+    useLoaderData() as LoaderData<typeof comparisonLoader>;
 
   return (
     <div>

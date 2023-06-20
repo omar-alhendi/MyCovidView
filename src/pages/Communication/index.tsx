@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { LoaderData } from "../../types";
-import { group2Loader } from "../../loaders";
+import { communicationLoader } from "../../loaders";
 import RecoverTrend from "./RecoverTrend";
 import ActiveNewCases from "./ActiveNewCases";
 
 const Group2Page = () => {
   const { stackedLineData, comboChartData } = useLoaderData() as LoaderData<
-    typeof group2Loader
+    typeof communicationLoader
   >;
   return (
     <div

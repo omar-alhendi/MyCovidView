@@ -8,11 +8,9 @@ import "../../styles/chart-bg.css";
 
 // line, area, scatter plots
 const TrendIdentificationPage = () => {
-  const {
-    lineData,
-    areaData,
-    scatterPlotData
-  } = useLoaderData() as LoaderData<typeof trendIdentificationLoader>;
+  const { lineData, areaData, scatterPlotData } = useLoaderData() as LoaderData<
+    typeof trendIdentificationLoader
+  >;
 
   return (
     <div>

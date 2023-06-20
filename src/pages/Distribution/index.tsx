@@ -7,11 +7,8 @@ import Histogram from "./Histogram";
 import "../../styles/chart-bg.css";
 
 const DistributionPage = () => {
-  const {
-    boxPlotData,
-    donutData,
-    histogramData
-  } = useLoaderData() as LoaderData<typeof distributionLoader>;
+  const { boxPlotData, donutData, histogramData } =
+    useLoaderData() as LoaderData<typeof distributionLoader>;
 
   return (
     <div>

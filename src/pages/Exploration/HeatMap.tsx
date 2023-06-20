@@ -1,5 +1,5 @@
 import { HeatmapChart } from "@carbon/charts-react";
-import { ColorLegendType } from '@carbon/charts/interfaces/enums';
+import { ColorLegendType } from "@carbon/charts/interfaces/enums";
 
 const options = {
   title: "Type of Dose By Age Group in Malaysia",
@@ -7,21 +7,21 @@ const options = {
     bottom: {
       title: "Age Group",
       mapsTo: "age_group",
-      scaleType: "labels"
+      scaleType: "labels",
     },
     left: {
       title: "Type of Dose",
       mapsTo: "dose",
-      scaleType: "labels"
-    }
+      scaleType: "labels",
+    },
   },
   heatmap: {
     colorLegend: {
       title: "Indicator",
       type: ColorLegendType.QUANTIZE,
-    }
+    },
   },
-  height: "400px"
+  height: "400px",
 };
 
 const HeatMap = ({ data }: { data: any }) => {

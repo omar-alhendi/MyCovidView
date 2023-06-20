@@ -5,12 +5,10 @@ import ScatterPlot from "./ScatterPlot";
 import Heatmap from "./Heatmap";
 import "../../styles/chart-bg.css";
 
-// scatter plots, heat maps
 const CorrelationPage = () => {
-  const {
-    scatterPlotData,
-    heatmapData
-  } = useLoaderData() as LoaderData<typeof correlationLoader>;
+  const { scatterPlotData, heatmapData } = useLoaderData() as LoaderData<
+    typeof correlationLoader
+  >;
 
   return (
     <div>
