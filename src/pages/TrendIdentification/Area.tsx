@@ -15,8 +15,8 @@ const options = {
       scaleType: ScaleTypes.TIME,
     },
   },
-	curve: "curveNatural",
-	height: "400px"
+  curve: "curveNatural",
+  height: "400px",
 };
 
 const Area = ({ data }: { data: any }) => {

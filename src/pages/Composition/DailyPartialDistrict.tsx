@@ -3,7 +3,6 @@ import { scaleOrdinal, schemePaired } from "d3";
 import Sunburst from "sunburst-chart";
 import { TreemapChart } from "@carbon/charts-react";
 
-
 type DailyPartialDistrictProps = {
   sunburstData: any;
   treeMapData: any;

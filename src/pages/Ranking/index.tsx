@@ -1,8 +1,8 @@
-import { useLoaderData } from 'react-router-dom';
-import { LoaderData } from '../../types';
-import { rankingLoader } from '../../loaders';
-import BarChart from './BarChart';
-import VaccinationRate from './VaccinationRate';
+import { useLoaderData } from "react-router-dom";
+import { LoaderData } from "../../types";
+import { rankingLoader } from "../../loaders";
+import BarChart from "./BarChart";
+import VaccinationRate from "./VaccinationRate";
 
 const RankingPage = () => {
   const { barChartData, vacRateData } = useLoaderData() as LoaderData<

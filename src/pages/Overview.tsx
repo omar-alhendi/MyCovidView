@@ -1,5 +1,5 @@
-import './Overview.css';
-import { Link } from 'react-router-dom';
+import "./Overview.css";
+import { Link } from "react-router-dom";
 
 interface ChartTypeMap {
   [key: string]: {
@@ -8,16 +8,16 @@ interface ChartTypeMap {
       name: string;
       image: string;
     }[];
-  }
+  };
 }
 
 interface ChartType {
   name: string;
-  image: string; 
+  image: string;
 }
-  
+
 const Overview = () => {
-  const chartTypes : ChartTypeMap = {
+  const chartTypes: ChartTypeMap = {
     Comparison: {
       name: "Comparison",
       charts: [
@@ -40,7 +40,7 @@ const Overview = () => {
         {
           name: "Lollipop Chart",
           image: "/chartImages/lollipop_chart.svg",
-        }
+        },
       ],
     },
     TrendIdentification: {
@@ -229,15 +229,15 @@ const Overview = () => {
         {
           // set
           name: "KPI Dashboard",
-          image: "/chartImages/kpi_dashboard.svg"
+          image: "/chartImages/kpi_dashboard.svg",
         },
         {
           name: "Balanced Scorecard",
           image: "/chartImages/balanced_scorecard.svg",
         },
       ],
-    }
-  }
+    },
+  };
 
   return (
     <div>
@@ -254,8 +254,7 @@ const Overview = () => {
               </div>
             </div>
           );
-        }
-        )}
+        })}
       </div>
     </div>
   );
@@ -266,10 +265,14 @@ export default Overview;
 const ChartCard = ({ chartType }: { chartType: ChartType }) => {
   return (
     <div className="overview-card">
-      <Link to={`/charts/${chartType.name.toLowerCase().replace(/ /g, '-')}`}>
+      <Link to={`/charts/${chartType.name.toLowerCase().replace(/ /g, "-")}`}>
         <p>{chartType.name}</p>
-        <img className="overview-image" src={chartType.image} alt={chartType.name} />
+        <img
+          className="overview-image"
+          src={chartType.image}
+          alt={chartType.name}
+        />
       </Link>
     </div>
   );
-}
+};

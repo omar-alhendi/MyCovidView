@@ -1,9 +1,9 @@
-import { fetcher } from '../../utils';
+import { fetcher } from "../../utils";
 
 export const heatMapLoader = async (): Promise<any[]> => {
-  const dataset = await fetcher('vaccination/vax_snapshot.csv');
+  const dataset = await fetcher("vaccination/vax_snapshot.csv");
   // Filter the data for the specific state (e.g., Malaysia)
-  const filteredData = dataset.filter((row: any) => row.state === 'Malaysia');
+  const filteredData = dataset.filter((row: any) => row.state === "Malaysia");
 
   // Create the desired array with age_group, dose, and value
   const result = filteredData.map((row: any) => ({
@@ -16,8 +16,8 @@ export const heatMapLoader = async (): Promise<any[]> => {
 };
 
 export const scatterPlotLoader = async () => {
-  const vaccinationData = await fetcher('vaccination/vax_state.csv');
-  const populationData = await fetcher('static/population.csv');
+  const vaccinationData = await fetcher("vaccination/vax_state.csv");
+  const populationData = await fetcher("static/population.csv");
 
   const filteredVaccinationData = vaccinationData
     .slice(-17)
@@ -31,8 +31,8 @@ export const scatterPlotLoader = async () => {
       ({ state }: any) => state === row.state
     );
     return {
-      group: row['state'],
-      value: (+row['cumul_full'] / +state['pop']) * 100,
+      group: row["state"],
+      value: (+row["cumul_full"] / +state["pop"]) * 100,
     };
   });
 
@@ -40,7 +40,7 @@ export const scatterPlotLoader = async () => {
 };
 
 export const boxPlotLoader = async () => {
-  const casesData = await fetcher('epidemic/cases_malaysia.csv');
+  const casesData = await fetcher("epidemic/cases_malaysia.csv");
 
   const quarterlyCases: Record<string, Record<string, number[]>> = {};
 
@@ -49,7 +49,7 @@ export const boxPlotLoader = async () => {
   });
 
   cleanedData.forEach((data: any) => {
-    const dateParts = data.date.split('-');
+    const dateParts = data.date.split("-");
     const year = dateParts[0];
     const month = parseInt(dateParts[1], 10);
     const quarter = Math.ceil(month / 3);
@@ -80,11 +80,11 @@ export const boxPlotLoader = async () => {
       const max = sortedValues[sortedValues.length - 1];
 
       boxPlotData.push(
-        { group: `${year} ${quarter}`, key: 'Minimum', value: min },
-        { group: `${year} ${quarter}`, key: 'Q1', value: q1 },
-        { group: `${year} ${quarter}`, key: 'Median', value: median },
-        { group: `${year} ${quarter}`, key: 'Q3', value: q3 },
-        { group: `${year} ${quarter}`, key: 'Maximum', value: max }
+        { group: `${year} ${quarter}`, key: "Minimum", value: min },
+        { group: `${year} ${quarter}`, key: "Q1", value: q1 },
+        { group: `${year} ${quarter}`, key: "Median", value: median },
+        { group: `${year} ${quarter}`, key: "Q3", value: q3 },
+        { group: `${year} ${quarter}`, key: "Maximum", value: max }
       );
     });
   });

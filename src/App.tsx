@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-} from 'react-router-dom';
+} from "react-router-dom";
 import {
   Feedback,
   Overview,
@@ -21,7 +21,7 @@ import {
   ClusteringPage,
   EvaluationPage,
   TrendIdentificationPage,
-} from './pages';
+} from "./pages";
 import {
   feedbackLoader,
   communicationLoader,
@@ -37,8 +37,8 @@ import {
   clusteringLoader,
   evaluationLoader,
   trendIdentificationLoader,
-} from './loaders';
-import { Container } from './layout';
+} from "./loaders";
+import { Container } from "./layout";
 
 function App() {
   const router = createBrowserRouter(
@@ -75,10 +75,7 @@ function App() {
           element={<DistributionPage />}
           loader={distributionLoader}
         />
-        <Route
-          path="/import"
-          element={<ImportPage />}
-        />
+        <Route path="/import" element={<ImportPage />} />
         <Route
           path="/patterns"
           element={<PatternsPage />}
@@ -119,6 +116,7 @@ function App() {
           element={<EvaluationPage />}
           loader={evaluationLoader}
         />
+
         <Route
           path="/charts/progress-bar"
           element={<Feedback />}

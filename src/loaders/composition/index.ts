@@ -1,7 +1,7 @@
-import { fetcher } from '../../utils';
+import { fetcher } from "../../utils";
 
 export const treeMapLoader = async (): Promise<any[]> => {
-  const districtData = await fetcher('vaccination/vax_district.csv');
+  const districtData = await fetcher("vaccination/vax_district.csv");
   const treeMapData: any[] = (districtData as any[]).reduce(
     (result: any, row: any) => {
       const { state, district, daily_partial } = row;
@@ -42,7 +42,7 @@ export const treeMapLoader = async (): Promise<any[]> => {
 };
 
 export const sunburstLoader = async (): Promise<any> => {
-  const districtData = await fetcher('vaccination/vax_district.csv');
+  const districtData = await fetcher("vaccination/vax_district.csv");
   const chartData = districtData.reduce(
     (result: any, row: any) => {
       const { state, district, daily_partial } = row;
@@ -73,15 +73,15 @@ export const sunburstLoader = async (): Promise<any> => {
 
       return result;
     },
-    { name: 'home', children: [] }
+    { name: "home", children: [] }
   );
 
   return chartData;
 };
 
 export const deathRateLoader = async () => {
-  const death_state = await fetcher('epidemic/deaths_state.csv');
-  const case_state = await fetcher('epidemic/cases_state.csv');
+  const death_state = await fetcher("epidemic/deaths_state.csv");
+  const case_state = await fetcher("epidemic/cases_state.csv");
 
   const filtered_death_state = death_state
     .slice(-17)
@@ -96,16 +96,16 @@ export const deathRateLoader = async () => {
     );
     let data = [
       {
-        key: row['state'],
-        group: 'deaths_new',
-        value: +row['deaths_new'],
-        date: row['date'],
+        key: row["state"],
+        group: "deaths_new",
+        value: +row["deaths_new"],
+        date: row["date"],
       },
       {
-        key: row['state'],
-        group: 'cases_new',
-        value: +cases['cases_new'],
-        date: cases['date'],
+        key: row["state"],
+        group: "cases_new",
+        value: +cases["cases_new"],
+        date: cases["date"],
       },
     ];
     return data;

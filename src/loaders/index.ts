@@ -1,16 +1,25 @@
-import { LoaderFunction } from 'react-router-dom';
-import { progressBarLoader, icuCapacityMeterLoader, testPositiveLoader } from './feedback';
-import { stackedLineLoader, comboChartLoader } from './communication';
-import { barLoader, columnLoader, lollipopLoader, stackedBarLoader } from './comparison';
-import { boxPlotLoader, donutLoader, histogramLoader } from './distribution';
-import { boxPlotLoader1, heatMapLoader, scatterPlotLoader } from './patterns';
-import { vacRateLoader, barChartLoader } from './ranking';
-import { deathRateLoader, stackedAreaLoader } from './proportion';
-import { treeMapLoader, sunburstLoader } from './composition';
-import { dendrogramLoader } from './clustering';
-import { casesLoader, testsLoader } from './evaluation';
-import { areaLoader, lineLoader } from './trendIdentification';
-import { heatmapLoader } from './correlation';
+import { LoaderFunction } from "react-router-dom";
+import {
+  progressBarLoader,
+  icuCapacityMeterLoader,
+  testPositiveLoader,
+} from "./feedback";
+import { stackedLineLoader, comboChartLoader } from "./communication";
+import {
+  barLoader,
+  columnLoader,
+  lollipopLoader,
+  stackedBarLoader,
+} from "./comparison";
+import { boxPlotLoader, donutLoader, histogramLoader } from "./distribution";
+import { boxPlotLoader1, heatMapLoader, scatterPlotLoader } from "./patterns";
+import { vacRateLoader, barChartLoader } from "./ranking";
+import { deathRateLoader, stackedAreaLoader } from "./proportion";
+import { treeMapLoader, sunburstLoader } from "./composition";
+import { dendrogramLoader } from "./clustering";
+import { casesLoader, testsLoader } from "./evaluation";
+import { areaLoader, lineLoader } from "./trendIdentification";
+import { heatmapLoader } from "./correlation";
 
 export const feedbackLoader = (async (): Promise<any> => {
   const icuCapacityMeterData = await icuCapacityMeterLoader();

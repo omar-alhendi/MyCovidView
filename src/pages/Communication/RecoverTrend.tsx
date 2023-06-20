@@ -35,7 +35,6 @@ const options = {
 const StackedLine = ({ data }: { data: any }) => {
   return (
     <div>
-      {/* <h1>Stacked Line Chart</h1> */}
       <LineChart data={data} options={options} />
     </div>
   );
