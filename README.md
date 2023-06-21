@@ -18,6 +18,9 @@ This project incorporates a comprehensive software improvement process and assur
 
 _Refer to the Contribution [Guide](Contribution.md)_
 
+_Refer to the UI [Design](https://www.figma.com/file/6CETUCmncFpjelUamEwxO8/SPQ-Project?type=design&node-id=28-2)_
+
+
 ## License
 
 _Will be provided later._

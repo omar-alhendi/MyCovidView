@@ -2,8 +2,7 @@ import { StackedBarChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
-  title:
-    "Horizontal Progress Bar Chart (percentage of vaccinated people in malaysian states)",
+  title: "Percentage of Vaccinated People in Malaysian States",
   axes: {
     left: {
       mapsTo: "group",
@@ -17,12 +16,13 @@ const options = {
   },
   height: "400px",
 };
-const VaccinationProgress = ({ data }: { data: any }) => {
+const ProgressBar = ({ data }: { data: any }) => {
   return (
     <div>
+      <h1>Horizontal Progress Bar Chart</h1>
       <StackedBarChart data={data} options={options} />
     </div>
   );
 };
 
-export default VaccinationProgress;
+export default ProgressBar;

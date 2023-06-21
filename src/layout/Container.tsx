@@ -1,9 +1,32 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { SideNav, SideNavItems } from "carbon-components-react";
+import "@carbon/styles/css/styles.css";
+import "@carbon/charts/styles.css";
 import "./Container.css";
 
+interface Link {
+  to: string;
+  label: string;
+}
+
+const links: Link[] = [
+  { to: "/", label: "Overview" },
+  { to: "/feedback", label: "Feedback" },
+  { to: "/impact", label: "Impact" },
+  { to: "/group-2", label: "Group 2" },
+  { to: "/group-5", label: "Group 5" },
+  { to: "/group-11", label: "Group 11" },
+  { to: "/distribution", label: "Distribution" },
+  { to: "/group-13", label: "Group 13" },
+  { to: "/dendrogram", label: "Dendrogram" },
+  { to: "/heatmap", label: "Heatmap" },
+  { to: "/import", label: "Import" },
+  { to: "/group-galaxy", label: "Group Galaxy" },
+  { to: "/fantasy", label: "Fantasy" },
+];
+
 const Container = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <div className="container">
@@ -11,13 +34,17 @@ const Container = () => {
         <SideNav aria-label="Side navigation" expanded>
           <SideNavItems>
             <h2 className="sidebar-header">MyCovidView</h2>
-            <Link to="/" className={`sidebar-link ${location.pathname === "/" ? "active" : ""}`}>Overview</Link>
-            <Link to="/feedback" className={`sidebar-link ${ location.pathname === "/feedback" ? "active" : ""}`}> Feedback</Link>
-            <Link to="/impact" className={`sidebar-link ${ location.pathname === "/impact" ? "active" : ""}`}>Impact</Link>
-            <Link to="/group-2" className={`sidebar-link ${location.pathname === "/group-2" ? "active" : ""}`}>Group 2</Link>
-            <Link to="/group-5" className={`sidebar-link ${ location.pathname === "/group-5" ? "active" : ""}`}>Group 5</Link>
-            <Link to="/group-11" className={`sidebar-link ${ location.pathname === "/group-11" ? "active" : ""}`}> Group 11</Link>
-            
+            {links.map((link: Link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`sidebar-link ${
+                  pathname === link.to ? "active" : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </SideNavItems>
         </SideNav>
       </div>

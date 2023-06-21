@@ -10,17 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@carbon/charts": "^1.7.6",
     "@carbon/charts-react": "^1.7.6",
+    "@carbon/icons-react": "^11.20.0",
+    "@types/carbon__icons-react": "^11.20.0",
     "@types/d3": "^7.4.0",
     "@vitejs/plugin-react": "^4.0.0",
     "axios": "^1.4.0",
     "carbon-components-react": "^8.30.0",
     "d3": "^7.8.4",
+    "dexie": "^3.2.4",
+    "dexie-react-hooks": "^1.1.6",
+    "echarts": "^5.4.2",
+    "echarts-for-react": "^3.0.2",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
-    "sunburst-chart": "^1.19.0"
+    "sunburst-chart": "^1.19.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/carbon-components-react": "^7.55.2",
@@ -34,6 +42,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.9"
   }
 }
