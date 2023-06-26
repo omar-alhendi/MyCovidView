@@ -4,22 +4,28 @@
 }
 
 .sidebar {
-  background-color: #333;
+  background-color: #3c0b5c;
   color: #fff;
   padding: 20px;
+  height: 100vh;
   width: 250px;
+  overflow: auto;
 }
 
 .sidebar-header {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
   text-align: center;
+  color: #000;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .sidebar-link {
   display: block;
-  color: #000;
+  background-color: #3c0b5c;
+  color: #fff;
   text-decoration: none;
   padding: 10px 20px;
   transition: background-color 0.3s;
@@ -31,12 +37,12 @@
 }
 
 .sidebar-link.active {
-  background-color: navy;
-  color: #fff;
+  background-color: #fff;
+  color: #3c0b5c;
 }
 
 .sidebar-link:not(:first-child) {
-  border-top: 1px solid #fff; /* Add a top border to create a divider */
+  border-top: 1px solid #fff;
 }
 
 .content {
@@ -44,4 +50,34 @@
   padding: 20px;
   background-color: #f5f5f5;
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .sidebar-header {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar-header {
+    font-size: 16px;
+    /* margin-bottom: 10px; */
+  }
+
+  .sidebar-link {
+    padding: 5px 10px;
+  }
 }
