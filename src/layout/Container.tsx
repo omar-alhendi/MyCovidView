@@ -1,5 +1,9 @@
+import React from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { SideNav, SideNavItems } from "carbon-components-react";
+import {
+  SideNav,
+  SideNavItems,
+} from "carbon-components-react";
 import "@carbon/styles/css/styles.css";
 import "@carbon/charts/styles.css";
 import "./Container.css";
@@ -9,7 +13,7 @@ interface Link {
   label: string;
 }
 
-//Sidebar items
+// Sidebar items
 const links: Link[] = [
   { to: "/", label: "Overview" },
   { to: "/feedback", label: "Feedback" },
@@ -26,7 +30,7 @@ const links: Link[] = [
   { to: "/exploration", label: "Exploration" },
   { to: "/anomaly-detection", label: "Anomaly Detection" },
   { to: "/clustering", label: "Clustering" },
-  { to: "/evaluation", label: " Evaluation" },
+  { to: "/evaluation", label: "Evaluation" },
 ];
 
 const Container = () => {
