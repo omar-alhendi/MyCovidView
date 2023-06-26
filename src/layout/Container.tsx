@@ -9,6 +9,7 @@ interface Link {
   label: string;
 }
 
+//Sidebar items
 const links: Link[] = [
   { to: "/", label: "Overview" },
   { to: "/feedback", label: "Feedback" },
