@@ -1,13 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import EChartsReact from 'echarts-for-react'
 import * as XLSX from "xlsx";
 
 export default function BalanceBoard({ data }: { data: any }) {
 
-    const [xAxis] = useState<string[]>(data.xAxis)
-    const [pcr] = useState<number[]>(data.Pcr)
-    const [rtkag] = useState<number[]>(data.Rtkag)
-    const [option, setOption] = useState<object>({
+    const [option] = useState<object>({
         title: {
             text: `Total Tests conducted (this ${'year'})`,
             left: '3%',

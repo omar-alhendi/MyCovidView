@@ -7,9 +7,8 @@ export const casesLoader = async () => {
   OriginalData = OriginalData.filter((item: any) => {
     const itemDate: string = item.date;
     const itemDateArr = itemDate.split("-");
-    const itemYear: number = Number(itemDateArr[0]);
-    const itemMonth: number = Number(itemDateArr[1]);
-    const itemDay: number = Number(itemDateArr[2]);
+    const itemYear = Number(itemDateArr[0]);
+    const itemMonth = Number(itemDateArr[1]);
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -48,9 +47,8 @@ export const testsLoader = async () => {
   OriginalData = OriginalData.filter((item: any) => {
     const itemDate: string = item.date;
     const itemDateArr = itemDate.split("-");
-    const itemYear: number = Number(itemDateArr[0]);
-    const itemMonth: number = Number(itemDateArr[1]);
-    const itemDay: number = Number(itemDateArr[2]);
+    const itemYear = Number(itemDateArr[0]);
+    const itemMonth = Number(itemDateArr[1]);
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
