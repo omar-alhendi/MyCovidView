@@ -9,6 +9,7 @@ const Group2Page = () => {
     typeof communicationLoader
   >;
   return (
+    <div>
     <div
       style={{
         display: "grid",
@@ -20,9 +21,20 @@ const Group2Page = () => {
       }}
     >
       <RecoverTrend data={stackedLineData} />
-      <ActiveNewCases data={comboChartData} />
     </div>
+    <div
+    style={{
+      display: "grid",
+      gap: "2rem",
+      background: "#e0e0e0",
+      padding: "2rem",
+      borderRadius: "1rem",
+      margin: "2rem",
+    }}
+  >
+    <ActiveNewCases data={comboChartData} />
+  </div>
+  </div>
   );
 };
-
 export default Group2Page;
