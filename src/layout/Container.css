@@ -9,13 +9,14 @@
   padding: 20px;
   height: 100vh;
   width: 250px;
+  max-width: 250px;
   overflow: auto;
 }
 
 .sidebar-header {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   text-align: center;
   color: #000;
   background-color: #fff;
@@ -80,4 +81,8 @@
   .sidebar-link {
     padding: 5px 10px;
   }
+}
+
+.cds--side-nav__overlay-active {
+  width: max-content;
 }
