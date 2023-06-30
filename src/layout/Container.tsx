@@ -1,5 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { SideNav, SideNavItems } from "carbon-components-react";
+import "@carbon/styles/css/styles.css";
+import "@carbon/charts/styles.css";
 import "./Container.css";
 
 interface Link {
@@ -7,14 +9,24 @@ interface Link {
   label: string;
 }
 
+// Sidebar items
 const links: Link[] = [
   { to: "/", label: "Overview" },
   { to: "/feedback", label: "Feedback" },
-  { to: "/impact", label: "Impact" },
-  { to: "/group-2", label: "Group 2" },
-  { to: "/group-5", label: "Group 5" },
-  { to: "/group-11", label: "Group 11" },
-  {to: "/distribution", label: "Distribution"}
+  { to: "/communication", label: "Communication" },
+  { to: "/comparison", label: "Comparison" },
+  { to: "/trend-identification", label: "Trend Identification" },
+  { to: "/correlation", label: "Correlation" },
+  { to: "/distribution", label: "Distribution" },
+  { to: "/import", label: "Import" },
+  { to: "/patterns", label: "Pattern" },
+  { to: "/ranking", label: "Ranking" },
+  { to: "/proportion", label: "Proportion" },
+  { to: "/composition", label: "Composition" },
+  { to: "/exploration", label: "Exploration" },
+  { to: "/anomaly-detection", label: "Anomaly Detection" },
+  { to: "/clustering", label: "Clustering" },
+  { to: "/evaluation", label: "Evaluation" },
 ];
 
 const Container = () => {
@@ -23,7 +35,7 @@ const Container = () => {
   return (
     <div className="container">
       <div className="sidebar">
-        <SideNav aria-label="Side navigation" expanded>
+        <SideNav aria-label="Side navigation" expanded className="sidebar">
           <SideNavItems>
             <h2 className="sidebar-header">MyCovidView</h2>
             {links.map((link: Link) => (

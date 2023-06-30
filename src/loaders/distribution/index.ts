@@ -53,6 +53,34 @@ export const boxPlotLoader = async () => {
   return boxPlotData;
 };
 
+export const donutLoader = async () => {
+  const vaccinatedPeopleData = await fetcher("vaccination/vax_district.csv");
+
+  const districts = vaccinatedPeopleData.map((row: any) => row["district"]);
+  const uniqueDistricts = Array.from(new Set(districts));
+
+  const data = uniqueDistricts.map((district) => {
+    const filteredDataByDistrict = vaccinatedPeopleData.filter(
+      (row: any) => row["district"] === district
+    ) as any[]; // Assertion to 'any[]' type
+
+    const state =
+      filteredDataByDistrict.length > 0
+        ? filteredDataByDistrict[0]["state"]
+        : "";
+
+    return {
+      district: district,
+      state: state,
+      value: filteredDataByDistrict.reduce(
+        (total: number, row: any) => total + +row["cumul_full"],
+        0
+      ),
+    };
+  });
+  return data;
+};
+
 export const histogramLoader = async () => {
   const casesData = await fetcher("epidemic/cases_malaysia.csv");
 

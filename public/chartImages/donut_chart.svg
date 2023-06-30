@@ -1,0 +1,8 @@
+<svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="55" cy="55" r="52.25" stroke="black" stroke-width="5.5"/>
+<circle cx="55" cy="55" r="30.25" stroke="black" stroke-width="5.5"/>
+<path d="M85.25 55H107.25M77 33L90.75 19.25M33 33L19.25 19.25M55 85.25V107.25" stroke="black" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M55 93.5L66 104.5M63.25 85.25L77 99M74.25 79.75L88 93.5M82.5 71.5L96.25 85.25M85.25 57.75L101.75 74.25M99 55L104.5 60.5" stroke="black" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M27.5 11L41.25 24.75M38.5 5.5L57.75 24.75M52.25 2.75L79.75 30.25" stroke="black" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M71.5 5.5L88 22" stroke="black" stroke-width="5.5" stroke-linecap="round"/>
+</svg>

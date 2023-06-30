@@ -1,0 +1,8 @@
+.chart-bg {
+  display: grid;
+  gap: 2rem;
+  background: #e0e0e0;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2rem;
+}
