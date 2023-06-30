@@ -54,10 +54,6 @@
 }
 
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
   .sidebar {
     width: 100%;
     padding-bottom: 20px;
