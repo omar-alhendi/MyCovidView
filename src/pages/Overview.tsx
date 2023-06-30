@@ -245,12 +245,14 @@ const Overview = () => {
       <div className="overview-list">
         {Object.keys(chartTypes).map((key) => {
           return (
-            <div>
+            <div key={key}>
               <h2>{chartTypes[key].name}</h2>
               <div className="overview-container">
-                {chartTypes[key].charts.map((chartType: ChartType) => {
-                  return <ChartCard chartType={chartType} />;
-                })}
+                {chartTypes[key].charts.map(
+                  (chartType: ChartType, index: number) => {
+                    return <ChartCard key={index} chartType={chartType} />;
+                  }
+                )}
               </div>
             </div>
           );

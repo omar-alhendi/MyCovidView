@@ -1,9 +1,5 @@
-import React from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import {
-  SideNav,
-  SideNavItems,
-} from "carbon-components-react";
+import { SideNav, SideNavItems } from "carbon-components-react";
 import "@carbon/styles/css/styles.css";
 import "@carbon/charts/styles.css";
 import "./Container.css";
@@ -39,7 +35,7 @@ const Container = () => {
   return (
     <div className="container">
       <div className="sidebar">
-        <SideNav aria-label="Side navigation" expanded>
+        <SideNav aria-label="Side navigation" expanded className="sidebar">
           <SideNavItems>
             <h2 className="sidebar-header">MyCovidView</h2>
             {links.map((link: Link) => (
