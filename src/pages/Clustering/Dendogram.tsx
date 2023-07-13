@@ -1,5 +1,5 @@
 import { TreeChart } from "@carbon/charts-react";
-import { TreeTypes } from "@carbon/charts/interfaces/enums";
+import { TreeTypes } from "@carbon/charts";
 
 const options = {
   title: "States with districts in Malaysia",

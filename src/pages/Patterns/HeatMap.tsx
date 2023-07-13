@@ -1,5 +1,5 @@
 import { HeatmapChart } from "@carbon/charts-react";
-import { ColorLegendType } from '@carbon/charts/interfaces/enums';
+import { ColorLegendType } from "@carbon/charts";
 
 const options = {
   title: "Type of Dose By Age Group in Malaysia",
@@ -28,7 +28,7 @@ const HeatMap = ({ data }: { data: any }) => {
   return (
     <div>
       <h1>Heat Map</h1>
-      <HeatmapChart data={data} options={options} />
+      <HeatmapChart data={data.slice(0, 60)} options={options} />
     </div>
   );
 };
