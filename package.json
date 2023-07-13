@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@carbon/charts": "^1.7.6",
-    "@carbon/charts-react": "^1.7.6",
+    "@carbon/charts": "^1.11.8",
+    "@carbon/charts-react": "^1.11.8",
     "@carbon/icons-react": "^11.20.0",
     "@types/carbon__icons-react": "^11.20.0",
     "@types/d3": "^7.4.0",

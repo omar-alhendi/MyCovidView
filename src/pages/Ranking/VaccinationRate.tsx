@@ -1,4 +1,4 @@
-import BulletChart from "@carbon/charts-react/bullet-chart";
+import { BulletChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
 
 const options = {
