@@ -36,8 +36,10 @@ export const columnLoader = async (): Promise<ChartTabularData> => {
   const filteredPopulationdata = populationData.filter(
     (row: any) => !!row.state
   );
-
-  const data = filteredVaccinationData.map((row: any) => {
+  const inPopulationData = filteredVaccinationData.filter(row => {
+    return !!filteredPopulationdata.find(({ state }: any) => state === row.state)
+  })
+  const data = inPopulationData.map((row: any) => {
     const state: any = filteredPopulationdata.find(
       ({ state }: any) => state === row.state
     );
@@ -69,11 +71,11 @@ export const stackedBarLoader = async () => {
     .slice(-17)
     .filter((row: any) => !!row.state);
 
-  let data = filtered_death_state.map((row: any) => {
+  const data = filtered_death_state.map((row: any) => {
     const cases: any = filtered_case_state.find(
       ({ state }: any) => state === row.state
     );
-    let data = [
+    const data = [
       {
         key: row["state"],
         group: "deaths_new",
