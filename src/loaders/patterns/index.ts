@@ -79,7 +79,10 @@ export const scatterPlotLoader = async () => {
     (row: any) => !!row.state
   );
 
-  const data = filteredVaccinationData.map((row: any) => {
+  const inPopulationData = filteredVaccinationData.filter(row => {
+    return !!filteredPopulationdata.find(({ state }: any) => state === row.state)
+  })
+  const data = inPopulationData.map((row: any) => {
     const state: any = filteredPopulationdata.find(
       ({ state }: any) => state === row.state
     );
