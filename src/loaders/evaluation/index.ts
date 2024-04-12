@@ -52,7 +52,7 @@ export const testsLoader = async () => {
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth: number = currentDate.getMonth() + 1;
+    const currentMonth = currentDate.getMonth() + 1;
 
     const methods = ["years", "month"];
     switch (methods[0]) {
@@ -79,7 +79,6 @@ export const testsLoader = async () => {
     Pcr: pcr,
     Rtkag: rtkag,
   };
-  console.log(data);
 
   return data;
 };
