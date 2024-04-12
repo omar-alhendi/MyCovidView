@@ -7,21 +7,21 @@ const options = {
     bottom: {
       title: "Age Group",
       mapsTo: "age_group",
-      scaleType: "labels"
+      scaleType: "labels",
     },
     left: {
       title: "Type of Dose",
       mapsTo: "dose",
-      scaleType: "labels"
-    }
+      scaleType: "labels",
+    },
   },
   heatmap: {
     colorLegend: {
       title: "Indicator",
       type: ColorLegendType.QUANTIZE,
-    }
+    },
   },
-  height: "400px"
+  height: "400px",
 };
 
 const HeatMap = ({ data }: { data: any }) => {
